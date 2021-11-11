@@ -1,5 +1,9 @@
 <template>
-  <div>index</div>
+  <div>
+    <div>index</div>
+    <NuxtLink to="/about">About</NuxtLink>
+    <Footer/>
+  </div>
 </template>
 
 <script>

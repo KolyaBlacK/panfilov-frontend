@@ -1,1 +1,9 @@
 @import './variables.scss';
+@import 'animations/transitions';
+
+html, body {
+  background-color: $mainBlack;
+  color: $white;
+  margin: 0;
+  padding: 0;
+}
