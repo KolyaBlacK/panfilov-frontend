@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div>index</div>
+    <Header/>
     <NuxtLink to="/about">About</NuxtLink>
     <Footer/>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+}
 </script>
