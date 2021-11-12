@@ -17,9 +17,10 @@ a {
 }
 
 .block-title {
-  background: url('~/assets/img/circle-rose.svg') 0 0 no-repeat transparent;
+  background: url('~/assets/img/circle-rose.svg') 0 center no-repeat transparent;
   color: $darkGray;
   font-size: $font-20;
+  padding-left: 25px;
 
   @media #{$media-sm-up} {
     font-size: $font-24;
