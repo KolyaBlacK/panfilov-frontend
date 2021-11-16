@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <Header/>
-    <NuxtLink to="/about">About</NuxtLink>
-  </div>
+  <Header/>
 </template>
 
 <script>

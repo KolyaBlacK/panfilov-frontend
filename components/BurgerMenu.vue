@@ -1,80 +1,65 @@
 <template>
-  <div>
-    <button
-      :class='{active: isActive, opacityAnimate: opacityAnimate}'
-      class='burger-menu-button'
-      @click='toggleMenu'
-    >
-      <span class='burger-menu-button__dot'></span>
-      <span class='burger-menu-button__dot'></span>
-      <span class='burger-menu-button__dot'></span>
-    </button>
-    <transition name="fadeInDown">
-      <div v-if='isActive' class='burger-menu'>
-        <div class='burger-menu__inner'>
-          <button class='burger-menu__close-button' @click='toggleMenu'>Закрыть</button>
-          <div class='burger-menu__left'>
-            <a href='#' class='burger-menu__presentation'>Скачать презентацию</a>
-            <div class='burger-menu__left__bottom'>
-              <div class='burger-menu__contacts'>
-                <a href='#'>+7 919 749 26 88</a>
-                <div class='burger-menu__messengers-links'>
-                  <a href='#'>Telegram</a>
-                  <a href='#'>Whatsapp</a>
-                </div>
-                <a href='#'>panfiloffff@gmail.com</a>
+  <transition name="fadeInDown">
+    <div v-if='isActive' ref='burger-menu' class='burger-menu'>
+      <div class='burger-menu__inner'>
+        <button class='burger-menu__close-button fade-in' @click='toggleMenu'>Закрыть</button>
+        <div class='burger-menu__left'>
+          <a href='#' class='burger-menu__presentation fade-in' style='animation-delay: 0.8s'>Скачать презентацию</a>
+          <div class='burger-menu__left__bottom'>
+            <div class='burger-menu__contacts'>
+              <a href='#' class='fade-in' style='animation-delay: 0.9s'>+7 919 749 26 88</a>
+              <div class='burger-menu__messengers-links'>
+                <a href='#' class='fade-in' style='animation-delay: 1s'>Telegram</a>
+                <a href='#' class='fade-in' style='animation-delay: 1.1s'>Whatsapp</a>
               </div>
-              <div class='burger-menu__address'>
-                Ставрополь, Гражданская 8<br>
-                3 этаж, офис 313
-              </div>
+              <a href='#' class='fade-in' style='animation-delay: 1.2s'>panfiloffff@gmail.com</a>
             </div>
-          </div>
-          <div class='burger-menu__right'>
-            <ul class='burger-menu__navigation'>
-              <li class='burger-menu__navigation__item'>
-                <NuxtLink to="/about">Работы</NuxtLink>
-              </li>
-              <li class='burger-menu__navigation__item'>
-                <NuxtLink to="/about">Агенство</NuxtLink>
-              </li>
-              <li class='burger-menu__navigation__item'>
-                <NuxtLink to="/about">Философия</NuxtLink>
-              </li>
-              <li class='burger-menu__navigation__item'>
-                <NuxtLink to="/about">Контакты</NuxtLink>
-              </li>
-            </ul>
-            <div class='burger-menu__footer'>
-              <a href='#'>Facebook</a>
-              <a href='#'>Instagram</a>
-              <a href='#'>Behance</a>
+            <div class='burger-menu__address fade-in' style='animation-delay: 1.3s'>
+              Ставрополь, Гражданская 8<br>
+              3 этаж, офис 313
             </div>
           </div>
         </div>
-      </div>
-    </transition>
+        <div class='burger-menu__right'>
+          <ul class='burger-menu__navigation'>
+            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.8s'>
+              <NuxtLink to="/about">Работы</NuxtLink>
+            </li>
+            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.9s'>
+              <NuxtLink to="/about">Агенство</NuxtLink>
+            </li>
+            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 1s'>
+              <NuxtLink to="/about">Философия</NuxtLink>
+            </li>
+            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 1.1s'>
+              <NuxtLink to="/about">Контакты</NuxtLink>
+            </li>
+          </ul>
 
-  </div>
+        </div>
+        <div class='burger-menu__footer'>
+          <a href='#' class='fade-in' style='animation-delay: 0.8s'>Facebook</a>
+          <a href='#' class='fade-in' style='animation-delay: 0.9s'>Instagram</a>
+          <a href='#' class='fade-in' style='animation-delay: 1s'>Behance</a>
+        </div>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      isActive: false,
-      opacityAnimate: false
+      isActive: false
     }
   },
+  mounted() {
+    this.$root.$on('toggleMenu', (isActive) => this.toggleMenu(isActive));
+  },
   methods: {
-    toggleMenu() {
-      this.isActive = !this.isActive;
-      if (!this.isActive) {
-        this.opacityAnimate = true;
-        setTimeout(() => {
-          this.opacityAnimate = false;
-        }, 400)
-      }
+    toggleMenu(isActive) {
+      this.isActive = isActive;
     }
   }
 }
@@ -82,109 +67,31 @@ export default {
 
 <style lang='scss' scoped>
 @import '~/assets/scss/variables';
-.burger-menu-button {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: none;
-  border: none;
-  padding: 17px 0;
-  cursor: pointer;
-  &__dot {
-    width: 14px;
-    height: 14px;
-    border: 4px solid $styleRose;
-    border-radius: 50%;
-    margin-right: 5px;
-    transition: transform $baseTimeTransition ease;
-    &:nth-child(2n) {
-      position: relative;
-      &:after,
-      &:before {
-        content: '';
-        width: 14px;
-        height: 14px;
-        border: 4px solid $styleRose;
-        border-radius: 50%;
-        position: relative;
-      }
-      &:before {
-        float: left;
-        top: -4px;
-        left: -4px;
-        opacity: 0;
-        transform: translate(0);
-        transition: transform $baseTimeTransition ease;
-      }
-      &:after {
-        float: right;
-        top: -18px;
-        left: 4px;
-        opacity: 0;
-        transform: translate(0);
-        transition: transform $baseTimeTransition ease;
-      }
-    }
-    &:last-child {
-      margin-right: 0;
-    }
-    &:first-child,
-    &:last-child {
-      transition: transform $baseTimeTransition ease;
-    }
-  }
-  &.active {
-    .burger-menu-button {
-      &__dot {
-        &:first-child {
-          transform: translate(0px, 14px);
-        }
-        &:last-child {
-          transform: translate(0px, -14px);
-        }
-        &:nth-child(2n) {
-          &:before {
-            transform: translate(-19px, -14px);
-            opacity: 1;
-          }
-          &:after {
-            transform: translate(19px, 14px);
-            opacity: 1;
-          }
-        }
-      }
-    }
-  }
-  &.opacityAnimate {
-    .burger-menu-button {
-      &__dot {
-        &:nth-child(2n) {
-          &:before,
-          &:after {
-            opacity: 1;
-          }
-        }
-      }
-    }
-  }
-}
 
 .burger-menu {
   width: 100%;
-  height: 70%;
   background: $asphaltBlack;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   padding: 24px 32px 48px;
+  color: $lightGray;
+  @media #{$media-xs} {
+    height: 100vh;
+    padding: 15px 15px 25px;
+  }
   &__inner {
     position: relative;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding-top: calc(85px + 45px);
     height: 100%;
+    @media #{$media-xs} {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      padding-top: calc(5% + 50px);
+    }
   }
   &__close-button {
     font-size: 12px;
@@ -194,9 +101,16 @@ export default {
     position: absolute;
     left: 50%;
     top: 20px;
+    transition: color $textTimeTransition ease;
+    &:hover {
+      color: $styleRose;
+    }
+    @media #{$media-xs} {
+      top: 25px;
+    }
   }
   a {
-    transition: color $baseTimeTransition / 2 ease;
+    transition: color $textTimeTransition ease;
     color: $lightGray;
     &:hover {
       color: $styleRose;
@@ -209,11 +123,32 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media #{$media-xs} {
+      width: auto;
+      align-items: center;
+    }
   }
   &__left {
+    padding-top: 15px;
+    @media #{$media-xs} {
+      padding-top: 0;
+      order: 2;
+    }
     &__bottom {
       font-size: 16px;
       line-height: 24px;
+      margin-top: 240px;
+      @media #{$media-xs} {
+        text-align: center;
+        font-size: 14px;
+        line-height: 14px;
+        margin-top: 0;
+      }
+    }
+  }
+  &__right {
+    @media #{$media-xs} {
+      order: 1;
     }
   }
   &__contacts {
@@ -233,6 +168,9 @@ export default {
   &__presentation {
     font-size: 14px;
     line-height: 14px;
+    @media #{$media-xs} {
+      margin-bottom: 14px;
+    }
   }
   &__navigation {
     display: flex;
@@ -242,6 +180,11 @@ export default {
     list-style: none;
     margin: 0;
     padding: 0;
+    @media #{$media-xs} {
+      align-items: center;
+      font-size: 25px;
+      line-height: 25px;
+    }
     &__item {
       margin-bottom: 24px;
       &:last-child {
@@ -251,10 +194,31 @@ export default {
   }
   &__footer {
     margin-left: auto;
+    margin-top: -24px;
     font-size: 16px;
     line-height: 24px;
+    order: 3;
+    @media #{$media-xs} {
+      margin: 40px 0 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
     a {
       padding: 0 57px;
+      @media #{$media-sm-up} {
+        padding: 0 20px;
+      }
+      @media #{$media-xs} {
+        font-size: 14px;
+        line-height: 14px;
+        padding: 0;
+      }
+      &:first-child {
+        @media #{$media-sm-up} {
+          padding-left: 0;
+        }
+      }
     }
   }
 }
@@ -278,8 +242,28 @@ export default {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .fadeInDown {
   animation-name: fadeInDown;
 }
 
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn $baseTimeTransition;
+  animation-fill-mode: forwards;
+  animation-delay: $baseTimeTransition;
+  @media #{$media-xs} {
+    animation-delay: $baseTimeTransition!important;
+  }
+}
 </style>
