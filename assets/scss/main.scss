@@ -22,6 +22,9 @@ a {
 
 body {
   padding: 24px 32px;
+  @media #{$media-xs} {
+    padding: 15px;
+  }
 }
 
 a {
@@ -43,5 +46,12 @@ button {
 
   @media #{$media-sm-up} {
     font-size: $font-24;
+  }
+}
+
+// helper classes
+.hidden-xs {
+  @media #{$media-xs} {
+    display: none!important;
   }
 }

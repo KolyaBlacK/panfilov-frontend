@@ -1,6 +1,10 @@
 <template>
-  <div class="container">
+  <div>
+    <burger-menu />
     <Nuxt />
+    <Footer/>
+    <Footer/>
+    <Footer/>
     <Footer/>
   </div>
 </template>

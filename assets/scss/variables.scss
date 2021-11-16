@@ -48,6 +48,9 @@ $breakpoints: (
 );
 $screen: "only screen";
 $media-sm-up: "#{$screen} and (min-width:#{map-get($breakpoints, sm)})"; // min 768px
+$media-xs: "#{$screen} and (max-width:#{map-get($breakpoints, sm) - 1})"; // max 767px
 
 //animations
 $baseTimeTransition: .5s;
+
+$textTimeTransition: .25s;
