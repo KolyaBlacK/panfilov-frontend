@@ -76,6 +76,7 @@ export default {
   left: 0;
   padding: 24px 32px 48px;
   color: $lightGray;
+  z-index: 10;
   @media #{$media-xs} {
     height: 100vh;
     padding: 15px 15px 25px;

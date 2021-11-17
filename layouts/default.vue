@@ -1,10 +1,10 @@
 <template>
   <div>
     <burger-menu />
-    <Nuxt />
-    <Footer/>
-    <Footer/>
-    <Footer/>
+    <Header/>
+    <div class="container">
+      <Nuxt />
+    </div>
     <Footer/>
   </div>
 </template>
@@ -13,9 +13,9 @@
 @import '~assets/scss/variables';
 .container {
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 75px 0 0;
   @media #{$media-sm-up} {
-    padding: 0 32px;
+    padding: 100px 0 0;
   }
   // width: 1440px;
 }
