@@ -40,6 +40,10 @@ export default {
   modules: [
     '@nuxtjs/strapi'
   ],
+  strapi: {
+    entities: ['clients'],
+    url: 'http://localhost:1337'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

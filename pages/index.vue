@@ -1,5 +1,8 @@
 <template>
-  <Header/>
+  <div>
+    <KeyClients />
+  </div>
+
 </template>
 
 <script>
