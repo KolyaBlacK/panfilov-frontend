@@ -38,14 +38,64 @@ button {
   font-family: 'Object Sans', sans-serif;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
 .block-title {
-  background: url('~/assets/img/circle-rose.svg') 0 center no-repeat transparent;
+  background: url('~/assets/img/circle-rose.svg') 0 2px no-repeat transparent;
   color: $darkGray;
   font-size: $font-20;
   padding-left: 25px;
+  margin: 0;
+  font-weight: normal;
 
   @media #{$media-sm-up} {
     font-size: $font-24;
+  }
+}
+
+.block-description {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 48px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.arrow-link {
+  // background: url('~/assets/images/arrow-link.svg') right 2px no-repeat transparent;
+  font-size: $font-20;
+  line-height: $font-20;
+  margin: 0;
+  font-weight: normal;
+  transition: color $textTimeTransition ease;
+  color: $white;
+  &:after {
+    position: relative;
+    top: 3px;
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 18px;
+    margin-left: 25px;
+    background-color: $white;
+    transition: background-color, transform $textTimeTransition ease;
+    mask: url('~/assets/images/arrow-link.svg') no-repeat;
+  }
+  &:hover {
+    color: $styleRose;
+    &:after {
+      background-color: $styleRose;
+      transform: rotate(-30deg);
+    }
   }
 }
 
