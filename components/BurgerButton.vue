@@ -20,6 +20,12 @@ export default {
       opacityAnimate: false
     }
   },
+  mounted() {
+    this.$root.$on('closeMenu', () => this.toggleMenu(false));
+    window.document.onscroll = () => {
+      this.active = window.scrollY > this.$refs.header.offsetTop;
+    }
+  },
   methods: {
     toggleMenu() {
       this.isActive = !this.isActive;
