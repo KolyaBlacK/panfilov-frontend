@@ -15,7 +15,7 @@
   margin: 0 auto;
   padding: 75px 0 0;
   @media #{$media-sm-up} {
-    padding: 100px 0 0;
+    padding: 70px 0 0;
   }
   // width: 1440px;
 }
