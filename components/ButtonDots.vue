@@ -1,38 +1,23 @@
 <template>
   <div>
-    <button-dots
-      :active='isActive'
-      :opacity-animate='opacityAnimate'
-      @click='toggleMenu'
-    />
+    <button
+      :class='{active: active, white, opacityAnimate: opacityAnimate}'
+      class='burger-menu-button'
+      @click='$emit("click")'
+    >
+      <span class='burger-menu-button__dot'></span>
+      <span class='burger-menu-button__dot'></span>
+      <span class='burger-menu-button__dot'></span>
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      isActive: false,
-      opacityAnimate: false
-    }
-  },
-  mounted() {
-    this.$root.$on('closeMenu', () => this.toggleMenu(false));
-    window.document.onscroll = () => {
-      this.active = window.scrollY > this.$refs.header.offsetTop;
-    }
-  },
-  methods: {
-    toggleMenu() {
-      this.isActive = !this.isActive;
-      this.$root.$emit('toggleMenu', this.isActive);
-      if (!this.isActive) {
-        this.opacityAnimate = true;
-        setTimeout(() => {
-          this.opacityAnimate = false;
-        }, 400)
-      }
-    }
+  props: {
+    active: Boolean,
+    white: Boolean,
+    opacityAnimate: Boolean
   }
 }
 </script>
@@ -123,6 +108,19 @@ export default {
             opacity: 1;
           }
         }
+      }
+    }
+  }
+}
+
+.burger-menu-button.white {
+  .burger-menu-button__dot {
+    border-color: $white;
+    &:nth-child(2n) {
+      position: relative;
+      &:after,
+      &:before {
+        border-color: $white;
       }
     }
   }

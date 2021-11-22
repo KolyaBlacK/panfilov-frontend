@@ -41,21 +41,20 @@
         allowfullscreen>
       </iframe>
 
-      <button
+      <button-dots
         v-if="isShowReel"
         class='close-button'
+        active
+        white
         @click="hideReel"
-      >
-        <span class='close-button__dot'></span>
-        <span class='close-button__dot'></span>
-        <span class='close-button__dot'></span>
-      </button>
+      />
     </div>
   </div>
 </template>
 
 <script>
 import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock'
+
 export default {
   data () {
     return {
@@ -153,6 +152,11 @@ export default {
       width: 72px;
       text-transform: initial;
       text-align: center;
+      transition: all $textTimeTransition ease;
+      &:hover {
+        background-color: $styleRose;
+        color: $white;
+      }
 
 
       @media #{$media-sm-up} {
@@ -184,6 +188,7 @@ export default {
   left: 0;
   height: 100vh;
   width: 100vw;
+  z-index: 99;
 
   .reel {
     border-radius: 32px;
@@ -202,58 +207,7 @@ export default {
   top: 100px;
   right: 50px;
   z-index: 51;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: none;
-  border: none;
-  padding: 17px 0;
   cursor: pointer;
-  &__dot {
-    width: 14px;
-    height: 14px;
-    border: 4px solid $white;
-    border-radius: 50%;
-    &:nth-child(2n) {
-      position: relative;
-      &:after,
-      &:before {
-        content: '';
-        width: 14px;
-        height: 14px;
-        border: 4px solid $white;
-        border-radius: 50%;
-        position: relative;
-      }
-      &:before {
-        float: left;
-        top: -4px;
-        left: 0;
-        transform: translate(-19px, -14px);
-      }
-      &:after {
-        float: right;
-        top: -18px;
-        left: 0;
-        transform: translate(19px, 14px);
-      }
-    }
-    &:first-child {
-      transform: translate(0px, 14px);
-    }
-    &:last-child {
-      margin-right: 0;
-      transform: translate(0px, -14px);
-    }
-    &:nth-child(2n) {
-      &:before {
-        transform: translate(-19px, -14px);
-      }
-      &:after {
-        transform: translate(19px, 14px);
-      }
-    }
-  }
 }
 
 </style>
