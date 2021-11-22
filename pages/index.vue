@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TagLine />
     <Works />
     <KeyClients />
   </div>

@@ -38,8 +38,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/scss/variables';
-.key-clients {
-}
 
 .client-list {
   position: relative;
