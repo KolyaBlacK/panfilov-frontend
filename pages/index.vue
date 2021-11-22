@@ -2,6 +2,7 @@
   <div>
     <TagLine />
     <Works />
+    <About />
     <KeyClients />
   </div>
 
@@ -9,5 +10,6 @@
 
 <script>
 export default {
+
 }
 </script>
