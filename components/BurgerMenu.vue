@@ -2,19 +2,18 @@
   <transition name="fadeInDown">
     <div v-if='isActive' ref='burger-menu' class='burger-menu'>
       <div class='burger-menu__inner'>
-        <button class='burger-menu__close-button fade-in' @click='toggleMenu'>Закрыть</button>
         <div class='burger-menu__left'>
-          <a href='#' class='burger-menu__presentation fade-in' style='animation-delay: 0.8s'>Скачать презентацию</a>
+          <a href='#' class='burger-menu__presentation fade-in' style='animation-delay: 0.5s'>Скачать презентацию</a>
           <div class='burger-menu__left__bottom'>
             <div class='burger-menu__contacts'>
-              <a href='#' class='fade-in' style='animation-delay: 0.9s'>+7 919 749 26 88</a>
+              <a href='#' class='fade-in' style='animation-delay: 0.6s'>+7 919 749 26 88</a>
               <div class='burger-menu__messengers-links'>
-                <a href='#' class='fade-in' style='animation-delay: 1s'>Telegram</a>
-                <a href='#' class='fade-in' style='animation-delay: 1.1s'>Whatsapp</a>
+                <a href='#' class='fade-in' style='animation-delay: 0.7s'>Telegram</a>
+                <a href='#' class='fade-in' style='animation-delay: 0.8s'>Whatsapp</a>
               </div>
-              <a href='#' class='fade-in' style='animation-delay: 1.2s'>panfiloffff@gmail.com</a>
+              <a href='#' class='fade-in' style='animation-delay: 0.9s'>panfiloffff@gmail.com</a>
             </div>
-            <div class='burger-menu__address fade-in' style='animation-delay: 1.3s'>
+            <div class='burger-menu__address fade-in' style='animation-delay: 1s'>
               Ставрополь, Гражданская 8<br>
               3 этаж, офис 313
             </div>
@@ -22,25 +21,25 @@
         </div>
         <div class='burger-menu__right'>
           <ul class='burger-menu__navigation'>
-            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.8s'>
+            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.5s'>
               <NuxtLink to="/about">Работы</NuxtLink>
             </li>
-            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.9s'>
+            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.6s'>
               <NuxtLink to="/about">Агенство</NuxtLink>
             </li>
-            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 1s'>
+            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.7s'>
               <NuxtLink to="/about">Философия</NuxtLink>
             </li>
-            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 1.1s'>
+            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.8s'>
               <NuxtLink to="/about">Контакты</NuxtLink>
             </li>
           </ul>
 
         </div>
         <div class='burger-menu__footer'>
-          <a href='#' class='fade-in' style='animation-delay: 0.8s'>Facebook</a>
-          <a href='#' class='fade-in' style='animation-delay: 0.9s'>Instagram</a>
-          <a href='#' class='fade-in' style='animation-delay: 1s'>Behance</a>
+          <a href='#' class='fade-in' style='animation-delay: 0.5s'>Facebook</a>
+          <a href='#' class='fade-in' style='animation-delay: 0.6s'>Instagram</a>
+          <a href='#' class='fade-in' style='animation-delay: 0.7s'>Behance</a>
         </div>
       </div>
     </div>
@@ -78,7 +77,7 @@ export default {
   color: $lightGray;
   z-index: 10;
   @media #{$media-xs} {
-    height: 100vh;
+    height: 100%;
     padding: 15px 15px 25px;
   }
   &__inner {
@@ -92,22 +91,6 @@ export default {
       flex-direction: column;
       flex-wrap: nowrap;
       padding-top: calc(5% + 50px);
-    }
-  }
-  &__close-button {
-    font-size: 12px;
-    line-height: 12px;
-    color: $lightGray;
-    cursor: pointer;
-    position: absolute;
-    left: 50%;
-    top: 20px;
-    transition: color $textTimeTransition ease;
-    &:hover {
-      color: $styleRose;
-    }
-    @media #{$media-xs} {
-      top: 25px;
     }
   }
   a {

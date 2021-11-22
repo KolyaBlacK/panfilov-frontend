@@ -102,6 +102,7 @@ img {
 // helper classes
 .hidden-xs {
   @media #{$media-xs} {
+    visibility: hidden!important;
     display: none!important;
   }
 }
