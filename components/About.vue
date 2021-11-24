@@ -58,6 +58,9 @@
   &__top {
     display: flex;
     justify-content: space-between;
+    @media #{$media-xs} {
+      display: block;
+    }
   }
   &__video-button {
     position: relative;
@@ -85,24 +88,46 @@
     color: $white;
     margin: 0;
     width: 55%;
+    @media #{$media-xs} {
+      width: auto;
+      font-size: 24px;
+      line-height: 40px;
+      margin: 32px 0;
+      br {
+        display: none;
+      }
+    }
   }
   &__small-text {
     font-size: 16px;
     line-height: 28px;
     color: $darkGray;
+    margin: 0;
     margin-left: 50%;
     margin-bottom: 100px;
+    @media #{$media-xs} {
+      margin-left: 0;
+      margin-bottom: 50px;
+    }
   }
 }
 
 .we-do {
   padding: 0 5%;
   margin-bottom: 100px;
+  @media #{$media-xs} {
+    padding: 0;
+    margin-bottom: 50px;
+  }
   &__title {
     font-size: 40px;
     line-height: 48px;
     text-transform: uppercase;
     margin-bottom: 48px;
+    @media #{$media-xs} {
+      font-size: 32px;
+      margin-bottom: 32px;
+    }
   }
   &__list {
     display: flex;
@@ -110,10 +135,18 @@
     flex-wrap: wrap;
     font-size: 24px;
     line-height: 24px;
+    @media #{$media-xs} {
+      font-size: 18px;
+      line-height: 32px;
+      display: block;
+    }
   }
   &__item {
     width: 50%;
     margin-bottom: 24px;
+    @media #{$media-xs} {
+      width: auto;
+    }
   }
 }
 
