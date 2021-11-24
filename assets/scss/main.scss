@@ -27,8 +27,9 @@ body {
   }
 }
 
-a {
-  text-decoration: none;
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: normal;
 }
 
 button {
@@ -53,7 +54,7 @@ img {
   color: $darkGray;
   font-size: $font-20;
   padding-left: 25px;
-  margin: 0;
+  margin: 0 0 90px;
   font-weight: normal;
 
   @media #{$media-sm-up} {
@@ -99,9 +100,15 @@ img {
   }
 }
 
+.top-border {
+  border-top: 1px solid $darkGray;
+  padding-top: 50px;
+}
+
 // helper classes
 .hidden-xs {
   @media #{$media-xs} {
+    visibility: hidden!important;
     display: none!important;
   }
 }
