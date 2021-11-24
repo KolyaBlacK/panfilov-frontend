@@ -21,9 +21,9 @@ a {
 }
 
 body {
-  padding: 24px 32px;
+  padding: 24px 32px 0;
   @media #{$media-xs} {
-    padding: 15px;
+    padding: 15px 15px 0;
   }
 }
 
@@ -54,7 +54,7 @@ img {
   color: $darkGray;
   font-size: $font-20;
   padding-left: 25px;
-  margin: 0 0 90px;
+  margin: 0 0 3em;
   font-weight: normal;
 
   @media #{$media-sm-up} {
@@ -69,6 +69,10 @@ img {
   line-height: 48px;
   text-transform: uppercase;
   margin: 0;
+  @media #{$media-xs} {
+    font-size: 24px;
+    line-height: 40px;
+  }
 }
 
 .arrow-link {
@@ -103,6 +107,11 @@ img {
 .top-border {
   border-top: 1px solid $darkGray;
   padding-top: 50px;
+  padding-bottom: 100px;
+  @media #{$media-xs} {
+    padding-top: 25px;
+    padding-bottom: 50px;
+  }
 }
 
 // helper classes

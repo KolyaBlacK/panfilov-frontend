@@ -1,5 +1,5 @@
 <template>
-  <div class="key-clients">
+  <div class="key-clients top-border">
     <div class="block-title">Ключевые клиенты</div>
 
     <div class="client-list">

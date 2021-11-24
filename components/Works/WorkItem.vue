@@ -66,7 +66,8 @@ export default {
     @media #{$media-xs} {
       font-size: 16px;
       line-height: 22px;
-      width: calc(50% - 24px);
+      width: calc(60% - 24px);
+      margin: 0px 24px 0 0px;
     }
   }
   &__description {

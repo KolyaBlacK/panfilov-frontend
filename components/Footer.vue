@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer top-border">
     <div class="block-title">Обратная связь</div>
     <div class="footer__top">
       <div class="feedback">
@@ -51,9 +51,10 @@ export default {}
 @import '~assets/scss/variables';
 
 .footer {
-  border-top: 1px solid $darkGray;
-  margin-top: 50px;
-  padding: 50px 0 0;
+  padding-bottom: 50px;
+  @media #{$media-xs} {
+    padding-bottom: 25px;
+  }
   &__top, &__bottom {
     display: flex;
     flex-direction: column;
@@ -76,6 +77,9 @@ export default {}
     flex-direction: column;
     align-items: flex-end;
     justify-content: right;
+    @media #{$media-xs} {
+      align-items: flex-start;
+    }
 
     .feedback__btn {
       background-color: transparent;
@@ -98,6 +102,12 @@ export default {}
         font-size: $font-88;
       }
 
+      @media #{$media-xs} {
+        padding: 0 0 72px;
+        font-size: 28px;
+        line-height: 38px;
+      }
+
 
 
       .btn-icon {
@@ -105,6 +115,10 @@ export default {}
         @media #{$media-sm-up} {
           width: 132px;
           margin: 0 32px 0 80px;
+        }
+        @media #{$media-xs} {
+          width: 35px;
+          margin-left: 15px;
         }
         path {
           fill: $white;
@@ -162,7 +176,6 @@ export default {}
     .social-links {
       display: flex;
       flex-direction: row;
-      margin-bottom: 24px;
       @media #{$media-sm-up} {
         width: 830px;
       }
@@ -171,6 +184,9 @@ export default {}
         @media #{$media-sm-up} {
           margin-right: 57px;
           width: 115px;
+        }
+        @media #{$media-xs} {
+          margin-bottom: 25px;
         }
       }
     }
