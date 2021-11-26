@@ -54,11 +54,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // font-size: 14px;
-  // line-height: 14px;
   line-height: 1vw;
   font-size: 0.9vw;
-
   position: fixed;
   z-index: 99;
   left: 0;
@@ -68,7 +65,7 @@ export default {
   transition: top $baseTimeTransition ease;
   @media #{$media-xs} {
     padding: 0 15px;
-    top: 24px;
+    top: 0;
   }
   @media #{$media-lg} {
     font-size: 1.2vw;

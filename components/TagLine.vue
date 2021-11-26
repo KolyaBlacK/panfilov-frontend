@@ -146,11 +146,12 @@ export default {
   min-height: 100vh;
   padding: 1em 0;
   @media #{$media-lg} {
-    height: auto;
+    min-height: auto;
     padding: 1em 0;
   }
   @media #{$media-xs} {
-    padding: 2em 0;
+    padding: 15vw 0 25px;
+    min-height: auto;
   }
 
   // @media #{$media-sm-up} {
