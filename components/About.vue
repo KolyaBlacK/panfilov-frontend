@@ -64,6 +64,7 @@
   }
   &__video-button {
     position: relative;
+    flex: 1;
     &:hover {
       path {
         fill: $styleRose;
@@ -88,6 +89,14 @@
     color: $white;
     margin: 0;
     width: 55%;
+    @media #{$media-lg} {
+      font-size: 25px;
+      line-height: 42px;
+      margin-left: 25px;
+      br {
+        display: none;
+      }
+    }
     @media #{$media-xs} {
       width: auto;
       font-size: 24px;

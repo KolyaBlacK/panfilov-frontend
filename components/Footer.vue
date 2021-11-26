@@ -59,16 +59,8 @@ export default {}
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     @media #{$media-sm-up} {
       flex-direction: row-reverse;
-    }
-  }
-
-  &__top {
-    margin-top: 44px;
-    @media #{$media-sm-up} {
-      margin-top: 74px;
     }
   }
 
@@ -77,8 +69,11 @@ export default {}
     flex-direction: column;
     align-items: flex-end;
     justify-content: right;
+    flex: 1;
+    margin-left: 30px;
     @media #{$media-xs} {
       align-items: flex-start;
+      margin-left: 0;
     }
 
     .feedback__btn {
@@ -99,6 +94,10 @@ export default {}
       }
 
       @media #{$media-md-up} {
+        font-size: $font-60;
+      }
+
+      @media #{$media-lg-up} {
         font-size: $font-88;
       }
 
@@ -108,13 +107,20 @@ export default {}
         line-height: 38px;
       }
 
-
-
       .btn-icon {
-        width: 45px;
+        width: 65px;
+        margin-left: 25px;
         @media #{$media-sm-up} {
-          width: 132px;
-          margin: 0 32px 0 80px;
+          width: 70px;
+          margin: 0 10px 0 10px;
+        }
+        @media #{$media-md-up} {
+          width: 100px;
+          margin: 0 20px 0 30px;
+        }
+        @media #{$media-lg-up} {
+          width: 120px;
+          margin: 0 30px 0 45px;
         }
         @media #{$media-xs} {
           width: 35px;
@@ -139,6 +145,13 @@ export default {}
       font-size: $font-20;
       text-align: left;
       @media #{$media-sm-up} {
+        text-align: right;
+      }
+      @media #{$media-md-up} {
+        font-size: $font-28;
+        text-align: right;
+      }
+      @media #{$media-lg-up} {
         font-size: $font-32;
         text-align: right;
       }
@@ -167,17 +180,25 @@ export default {}
 
   &__bottom {
     margin-top: 36px;
+    justify-content: flex-end;
 
     @media #{$media-sm-up} {
       align-items: center;
       margin-top: 88px;
     }
+    @media #{$media-md-up} {
+      justify-content: space-between;
+    }
 
     .social-links {
       display: flex;
       flex-direction: row;
+      flex: 1;
       @media #{$media-sm-up} {
-        width: 830px;
+        margin-left: 80px;
+      }
+      @media #{$media-md-up} {
+        width: 800px;
       }
       .social-link {
         margin-right: 32px;

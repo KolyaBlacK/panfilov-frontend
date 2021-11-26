@@ -57,7 +57,7 @@
 <script>
 import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock'
 
-const STROKE_DEFAULT_WIDTH = '35'
+const STROKE_DEFAULT_WIDTH = '40'
 const STROKE_MAX_WIDTH = '10000'
 
 export default {
@@ -138,15 +138,27 @@ export default {
 @import '~/assets/scss/variables';
 
 .tag-line {
-  font-size: $font-36;
+  font-size: 6vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
   text-transform: uppercase;
-  @media #{$media-sm-up} {
-    font-size: $font-84;
+  min-height: 100vh;
+  padding: 1em 0;
+  @media #{$media-lg} {
+    height: auto;
+    padding: 1em 0;
   }
+  @media #{$media-xs} {
+    padding: 2em 0;
+  }
+
+  // @media #{$media-sm-up} {
+  //   font-size: $font-80;
+  // }
+  // @media #{$media-md-up} {
+  //   font-size: $font-84;
+  // }
 }
 
 .first-line {

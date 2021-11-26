@@ -34,6 +34,8 @@ export default {
   border: none;
   padding: 17px 0;
   cursor: pointer;
+  min-width: 52px;
+  width: 3vw;
   &__dot {
     width: 14px;
     height: 14px;
@@ -81,18 +83,18 @@ export default {
     .burger-menu-button {
       &__dot {
         &:first-child {
-          transform: translate(0px, 14px);
+          transform: translate(3px, 14px);
         }
         &:last-child {
-          transform: translate(0px, -14px);
+          transform: translate(-3px, -14px);
         }
         &:nth-child(2n) {
           &:before {
-            transform: translate(-19px, -14px);
+            transform: translate(-16px, -14px);
             opacity: 1;
           }
           &:after {
-            transform: translate(19px, 14px);
+            transform: translate(16px, 14px);
             opacity: 1;
           }
         }

@@ -32,7 +32,6 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/scss/variables.scss';
 .works {
-  padding-bottom: 100px;
   &__description {
     max-width: 60%;
     padding-right: 5%;
