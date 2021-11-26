@@ -10,7 +10,10 @@
     <div class="third-line">
       <div class="left">подумать своей</div>
       <div class="right">
-        <button class="show-reel" @mousedown="lineStart">Show reel</button>
+        <button class="show-reel" :class="{ active: animateStatus }" @mousedown="lineStart" @click="lineStart">
+          <span v-if="animateStatus">Tap & hold</span>
+          <span v-else>Show reel</span>
+        </button>
       </div>
     </div>
     <div class="fourth-line">
@@ -55,6 +58,7 @@
 </template>
 
 <script>
+import { isMobile } from 'mobile-device-detect';
 import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock'
 
 const STROKE_DEFAULT_WIDTH = '40'
@@ -63,6 +67,7 @@ const STROKE_MAX_WIDTH = '10000'
 export default {
   data () {
     return {
+      animateStatus: false,
       animateStartTime: 0,
       animationDurationTime: 0,
       pathLength: 0,
@@ -86,7 +91,8 @@ export default {
       this.strokeDasharray = this.pathLength + ' ' + this.pathLength;
       this.strokeDashoffset = this.pathLength;
     },
-    lineStart () {
+    lineStart (event) {
+      this.animateStatus = true
       clearTimeout(this.hideReelTimeout)
       this.animateStartTime = new Date()
       this.isShowReelContainer = true
@@ -106,9 +112,13 @@ export default {
           this.isShowReel = true
         }, 2500 - this.animationDurationTime);
       })
-
+      event.preventDefault()
     },
     lineStop () {
+      if (isMobile) {
+        return
+      }
+      this.animateStatus = false
       clearTimeout(this.strokeWidthTimeout)
       clearTimeout(this.showReelTimeout)
       this.animationDurationTime = new Date() - this.animateStartTime;
@@ -202,7 +212,10 @@ export default {
         background-color: $styleRose;
         color: $white;
       }
-
+      &.active {
+        background-color: $styleRose;
+        color: $white;
+      }
 
       @media #{$media-sm-up} {
         border-width: 10px;
