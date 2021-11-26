@@ -73,7 +73,8 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 24px 32px 48px;
+  // padding: 24px 32px 48px;
+  padding: 2% 2.5% 5%;
   color: $lightGray;
   z-index: 10;
   @media #{$media-xs} {

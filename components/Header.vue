@@ -54,17 +54,27 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
-  line-height: 14px;
+  // font-size: 14px;
+  // line-height: 14px;
+  line-height: 1vw;
+  font-size: 0.9vw;
+
   position: fixed;
   z-index: 99;
   left: 0;
-  top: 24px;
+  top: 1%;
   width: 100%;
-  padding: 0 32px;
+  padding: 0 2.5%;
   transition: top $baseTimeTransition ease;
   @media #{$media-xs} {
     padding: 0 15px;
+    top: 24px;
+  }
+  @media #{$media-lg} {
+    font-size: 1.2vw;
+  }
+  @media #{$media-md} {
+    font-size: 1.4vw;
   }
   &.sticky {
     top: 0;
@@ -75,11 +85,20 @@ export default {
 .logo {
   display: flex;
   align-items: center;
+  &__link {
+    min-width: 110px;
+    width: 8vw;
+    margin-right: 1.2vw;
+  }
   &__image {
-    margin-right: 26px;
+    width: 100%;
   }
   &__description {
     color: $white;
+    font-size: 1vw;
+    @media #{$media-md} {
+      font-size: 1.4vw;
+    }
   }
 }
 
@@ -88,7 +107,7 @@ export default {
   align-items: center;
   &__link {
     display: inline-block;
-    padding: 8px;
+    padding: 0.5vw;
     color: $white;
     transition: color $textTimeTransition ease;
     &:hover {

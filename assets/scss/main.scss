@@ -21,9 +21,9 @@ a {
 }
 
 body {
-  padding: 24px 32px 0;
+  padding: 2% 2.5% 0;
   @media #{$media-xs} {
-    padding: 15px 15px 0;
+    padding: 15px 15px;
   }
 }
 
@@ -56,8 +56,10 @@ img {
   padding-left: 25px;
   margin: 0 0 3em;
   font-weight: normal;
-
   @media #{$media-sm-up} {
+    font-size: $font-22;
+  }
+  @media #{$media-md-up} {
     font-size: $font-24;
   }
 }
@@ -108,6 +110,10 @@ img {
   border-top: 1px solid $darkGray;
   padding-top: 50px;
   padding-bottom: 100px;
+  @media #{$media-md} {
+    padding-top: 30px;
+    padding-bottom: 70px;
+  }
   @media #{$media-xs} {
     padding-top: 25px;
     padding-bottom: 50px;
