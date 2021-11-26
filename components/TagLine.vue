@@ -138,6 +138,8 @@ export default {
       clearTimeout(this.showReelTimeout)
       this.isShowReel = false
       this.isShowReelContainer = false
+      this.strokeWidth = STROKE_DEFAULT_WIDTH;
+      this.strokeDashoffset = this.pathLength;
       enableBodyScroll(this.$refs.reelContainer)
     }
   }
