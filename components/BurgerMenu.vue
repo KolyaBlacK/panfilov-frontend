@@ -1,6 +1,6 @@
 <template>
   <transition name="fadeInDown">
-    <div v-if='isActive' ref='burger-menu' class='burger-menu'>
+    <div v-if='isActive' ref='burgerMenu' class='burger-menu'>
       <div class='burger-menu__inner'>
         <div class='burger-menu__left'>
           <a href='#' class='burger-menu__presentation fade-in' style='animation-delay: 0.5s'>Скачать презентацию</a>
@@ -47,6 +47,9 @@
 </template>
 
 <script>
+import { isMobileOnly } from 'mobile-device-detect';
+import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock'
+
 export default {
   data() {
     return {
@@ -59,6 +62,14 @@ export default {
   methods: {
     toggleMenu(isActive) {
       this.isActive = isActive;
+      this.$nextTick(() => {
+        if (isMobileOnly && this.isActive) {
+          disableBodyScroll(this.$refs.burgerMenu)
+        }
+      })
+      if (isMobileOnly && !this.isActive) {
+        enableBodyScroll(this.$refs.burgerMenu)
+      }
     }
   }
 }
