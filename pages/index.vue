@@ -18,7 +18,7 @@ export default {
   mounted () {
     this.lmS = new this.LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
-      smooth: true
+      smooth: false
     });
   }
 

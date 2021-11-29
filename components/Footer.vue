@@ -1,5 +1,5 @@
 <template>
-  <div class="footer top-border">
+  <div class="footer top-border" data-scroll data-scroll-class="animate-line" data-scroll-offset="5%">
     <div class="block-title">Обратная связь</div>
     <div class="footer__top">
       <div class="feedback">
