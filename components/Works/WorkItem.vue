@@ -1,6 +1,16 @@
 <template>
-  <li class="work-item">
-    <img class='work-item__image' src='~/assets/images/work.jpg' alt='work'>
+  <li ref="scrollSections" class="work-item">
+    <div :id="workId" class="image-container">
+      <img
+        class='work-item__image'
+        src='~/assets/images/work.jpg'
+        alt='work'
+        data-load-src='~/assets/images/work.jpg'
+        data-scroll
+        data-scroll-speed="-1"
+        :data-scroll-target="'#' + workId"
+      />
+    </div>
     <div class="work-item__text">
       <a href="#" class="work-item__title">Chateau Tamagne Select & Grand Select</a>
       <a href="#" class="work-item__description">упаковка</a>
@@ -10,7 +20,20 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      workId: 'work_id_' + this.getRandomInt(1, 10000)
+    }
+  },
+  // beforeMount () {
+  // },
+  methods: {
+    getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  }
 }
 </script>
 
@@ -45,7 +68,16 @@ export default {
   &:nth-child(8) {
     width: 50%;
   }
-  &__image {}
+  .image-container {
+    display: block;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    transform: translate3d(0,0,0);
+  }
+  &__image {
+    margin-top: -2.5625rem;
+    margin-bottom: -2.5625rem;
+  }
   &__text {
     display: flex;
     margin-top: 24px;

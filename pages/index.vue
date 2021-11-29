@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-scroll-container>
     <TagLine />
     <Works />
     <About />
@@ -10,6 +10,17 @@
 
 <script>
 export default {
+  data() {
+    return {
+      lmS: null
+    };
+  },
+  mounted () {
+    this.lmS = new this.LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true
+    });
+  }
 
 }
 </script>
