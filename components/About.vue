@@ -1,5 +1,5 @@
 <template>
-  <div class='about top-border'>
+  <div class='about top-border' data-scroll data-scroll-class="animate-line" data-scroll-offset="5%">
     <h4 class="block-title">О нас</h4>
     <div class='about__top'>
       <a href='#' class='about__video-button'>

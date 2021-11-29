@@ -1,5 +1,5 @@
 <template>
-  <div class="key-clients top-border">
+  <div class="key-clients top-border"  data-scroll data-scroll-class="animate-line" data-scroll-offset="5%">
     <div class="block-title">Ключевые клиенты</div>
 
     <div class="client-list">

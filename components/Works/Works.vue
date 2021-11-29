@@ -1,5 +1,5 @@
 <template>
-  <div class="works top-border">
+  <div class="works top-border" data-scroll data-scroll-class="animate-line" data-scroll-offset="5%">
     <h4 class="block-title">Работы</h4>
     <p class="works__description block-description">
       Я создаю функциональный продукт, который вдхоновляет им пользоваться.
