@@ -188,14 +188,7 @@ export default {
 
 .burger-menu-button.white {
   .burger-menu-button__dot {
-    border-color: $white;
-    &:nth-child(2n) {
-      position: relative;
-      &:after,
-      &:before {
-        border-color: $white;
-      }
-    }
+    background: url('~/assets/images/dot-white.svg') no-repeat;
   }
 }
 </style>
