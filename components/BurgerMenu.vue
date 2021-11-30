@@ -84,7 +84,6 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  // padding: 24px 32px 48px;
   padding: 2% 2.5% 5%;
   color: $lightGray;
   z-index: 10;
@@ -97,7 +96,7 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-top: calc(85px + 45px);
+    padding-top: 8vw;
     height: 100%;
     @media #{$media-xs} {
       flex-direction: column;
@@ -125,15 +124,25 @@ export default {
     }
   }
   &__left {
-    padding-top: 15px;
+    padding-top: 0.5vw;
     @media #{$media-xs} {
       padding-top: 0;
       order: 2;
     }
     &__bottom {
-      font-size: 16px;
-      line-height: 24px;
-      margin-top: 240px;
+      font-size: 1vw;
+      line-height: 1.4vw;
+      margin-top: 14vw;
+      @media #{$media-lg} {
+        font-size: 1.4vw;
+        line-height: 1.8vw;
+        margin-top: 18vw;
+      }
+      @media #{$media-md} {
+        font-size: 1.8vw;
+        line-height: 2vw;
+        margin-top: 20vw;
+      }
       @media #{$media-xs} {
         text-align: center;
         font-size: 14px;
@@ -151,38 +160,56 @@ export default {
 
   }
   &__messengers-links {
-    margin: 24px 0;
+    margin: 1.3vw 0;
     a {
       &:first-child {
-        margin-right: 48px;
+        margin-right: 2.6vw;
       }
     }
   }
   &__address {
-    margin-top: 48px;
+    margin-top: 2.6vw;
   }
   &__presentation {
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 0.9vw;
+    line-height: 1vw;
+    @media #{$media-lg} {
+      font-size: 1.4vw;
+      line-height: 1.2vw;
+    }
+    @media #{$media-md} {
+      font-size: 1.6vw;
+      line-height: 1.4vw;
+    }
     @media #{$media-xs} {
+      font-size: 14px;
+      line-height: 14px;
       margin-bottom: 14px;
     }
   }
   &__navigation {
     display: flex;
     flex-direction: column;
-    font-size: 28px;
-    line-height: 48px;
+    font-size: 1.8vw;
+    line-height: 3vw;
     list-style: none;
     margin: 0;
     padding: 0;
+    @media #{$media-lg} {
+      font-size: 2.2vw;
+      line-height: 3.2vw;
+    }
+    @media #{$media-md} {
+      font-size: 2.6vw;
+      line-height: 3.6vw;
+    }
     @media #{$media-xs} {
       align-items: center;
       font-size: 25px;
       line-height: 25px;
     }
     &__item {
-      margin-bottom: 24px;
+      margin-bottom: 1.8vw;
       &:last-child {
         margin: 0;
       }
@@ -190,10 +217,20 @@ export default {
   }
   &__footer {
     margin-left: auto;
-    margin-top: -24px;
-    font-size: 16px;
-    line-height: 24px;
+    margin-top: -1.4vw;
+    font-size: 0.9vw;
+    line-height: 1vw;
     order: 3;
+    @media #{$media-lg} {
+      margin-top: -1.8vw;
+      font-size: 1.2vw;
+      line-height: 1.2vw;
+    }
+    @media #{$media-md} {
+      margin-top: -2vw;
+      font-size: 1.8vw;
+      line-height: 1.8vw;
+    }
     @media #{$media-xs} {
       margin: 40px 0 0;
       display: flex;
@@ -201,9 +238,9 @@ export default {
       padding: 0 10px;
     }
     a {
-      padding: 0 57px;
+      padding: 0 2vw;
       @media #{$media-sm-up} {
-        padding: 0 20px;
+        // padding: 0 20px;
       }
       @media #{$media-xs} {
         font-size: 14px;

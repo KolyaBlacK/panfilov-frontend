@@ -116,14 +116,24 @@ export default {
 .close-button {
   visibility: hidden;
   opacity: 0;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 1vw;
   color: $lightGray;
   cursor: pointer;
   position: absolute;
   left: 50%;
-  top: 15px;
+  top: 1.2vw;
   transition: color $textTimeTransition ease;
+  @media #{$media-lg} {
+    font-size: 1.4vw;
+    top: 2vw;
+  }
+  @media #{$media-md} {
+    font-size: 1.6vw;
+  }
+  @media #{$media-xs} {
+    font-size: 15px;
+    top: 20px;
+  }
   &:hover {
     color: $styleRose;
   }
