@@ -54,7 +54,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  line-height: 1vw;
+  line-height: 1.1vw;
   font-size: 0.9vw;
   position: fixed;
   z-index: 99;
@@ -130,7 +130,7 @@ export default {
 }
 
 .burger {
-  margin-left: 8px;
+  margin-left: 1vw;
 }
 
 .fade-out {

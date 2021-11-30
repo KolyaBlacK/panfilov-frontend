@@ -8,6 +8,8 @@
       <span class='burger-menu-button__dot'></span>
       <span class='burger-menu-button__dot'></span>
       <span class='burger-menu-button__dot'></span>
+      <span class='burger-menu-button__dot'></span>
+      <span class='burger-menu-button__dot'></span>
     </button>
   </div>
 </template>
@@ -32,71 +34,140 @@ export default {
   justify-content: space-between;
   background: none;
   border: none;
-  padding: 17px 0;
+  padding: 1vw 0;
   cursor: pointer;
-  min-width: 52px;
-  width: 3vw;
+  width: 3.8vw;
+  height: 3.8vw;
+  min-width: 64px;
+  min-height: 60px;
+  @media #{$media-xs} {
+    padding: 15px 0;
+    min-width: 52px;
+    min-height: 52px;
+  }
   &__dot {
-    width: 14px;
-    height: 14px;
-    border: 4px solid $styleRose;
-    border-radius: 50%;
-    margin-right: 5px;
-    transition: transform $baseTimeTransition ease;
+    // flex: 1;
+    width: 1.1vw;
+    height: 1.1vw;
+    min-width: 20px;
+    min-height: 20px;
+    background: url('~/assets/images/dot.svg') no-repeat;
+    background-size: contain;
+    // transition: all $baseTimeTransition ease;
+    position: absolute;
+    @media #{$media-xs} {
+      width: 15px;
+      height: 15px;
+      min-width: auto;
+      min-height: auto;
+    }
+
+    &:nth-child(1) {
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    &:nth-child(2) {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    &:nth-child(3) {
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    &:nth-child(4) {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    &:nth-child(5) {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+
     &:nth-child(2n) {
-      position: relative;
-      &:after,
-      &:before {
-        content: '';
-        width: 14px;
-        height: 14px;
-        border: 4px solid $styleRose;
-        border-radius: 50%;
-        position: relative;
-      }
-      &:before {
-        float: left;
-        top: -4px;
-        left: -4px;
-        opacity: 0;
-        transform: translate(0);
-        transition: transform $baseTimeTransition ease;
-      }
-      &:after {
-        float: right;
-        top: -18px;
-        left: 4px;
-        opacity: 0;
-        transform: translate(0);
-        transition: transform $baseTimeTransition ease;
-      }
-    }
-    &:last-child {
-      margin-right: 0;
-    }
-    &:first-child,
-    &:last-child {
-      transition: transform $baseTimeTransition ease;
+      // position: relative;
+      // &:after,
+      // &:before {
+      //   content: '';
+      //   position: absolute;
+      //   width: 1.2vw;
+      //   height: 1.2vw;
+      //   min-width: 20px;
+      //   min-height: 20px;
+      //   background: url('~/assets/images/dot.svg') center no-repeat;
+      //   background-size: contain;
+      // }
+      // &:before {
+      //   display: block;
+      //   opacity: 0;
+      //   transform: translate(0);
+      //   transition: transform $baseTimeTransition ease;
+      // }
+      // &:after {
+      //   display: block;
+      //   opacity: 0;
+      //   transform: translate(0);
+      //   transition: transform $baseTimeTransition ease;
+      // }
     }
   }
   &.active {
     .burger-menu-button {
       &__dot {
-        &:first-child {
-          transform: translate(3px, 14px);
+        // &:first-child {
+        //   transform: translate(0.2vw, 0.8vw);
+        // }
+        // &:last-child {
+        //   transform: translate(-0.2vw, -0.8vw);
+        // }
+        // &:nth-child(2n) {
+        //   &:before {
+        //     transform: translate(-1vw, -0.8vw);
+        //     opacity: 1;
+        //   }
+        //   &:after {
+        //     transform: translate(1vw, 0.8vw);
+        //     opacity: 1;
+        //   }
+        // }
+        &:nth-child(1) {
+          bottom: 6%;
+          left: 6%;
+          margin: 0;
+          top: auto;
         }
-        &:last-child {
-          transform: translate(-3px, -14px);
+        &:nth-child(2) {
+
         }
-        &:nth-child(2n) {
-          &:before {
-            transform: translate(-16px, -14px);
-            opacity: 1;
-          }
-          &:after {
-            transform: translate(16px, 14px);
-            opacity: 1;
-          }
+        &:nth-child(3) {
+          right: 6%;
+          top: 6%;
+          margin: 0;
+        }
+        &:nth-child(4) {
+          top: 6%;
+          left: 6%;
+          right: auto;
+          bottom: auto;
+        }
+        &:nth-child(5) {
+          bottom: 6%;
+          right: 6%;
+          top: auto;
+          left: auto;
         }
       }
     }
