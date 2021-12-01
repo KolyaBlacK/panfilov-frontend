@@ -220,10 +220,18 @@ export default {
       }
 
       @media #{$media-sm-up} {
-        border-width: 10px;
-        font-size: $font-20;
-        height: 96px;
-        width: 96px;
+        border: 0.8vw solid $styleRose;
+        font-size: 2vw;
+        line-height: 2vw;
+        height: 9vw;
+        width: 9vw;
+      }
+      @media #{$media-lg-up} {
+        border: 0.6vw solid $styleRose;
+        font-size: 1.4vw;
+        line-height: 1.4vw;
+        height: 7vw;
+        width: 7vw;
       }
     }
   }
