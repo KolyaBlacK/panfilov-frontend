@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/scss/variables';
 .work-item {
-  margin-bottom: 70px;
+  margin-bottom: 6vw;
   @media #{$media-xs} {
     width: 100%!important;
   }
@@ -76,20 +76,22 @@ export default {
   }
   &__text {
     display: flex;
-    margin-top: 24px;
+    margin-top: 1.6vw;
   }
   &__title {
     font-weight: normal;
-    font-size: 20px;
-    line-height: 24px;
-    margin: 0px 48px 0 0px;
-    width: calc(50% - 24px);
+    font-size: 1.2vw;
+    line-height: 1.2vw;
+    margin: 0px 2.5vw 0 0;
+    width: calc(50% - 1.3vw);
     @media #{$media-lg} {
-      width: calc(65% - 24px);
+      width: calc(65% - 1.3vw);
+      font-size: 1.6vw;
+      line-height: 1.6vw;
     }
     @media #{$media-md} {
-      font-size: 18px;
-      line-height: 22px;
+      font-size: 1.8vw;
+      line-height: 1.8vw;
     }
     @media #{$media-xs} {
       font-size: 16px;
@@ -99,9 +101,21 @@ export default {
     }
   }
   &__description {
-    font-size: 16px;
-    line-height: 24px;
     color: $darkGray;
+    font-size: 1vw;
+    line-height: 1.2vw;
+    @media #{$media-lg} {
+      font-size: 1.2vw;
+      line-height: 1.4vw;
+    }
+    @media #{$media-md} {
+      font-size: 1.6vw;
+      line-height: 1.8vw;
+    }
+    @media #{$media-xs} {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
   a {
     transition: color $textTimeTransition ease;

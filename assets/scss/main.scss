@@ -50,27 +50,57 @@ img {
 }
 
 .block-title {
-  background: url('~/assets/img/circle-rose.svg') 0 2px no-repeat transparent;
   color: $darkGray;
   font-size: $font-20;
-  padding-left: 25px;
   margin: 0 0 3em;
   font-weight: normal;
-  @media #{$media-sm-up} {
-    font-size: $font-22;
+  display: flex;
+  font-size: 1.4vw;
+  line-height: 1.7vw;
+  @media #{$media-lg} {
+    font-size: 1.7vw;
+    line-height: 2vw;
   }
-  @media #{$media-md-up} {
-    font-size: $font-24;
+  @media #{$media-md} {
+    font-size: 1.8vw;
+    line-height: 2vw;
+  }
+  @media #{$media-xs} {
+    font-size: $font-20;
+    line-height: 20px;
+  }
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 1.3vw;
+    height: 1.3vw;
+    margin-right: 0.8vw;
+    background: url('~/assets/img/circle-rose.svg') center no-repeat transparent;
+    background-size: contain;
+    @media #{$media-lg} {
+      width: 1.7vw;
+      height: 1.7vw;
+      margin-right: 1vw;
+    }
+    @media #{$media-xs} {
+      width: 15px;
+      height: 15px;
+      margin-right: 10px;
+    }
   }
 }
 
 .block-description {
   font-style: normal;
   font-weight: normal;
-  font-size: 32px;
-  line-height: 48px;
+  font-size: 1.8vw;
+  line-height: 2.6vw;
   text-transform: uppercase;
   margin: 0;
+  @media #{$media-lg} {
+    font-size: 2.4vw;
+    line-height: 3vw;
+  }
   @media #{$media-xs} {
     font-size: 24px;
     line-height: 40px;
@@ -78,24 +108,50 @@ img {
 }
 
 .arrow-link {
-  // background: url('~/assets/images/arrow-link.svg') right 2px no-repeat transparent;
-  font-size: $font-20;
-  line-height: $font-20;
+  font-size: 1.2vw;
+  line-height: 1.2vw;
   margin: 0;
   font-weight: normal;
   transition: color $textTimeTransition ease;
   color: $white;
+  @media #{$media-lg} {
+    font-size: 1.6vw;
+    line-height: 1.6vw;
+  }
+  @media #{$media-md} {
+    font-size: 1.8vw;
+    line-height: 1.8vw;
+  }
+  @media #{$media-xs} {
+    font-size: $font-20;
+    line-height: $font-20;
+  }
   &:after {
     position: relative;
-    top: 3px;
+    top: 50%;
+    margin-top: -0.5vw;
     content: '';
     display: inline-block;
-    width: 30px;
-    height: 18px;
-    margin-left: 25px;
+    width: 2vw;
+    height: 1vw;
+    margin-left: 1.2vw;
     background-color: $white;
     transition: background-color, transform $textTimeTransition ease;
     mask: url('~/assets/images/arrow-link.svg') no-repeat;
+    @media #{$media-lg} {
+      font-size: 1.4vw;
+      line-height: 1.4vw;
+    }
+    @media #{$media-md} {
+      font-size: 1.6vw;
+      line-height: 1.6vw;
+    }
+    @media #{$media-xs} {
+      width: 30px;
+      height: 18px;
+      top: 3px;
+      margin-left: 25px;
+    }
   }
   &:hover {
     color: $styleRose;
