@@ -1,14 +1,11 @@
 <template>
   <li ref="scrollSections" class="work-item">
-    <div :id="workId" class="image-container">
+    <div class="image-container">
       <img
+        ref="image"
         class='work-item__image'
         src='~/assets/images/work.jpg'
         alt='work'
-        data-load-src='~/assets/images/work.jpg'
-        data-scroll
-        data-scroll-speed="-1"
-        :data-scroll-target="'#' + workId"
       />
     </div>
     <div class="work-item__text">
@@ -20,19 +17,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      workId: 'work_id_' + this.getRandomInt(1, 10000)
-    }
-  },
-  // beforeMount () {
-  // },
-  methods: {
-    getRandomInt(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+  mounted () {
+    window.addEventListener('scroll', (e) => {
+      const wH = window.innerHeight
+      const wHM = Math.round(wH / 2)
+      const imageRect = this.$refs.image.getBoundingClientRect()
+      if (window.innerHeight > imageRect.top && imageRect.bottom > 0) {
+        const direction = imageRect.top > wHM ? -1 : 1
+        const offset = direction * 45 * Math.abs(imageRect.top - wHM) / wHM
+        this.$refs.image.style.transform = 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ' + offset + ', 0, 1)'
+      }
+    })
   }
 }
 </script>
