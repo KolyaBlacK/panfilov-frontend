@@ -18,13 +18,14 @@
 <script>
 export default {
   mounted () {
+    const windowHeight = window.innerHeight
+    const windowHeightHalf = Math.round(windowHeight / 2)
     window.addEventListener('scroll', (e) => {
-      const wH = window.innerHeight
-      const wHM = Math.round(wH / 2)
       const imageRect = this.$refs.image.getBoundingClientRect()
-      if (window.innerHeight > imageRect.top && imageRect.bottom > 0) {
-        const direction = imageRect.top > wHM ? -1 : 1
-        const offset = direction * 45 * Math.abs(imageRect.top - wHM) / wHM
+      if (windowHeight > imageRect.top && imageRect.bottom > 0) {
+        // const ratio = Math.round(windowHeight / imageRect.height)
+        const direction = imageRect.top > windowHeightHalf ? -1 : 1
+        const offset = direction * 45 * Math.abs(imageRect.top - windowHeightHalf) / windowHeightHalf
         this.$refs.image.style.transform = 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ' + offset + ', 0, 1)'
       }
     })
@@ -70,8 +71,8 @@ export default {
     transform: translate3d(0,0,0);
   }
   &__image {
-    margin-top: -2.5625rem;
-    margin-bottom: -2.5625rem;
+    margin-top: -1.5625rem;
+    margin-bottom: -1.5625rem;
   }
   &__text {
     display: flex;
