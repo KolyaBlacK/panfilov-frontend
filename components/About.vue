@@ -63,6 +63,7 @@
     }
   }
   &__video-button {
+    display: block;
     position: relative;
     flex: 1;
     &:hover {
@@ -76,31 +77,31 @@
   }
   &__video-icon {
     position: absolute;
-    left: 50px;
-    bottom: 40px;
+    left: 8%;
+    bottom: 8%;
     path {
       transition: fill $textTimeTransition ease;
     }
   }
   &__main-text {
-    font-size: 32px;
-    line-height: 48px;
+    font-size: 2vw;
+    line-height: 2.6vw;
     text-transform: uppercase;
     color: $white;
     margin: 0;
     width: 55%;
     @media #{$media-lg} {
-      font-size: 25px;
-      line-height: 42px;
-      margin-left: 25px;
+      font-size: 2.6vw;
+      line-height: 3vw;
+      margin-left: 2vw;
       br {
         display: none;
       }
     }
     @media #{$media-xs} {
       width: auto;
-      font-size: 24px;
-      line-height: 40px;
+      font-size: 22px;
+      line-height: 38px;
       margin: 32px 0;
       br {
         display: none;
@@ -108,31 +109,49 @@
     }
   }
   &__small-text {
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 1vw;
+    line-height: 1.6vw;
     color: $darkGray;
     margin: 0;
     margin-left: 50%;
-    margin-bottom: 100px;
+    margin-bottom: 6em;
+    @media #{$media-lg} {
+      font-size: 1.6vw;
+      line-height: 2vw;
+    }
+    @media #{$media-md} {
+      font-size: 1.8vw;
+      line-height: 2vw;
+    }
     @media #{$media-xs} {
       margin-left: 0;
       margin-bottom: 50px;
+      font-size: 14px;
+      line-height: 18px;
     }
   }
 }
 
 .we-do {
   padding: 0 5%;
-  margin-bottom: 100px;
+  margin-bottom: 6vw;
   @media #{$media-xs} {
     padding: 0;
     margin-bottom: 50px;
   }
   &__title {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 3vw;
+    line-height: 3vw;
     text-transform: uppercase;
-    margin-bottom: 48px;
+    margin-bottom: 1em;
+    @media #{$media-lg} {
+      font-size: 3.4vw;
+      line-height: 3.4vw;
+    }
+    @media #{$media-md} {
+      font-size: 3.6vw;
+      line-height: 3.6vw;
+    }
     @media #{$media-xs} {
       font-size: 32px;
       margin-bottom: 32px;
@@ -142,8 +161,16 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 1.4vw;
+    line-height: 1.4vw;
+    @media #{$media-lg} {
+      font-size: 1.6vw;
+      line-height: 1.6vw;
+    }
+    @media #{$media-md} {
+      font-size: 2vw;
+      line-height: 2vw;
+    }
     @media #{$media-xs} {
       font-size: 18px;
       line-height: 32px;
@@ -152,9 +179,10 @@
   }
   &__item {
     width: 50%;
-    margin-bottom: 24px;
+    margin-bottom: 1.6vw;
     @media #{$media-xs} {
       width: auto;
+      margin-bottom: 24px;
     }
   }
 }
