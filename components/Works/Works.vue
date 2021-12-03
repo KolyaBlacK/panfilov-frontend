@@ -1,21 +1,21 @@
 <template>
   <div class="works top-border" data-scroll data-scroll-class="animate-line" data-scroll-offset="5%">
-    <h4 class="block-title">Работы</h4>
-    <p class="works__description block-description">
+    <h4 v-intersect="{ in: ['fade-in'] }" class="block-title">Работы</h4>
+    <p v-intersect="{ in: ['fade-in'] }" class="works__description block-description">
       Я создаю функциональный продукт, который вдхоновляет им пользоваться.
       Который органично интегрируется в среду, украшает ее и имеет собственный характер.
     </p>
     <ul class="works-list">
-      <work-item />
-      <work-item />
-      <work-item />
-      <work-item />
-      <work-item />
-      <work-item />
-      <work-item />
-      <work-item />
+      <work-item v-intersect="{ in: ['fade-in'] }" />
+      <work-item v-intersect="{ in: ['fade-in'] }" />
+      <work-item v-intersect="{ in: ['fade-in'] }" />
+      <work-item v-intersect="{ in: ['fade-in'] }" />
+      <work-item v-intersect="{ in: ['fade-in'] }" />
+      <work-item v-intersect="{ in: ['fade-in'] }" />
+      <work-item v-intersect="{ in: ['fade-in'] }" />
+      <work-item v-intersect="{ in: ['fade-in'] }" />
     </ul>
-    <div class="wrapper-arrow-link">
+    <div v-intersect="{ in: ['fade-in'] }" class="wrapper-arrow-link">
       <a href="#" class="arrow-link">Все работы</a>
     </div>
   </div>

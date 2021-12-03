@@ -1,13 +1,13 @@
 <template>
   <div class="tag-line">
-    <div class="first-line">
+    <div class="first-line fade-in" style='animation-delay: 0.3s'>
       <div class="left">В первую очередь</div>
       <div class="right">я</div>
     </div>
-    <div class="second-line">
+    <div class="second-line fade-in" style='animation-delay: 0.4s'>
       предлагаю вам
     </div>
-    <div class="third-line">
+    <div class="third-line fade-in" style='animation-delay: 0.5s'>
       <div class="left">подумать своей</div>
       <div class="right">
         <button class="show-reel" :class="{ active: animateStatus }" @mousedown="lineStart" @click="lineStart">
@@ -16,13 +16,13 @@
         </button>
       </div>
     </div>
-    <div class="fourth-line">
+    <div class="fourth-line fade-in" style='animation-delay: 0.6s'>
       головой
     </div>
-    <div class="fifth-line">
+    <div class="fifth-line fade-in" style='animation-delay: 0.7s'>
       и только потом
     </div>
-    <div class="sixth-line">
+    <div class="sixth-line fade-in" style='animation-delay: 0.8s'>
       моей
     </div>
     <div v-show="isShowReelContainer" ref="reelContainer" class="reel-container" @mousedown="lineStart" @mouseup="lineStop">

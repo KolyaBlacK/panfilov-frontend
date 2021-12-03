@@ -255,48 +255,4 @@ export default {
     }
   }
 }
-
-.fadeInDown-enter-active {
-  animation: fadeInDown $baseTimeTransition;
-}
-.fadeInDown-leave-active {
-  animation: fadeInDown $baseTimeTransition reverse;
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.fadeInDown {
-  animation-name: fadeInDown;
-}
-
-
-.fade-in {
-  opacity: 0;
-  animation: fadeIn $baseTimeTransition;
-  animation-fill-mode: forwards;
-  animation-delay: $baseTimeTransition;
-  @media #{$media-xs} {
-    animation-delay: $baseTimeTransition!important;
-  }
-}
 </style>
