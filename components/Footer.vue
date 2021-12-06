@@ -1,7 +1,7 @@
 <template>
-  <div class="footer top-border" data-scroll data-scroll-class="animate-line" data-scroll-offset="5%">
-    <div v-intersect="{ in: ['fade-in'] }" class="block-title">Обратная связь</div>
-    <div v-intersect="{ in: ['fade-in'] }" class="footer__top">
+  <div v-intersect="{ in: ['animate-line'] }" class="footer top-border">
+    <div v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">Обратная связь</div>
+    <div v-intersect="{ in: ['fade-in'] }" class="footer__top opacity-0">
       <div class="feedback">
         <button class="feedback__btn">
           <span>Напишите нам о<br> своем проекте</span>
@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div v-intersect="{ in: ['fade-in'] }" class="footer__bottom">
+    <div v-intersect="{ in: ['fade-in'] }" class="footer__bottom opacity-0">
       <div class="social-links">
           <a class="social-link" href="#">Facebook</a>
           <a class="social-link" href="#">Instagram</a>
