@@ -1,9 +1,9 @@
 <template>
-  <div class="key-clients top-border"  data-scroll data-scroll-class="animate-line" data-scroll-offset="5%">
-    <div v-intersect="{ in: ['fade-in'] }" class="block-title">Ключевые клиенты</div>
+  <div v-intersect="{ in: ['animate-line'] }" class="key-clients top-border">
+    <div v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">Ключевые клиенты</div>
 
     <div class="client-list">
-      <div v-for="client in clients" :key="client.id" v-intersect="{ in: ['fade-in'] }" class="client-item">
+      <div v-for="client in clients" :key="client.id" v-intersect="{ in: ['fade-in'] }" class="client-item opacity-0">
         <div class="client-name">
           {{ client.Name }}
         </div>

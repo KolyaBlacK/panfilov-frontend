@@ -1,7 +1,7 @@
 <template>
-  <div class='about top-border' data-scroll data-scroll-class="animate-line" data-scroll-offset="5%">
-    <h4 v-intersect="{ in: ['fade-in'] }" class="block-title">О нас</h4>
-    <div v-intersect="{ in: ['fade-in'] }" class='about__top'>
+  <div v-intersect="{ in: ['animate-line'] }" class='about top-border'>
+    <h4 v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">О нас</h4>
+    <div v-intersect="{ in: ['fade-in'] }" class='about__top opacity-0'>
       <a href='#' class='about__video-button'>
         <img class='about__image' src='~/assets/images/about.jpg' alt='about'>
         <svg class='about__video-icon' width="73" height="53" viewBox="0 0 73 53" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,10 +16,10 @@
         украшать и давать новый опыт.
       </p>
     </div>
-    <p v-intersect="{ in: ['fade-in'] }" class='about__small-text'>
+    <p v-intersect="{ in: ['fade-in'] }" class='about__small-text opacity-0'>
       Мы разрабатываем айдентику и фирменные стили, нейминг, основываясь на стратегическом анализе конкурентной среды, создаем упаковку с пониманием законов категории и специфики рынка. Мы строим бренды и помогаем реализовать их потенциал, как в физическом мире, так и в цифровом. Мы всегда рядом, чтобы наши клиенты добивались большего.
     </p>
-    <div v-intersect="{ in: ['fade-in'] }" class='we-do'>
+    <div v-intersect="{ in: ['fade-in'] }" class='we-do opacity-0'>
       <h5 class='we-do__title'>Мы делаем</h5>
       <ul class='we-do__list'>
         <li class='we-do__item'>
@@ -42,7 +42,7 @@
         </li>
       </ul>
     </div>
-    <div v-intersect="{ in: ['fade-in'] }" class="wrapper-arrow-link">
+    <div v-intersect="{ in: ['fade-in'] }" class="wrapper-arrow-link opacity-0">
       <a href="#" class="arrow-link">Больше про нас</a>
     </div>
   </div>

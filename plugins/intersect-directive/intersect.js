@@ -7,7 +7,7 @@ export default class Intersect {
   }
 
   bind(el, binding) {
-    const observerOptions = Object.assign({ rootMargin: '0px 0px 150px 0px' }, binding.value.observerOptions)
+    const observerOptions = Object.assign({ rootMargin: '0px 0px 10% 0px' }, binding.value.observerOptions)
     this.interSectionObserver = new IntersectionObserver(this.onIntersectChange.bind(this), observerOptions)
     this.interSectionObserver.observe(el)
     this.el = el
