@@ -3,21 +3,27 @@
     <div class="image-container">
       <img
         ref="image"
-        class='work-item__image'
-        src='~/assets/images/work.jpg'
-        alt='work'
+        class="work-item__image"
+        :src="work.image"
+        alt="work"
       />
     </div>
     <div class="work-item__text">
-      <a href="#" class="work-item__title">Chateau Tamagne Select & Grand Select</a>
-      <a href="#" class="work-item__description">упаковка</a>
+      <a href="#" class="work-item__title">{{ work.name }}</a>
+      <a href="#" class="work-item__description">{{ work.category }}</a>
     </div>
   </li>
 </template>
 
 <script>
 export default {
-  mounted () {
+  props: {
+    work: {
+      type: Object,
+      required: true,
+    },
+  },
+  mounted() {
     const windowHeight = window.innerHeight
     const windowHeightHalf = Math.round(windowHeight / 2)
     window.addEventListener('scroll', (e) => {
@@ -25,11 +31,16 @@ export default {
       if (windowHeight > imageRect.top && imageRect.bottom > 0) {
         // const ratio = Math.round(windowHeight / imageRect.height)
         const direction = imageRect.top > windowHeightHalf ? -1 : 1
-        const offset = direction * 45 * Math.abs(imageRect.top - windowHeightHalf) / windowHeightHalf
-        this.$refs.image.style.transform = 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ' + offset + ', 0, 1)'
+        const offset =
+          (direction * 45 * Math.abs(imageRect.top - windowHeightHalf)) /
+          windowHeightHalf
+        this.$refs.image.style.transform =
+          'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ' +
+          offset +
+          ', 0, 1)'
       }
     })
-  }
+  },
 }
 </script>
 
@@ -38,7 +49,7 @@ export default {
 .work-item {
   margin-bottom: 6vw;
   @media #{$media-xs} {
-    width: 100%!important;
+    width: 100% !important;
   }
   &:nth-child(1) {
     width: 58%;
@@ -68,7 +79,7 @@ export default {
     display: block;
     border-radius: 0.375rem;
     overflow: hidden;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
   }
   &__image {
     margin-top: -1.5625rem;

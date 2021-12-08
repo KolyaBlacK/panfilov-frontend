@@ -9,36 +9,46 @@
         </svg>
       </a>
       <p class='about__main-text'>
-        — В своей работе я стремлюсь создать <br>
-        продукт, способный не только <br>
-        наилучшим образом справляться со <br>
-        своей функцией, но и вдохновлять, <br>
-        украшать и давать новый опыт.
+        Как руководитель брендингового агенства я стремлюсь создавать эстетичные продукты,
+        основанные на глубинном анализе среды его использования и двадцатилетнем <br>опыте дизайна.
+        <span class='about__main-text__second'>
+          Осознанный креатив с пониманием целевой аудитории и <br>
+          глубоким исследованием рынка работает и развивает <br>
+          компанию, вдохновляет любить продукт и приносит <br>
+          перемены к лучшему.
+        </span>
       </p>
     </div>
     <p v-intersect="{ in: ['fade-in'] }" class='about__small-text opacity-0'>
-      Мы разрабатываем айдентику и фирменные стили, нейминг, основываясь на стратегическом анализе конкурентной среды, создаем упаковку с пониманием законов категории и специфики рынка. Мы строим бренды и помогаем реализовать их потенциал, как в физическом мире, так и в цифровом. Мы всегда рядом, чтобы наши клиенты добивались большего.
+      Наш подход это своеобразная бренд-терапия, осознание бренда не как бездушный набор знаков и картинок, но как живой механизм, который говорит с живым человеком. У него есть потребности, цели и миссия, он эволюционирует и не теряет актуальности.
     </p>
     <div v-intersect="{ in: ['fade-in'] }" class='we-do opacity-0'>
       <h5 class='we-do__title'>Мы делаем</h5>
       <ul class='we-do__list'>
         <li class='we-do__item'>
-          Стратегия позиционирования
+          Брендинг
         </li>
         <li class='we-do__item'>
-          Стратегия позиционирования
+          Креативная концепция
         </li>
         <li class='we-do__item'>
-          Стратегия позиционирования
+          Платформа бренда
         </li>
         <li class='we-do__item'>
-          Стратегия позиционирования
+          Продакшн
         </li>
         <li class='we-do__item'>
-          Стратегия позиционирования
+          Исследование
         </li>
         <li class='we-do__item'>
-          Стратегия позиционирования
+          Медиа
+        </li>
+        <li class='we-do__item'>
+          Стратегии продвижения<br>
+          и позиционирования
+        </li>
+        <li class='we-do__item'>
+          Бренд-терапия
         </li>
       </ul>
     </div>
@@ -101,10 +111,33 @@
     @media #{$media-xs} {
       width: auto;
       font-size: 22px;
-      line-height: 38px;
+      line-height: 36px;
       margin: 32px 0;
       br {
         display: none;
+      }
+    }
+    &__second {
+      display: inline-block;
+      margin-top: 2.5vw;
+      font-size: 1.2vw;
+      line-height: 2vw;
+      @media #{$media-lg} {
+        margin-top: 2.5vw;
+        font-size: 1.6vw;
+        line-height: 2.2vw;
+        br {
+          display: none;
+        }
+      }
+      @media #{$media-xs} {
+        width: auto;
+        font-size: 20px;
+        line-height: 30px;
+        margin-top: 32px;
+        br {
+          display: none;
+        }
       }
     }
   }
@@ -162,14 +195,14 @@
     justify-content: space-between;
     flex-wrap: wrap;
     font-size: 1.4vw;
-    line-height: 1.4vw;
+    line-height: 1.6vw;
     @media #{$media-lg} {
       font-size: 1.6vw;
-      line-height: 1.6vw;
+      line-height: 1.8vw;
     }
     @media #{$media-md} {
       font-size: 2vw;
-      line-height: 2vw;
+      line-height: 2.2vw;
     }
     @media #{$media-xs} {
       font-size: 18px;
@@ -180,6 +213,7 @@
   &__item {
     width: 50%;
     margin-bottom: 1.6vw;
+    text-transform: uppercase;
     @media #{$media-xs} {
       width: auto;
       margin-bottom: 24px;
