@@ -1,14 +1,14 @@
 <template>
   <div class="tag-line">
     <div class="first-line fade-in" style='animation-delay: 0.3s'>
-      <div class="left">В первую очередь</div>
-      <div class="right">я</div>
+      <div class="left">В</div>
+      <div class="right">дизайне</div>
     </div>
     <div class="second-line fade-in" style='animation-delay: 0.4s'>
-      предлагаю вам
+      <div class="right">красота</div>
     </div>
     <div class="third-line fade-in" style='animation-delay: 0.5s'>
-      <div class="left">подумать своей</div>
+      <div class="left">становится</div>
       <div class="right">
         <button class="show-reel" :class="{ active: animateStatus }" @mousedown="lineStart" @click="lineStart">
           <span v-if="animateStatus">Tap & hold</span>
@@ -17,13 +17,10 @@
       </div>
     </div>
     <div class="fourth-line fade-in" style='animation-delay: 0.6s'>
-      головой
+      инструментом
     </div>
     <div class="fifth-line fade-in" style='animation-delay: 0.7s'>
-      и только потом
-    </div>
-    <div class="sixth-line fade-in" style='animation-delay: 0.8s'>
-      моей
+      бренда
     </div>
     <div v-show="isShowReelContainer" ref="reelContainer" class="reel-container" @mousedown="lineStart" @mouseup="lineStop">
       <svg width="100%" height="100%" viewBox="0 0 1350 753" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -151,6 +148,7 @@ export default {
 
 .tag-line {
   font-size: 6vw;
+  line-height: 8vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -164,36 +162,35 @@ export default {
   @media #{$media-xs} {
     padding: 15vw 0 25px;
     min-height: auto;
+    line-height: 10vw;
   }
-
-  // @media #{$media-sm-up} {
-  //   font-size: $font-80;
-  // }
-  // @media #{$media-md-up} {
-  //   font-size: $font-84;
-  // }
 }
 
 .first-line {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 60%;
+  .left {
+    margin-left: 10%;
+  }
+}
+
+.second-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .third-line {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 
   .left {
-    width: 60%;
+    width: 62%;
   }
 
   .right {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 40%;
     .show-reel {
       border: 8px solid $styleRose;
       border-radius: 50%;
@@ -239,14 +236,11 @@ export default {
 
 .fourth-line {
   text-align: right;
+  margin-right: 15%;
 }
 
 .fifth-line {
-  text-align: center;
-}
-
-.sixth-line {
-  text-align: left;
+  text-align: right;
 }
 
 .reel-container {
