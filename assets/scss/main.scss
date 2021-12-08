@@ -68,6 +68,7 @@ img {
   @media #{$media-xs} {
     font-size: $font-20;
     line-height: 20px;
+    margin: 0 0 2em;
   }
   &:before {
     content: '';
@@ -115,12 +116,12 @@ img {
   transition: color $textTimeTransition ease;
   color: $white;
   @media #{$media-lg} {
-    font-size: 1.6vw;
-    line-height: 1.6vw;
-  }
-  @media #{$media-md} {
     font-size: 1.8vw;
     line-height: 1.8vw;
+  }
+  @media #{$media-md} {
+    font-size: 2vw;
+    line-height: 2vw;
   }
   @media #{$media-xs} {
     font-size: $font-20;
@@ -128,8 +129,7 @@ img {
   }
   &:after {
     position: relative;
-    top: 50%;
-    margin-top: -0.5vw;
+    top: 2px;
     content: '';
     display: inline-block;
     width: 2vw;
@@ -137,20 +137,22 @@ img {
     margin-left: 1.2vw;
     background-color: $white;
     transition: background-color, transform $textTimeTransition ease;
-    mask: url('~/assets/images/arrow-link.svg') no-repeat;
+    mask: url('~/assets/images/arrow-link.svg') 100% no-repeat;
     @media #{$media-lg} {
-      font-size: 1.4vw;
-      line-height: 1.4vw;
+      width: 2.2vw;
+      height: 1.3vw;
+      top: 3px;
     }
     @media #{$media-md} {
-      font-size: 1.6vw;
-      line-height: 1.6vw;
+      width: 2.5vw;
+      height: 1.5vw;
+      top: 1px;
     }
     @media #{$media-xs} {
       width: 30px;
       height: 18px;
       top: 3px;
-      margin-left: 25px;
+      margin-left: 15px;
     }
   }
   &:hover {
@@ -163,8 +165,8 @@ img {
 }
 
 .top-border {
-  padding-top: 50px;
-  padding-bottom: 100px;
+  padding-top: 3vw;
+  padding-bottom: 6vw;
   position: relative;
   @media #{$media-md} {
     padding-bottom: 70px;
