@@ -212,5 +212,12 @@ export default {}
       }
     }
   }
+  a {
+    transition: color $textTimeTransition ease;
+    color: $lightGray;
+    &:hover {
+      color: $styleRose;
+    }
+  }
 }
 </style>
