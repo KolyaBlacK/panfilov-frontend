@@ -1,13 +1,13 @@
 <template>
   <li ref="scrollSections" class="work-item">
-    <div class="image-container">
+    <a href="#" class="image-container">
       <img
         ref="image"
         v-lazy="work.image"
         class="work-item__image"
         alt="work"
       />
-    </div>
+    </a>
     <div class="work-item__text">
       <a href="#" class="work-item__title">{{ work.name }}</a>
       <a href="#" class="work-item__description">{{ work.category }}</a>
@@ -80,6 +80,10 @@ export default {
     border-radius: 0.375rem;
     overflow: hidden;
     transform: translate3d(0, 0, 0);
+    transition: opacity .6s cubic-bezier(.075, .82, .165, 1);
+    &:hover {
+      opacity: .75;
+    }
   }
   &__image {
     margin-top: -1.5625rem;
