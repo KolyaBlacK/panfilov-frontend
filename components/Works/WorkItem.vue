@@ -3,8 +3,8 @@
     <div class="image-container">
       <img
         ref="image"
+        v-lazy="work.image"
         class="work-item__image"
-        :src="work.image"
         alt="work"
       />
     </div>
