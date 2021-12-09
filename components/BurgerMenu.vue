@@ -2,8 +2,11 @@
   <transition name="fadeInDown">
     <div v-if='isActive' ref='burgerMenu' class='burger-menu'>
       <div class='burger-menu__inner'>
-        <div class='burger-menu__left'>
+        <div class="visible-xs burger-menu__presentation-mobile">
           <a href='#' class='burger-menu__presentation fade-in' style='animation-delay: 0.5s'>Скачать презентацию</a>
+        </div>
+        <div class='burger-menu__left'>
+          <a href='#' class='burger-menu__presentation fade-in hidden-xs' style='animation-delay: 0.5s'>Скачать презентацию</a>
           <div class='burger-menu__left__bottom'>
             <div class='burger-menu__contacts'>
               <a href='#' class='fade-in' style='animation-delay: 0.6s'>+7 919 749 26 88</a>
@@ -91,6 +94,11 @@ export default {
     height: 100%;
     padding: 15px 15px 25px;
   }
+  * {
+    @media #{$media-xs} {
+      animation-delay: 0s!important;
+    }
+  }
   &__inner {
     position: relative;
     display: flex;
@@ -101,7 +109,7 @@ export default {
     @media #{$media-xs} {
       flex-direction: column;
       flex-wrap: nowrap;
-      padding-top: calc(5% + 50px);
+      padding-top: calc(10% + 50px);
     }
   }
   a {
@@ -121,13 +129,14 @@ export default {
     @media #{$media-xs} {
       width: auto;
       align-items: center;
+      height: auto;
     }
   }
   &__left {
     padding-top: 0.5vw;
     @media #{$media-xs} {
       padding-top: 0;
-      order: 2;
+      order: 3;
     }
     &__bottom {
       font-size: 1vw;
@@ -166,9 +175,12 @@ export default {
         margin-right: 2.6vw;
       }
     }
+    @media #{$media-xs} {
+      margin: 15px 0;
+    }
   }
   &__address {
-    margin-top: 2.6vw;
+    margin-top: 15px;
   }
   &__presentation {
     font-size: 0.9vw;
@@ -184,8 +196,12 @@ export default {
     @media #{$media-xs} {
       font-size: 14px;
       line-height: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 32px;
     }
+  }
+  &__presentation-mobile {
+    order: 2;
+    text-align: center;
   }
   &__navigation {
     display: flex;
@@ -213,6 +229,9 @@ export default {
       &:last-child {
         margin: 0;
       }
+      @media #{$media-xs} {
+        margin-bottom: 32px;
+      }
     }
   }
   &__footer {
@@ -232,7 +251,7 @@ export default {
       line-height: 1.8vw;
     }
     @media #{$media-xs} {
-      margin: 40px 0 0;
+      margin: 0;
       display: flex;
       justify-content: space-between;
       padding: 0 10px;
