@@ -172,7 +172,8 @@ img {
     padding-bottom: 70px;
   }
   @media #{$media-xs} {
-    padding-bottom: 50px;
+    padding-top: 24px;
+    padding-bottom: 64px;
   }
   &:before,
   &:after {
@@ -217,6 +218,15 @@ img {
   @media #{$media-xs} {
     visibility: hidden!important;
     display: none!important;
+  }
+}
+
+.visible-xs {
+  visibility: hidden;
+  display: none;
+  @media #{$media-xs} {
+    visibility: visible;
+    display: block;
   }
 }
 

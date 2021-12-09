@@ -95,6 +95,7 @@ export default {
     }
     @media #{$media-xs} {
       max-width: 100%;
+      margin: 0 0 3.7em auto;
     }
   }
 }
