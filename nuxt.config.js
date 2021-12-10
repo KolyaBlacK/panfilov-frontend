@@ -40,7 +40,8 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/strapi'
+    '@nuxtjs/strapi',
+    'nuxt-vue-select'
   ],
   strapi: {
     entities: ['clients'],
