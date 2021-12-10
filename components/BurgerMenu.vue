@@ -25,7 +25,7 @@
         <div class='burger-menu__right'>
           <ul class='burger-menu__navigation'>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.5s'>
-              <NuxtLink to="/about">Работы</NuxtLink>
+              <NuxtLink to="/works">Работы</NuxtLink>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.6s'>
               <NuxtLink to="/about">Агенство</NuxtLink>

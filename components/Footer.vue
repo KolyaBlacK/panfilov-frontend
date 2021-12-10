@@ -51,10 +51,13 @@ export default {}
 @import '~assets/scss/variables';
 
 .footer {
-  padding-bottom: 50px;
+  margin: 0 32px;
+  padding: 2% 0 3%;
   @media #{$media-xs} {
-    padding-bottom: 25px;
+    margin: 0 15px;
+    padding: 28px 0 25px;
   }
+
   &__top, &__bottom {
     display: flex;
     flex-direction: column;
