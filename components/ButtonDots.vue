@@ -189,6 +189,7 @@ export default {
 .burger-menu-button.white {
   .burger-menu-button__dot {
     background: url('~/assets/images/dot-white.svg') no-repeat;
+    background-size: contain;
   }
 }
 </style>

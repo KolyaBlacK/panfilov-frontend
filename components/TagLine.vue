@@ -206,6 +206,7 @@ export default {
       width: 72px;
       text-transform: initial;
       text-align: center;
+      padding-right: 0.3vw;
       transition: all $textTimeTransition ease;
       &:hover {
         background-color: $styleRose;
@@ -266,8 +267,8 @@ export default {
 
 .close-button {
   position: absolute;
-  top: 25px;
-  right: 30px;
+  top: 1%;
+  right: 2%;
   z-index: 51;
   cursor: pointer;
 }

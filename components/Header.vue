@@ -4,7 +4,6 @@
       <nuxt-link to='/' class='logo__link'>
         <img class='logo__image' src='~/assets/images/logo-dark-theme.svg' alt='logo-pnflv'>
       </nuxt-link>
-      <span class='logo__description hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }">branding agency</span>
     </div>
     <div class='menu'>
       <button class='close-button' :class="{ 'fade-in': isActiveMenu, 'fade-out': fadeIn }" @click='closeMenu'>Закрыть</button>
@@ -89,13 +88,6 @@ export default {
   }
   &__image {
     width: 100%;
-  }
-  &__description {
-    color: $white;
-    font-size: 1vw;
-    @media #{$media-md} {
-      font-size: 1.4vw;
-    }
   }
 }
 
