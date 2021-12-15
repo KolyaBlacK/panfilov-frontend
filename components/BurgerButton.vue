@@ -17,15 +17,15 @@ export default {
     }
   },
   mounted() {
-    this.$root.$on('closeMenu', () => this.toggleMenu(false));
+    this.$root.$on('closeMenu', (changeRoute) => this.toggleMenu(false, changeRoute));
     window.document.onscroll = () => {
       this.active = window.scrollY > this.$refs.header.offsetTop;
     }
   },
   methods: {
-    toggleMenu() {
-      this.isActive = !this.isActive;
-      this.$root.$emit('toggleMenu', this.isActive);
+    toggleMenu(isActive, changeRoute) {
+      this.isActive = isActive !== undefined ? isActive : !this.isActive;
+      this.$root.$emit('toggleMenu', this.isActive, changeRoute);
       if (!this.isActive) {
         this.opacityAnimate = true;
         setTimeout(() => {

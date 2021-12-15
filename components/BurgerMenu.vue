@@ -60,7 +60,7 @@ export default {
     }
   },
   mounted() {
-    this.$root.$on('toggleMenu', (isActive) => this.toggleMenu(isActive));
+    this.$root.$on('toggleMenu', (isActive, changeRoute) => this.toggleMenu(isActive, changeRoute));
   },
   methods: {
     toggleMenu(isActive) {
