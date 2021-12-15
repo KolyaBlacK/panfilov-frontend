@@ -24,16 +24,23 @@ export default {
       fadeIn: false
     }
   },
+  watch: {
+    $route() {
+      if (this.isActiveMenu) {
+        this.$root.$emit('closeMenu', true);
+      }
+    },
+  },
   mounted() {
-    this.$root.$on('toggleMenu', (isActive) => this.toggleMenu(isActive));
+    this.$root.$on('toggleMenu', (isActive, changeRoute) => this.toggleMenu(isActive, changeRoute));
     window.document.onscroll = () => {
       this.active = window.scrollY > this.$refs.header.offsetTop;
     }
   },
   methods: {
-    toggleMenu(isActive) {
+    toggleMenu(isActive, changeRoute) {
       this.isActiveMenu = isActive;
-      if (!isActive) {
+      if (!isActive && !changeRoute) {
         this.fadeIn = true;
         setTimeout(() => {
           this.fadeIn = false;
