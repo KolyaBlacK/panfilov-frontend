@@ -17,13 +17,13 @@
             <div>{{ workTypes[work.type] }}</div>
           </div>
           <div class="work-info__right">
-            <div class="description">{{ work.description }}</div>
-            <div class="description_en">{{ work.description_en }}</div>
+            <div v-if="work.description" class="description">{{ work.description }}</div>
+            <div v-if="work.description_en" class="description_en">{{ work.description_en }}</div>
           </div>
         </div>
 
         <div class="web-page">
-          <div v-for="(comp, index) in work.WebPage" :key="index" class="web-page-componentы">
+          <div v-for="(comp, index) in work.WebPage" :key="index" class="web-page-components">
             <component :is="comp.__c" v-bind="comp" />
           </div>
         </div>
@@ -106,28 +106,56 @@ export default {
   &__body {
     .work-info {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
       width: 100%;
 
       color: $darkGray;
-      font-size: 1vw;
-      line-height: 2vw;
       text-align: left;
       margin-right: 19vw;
-      padding: 6vw 4vw 6vw 5vw;
+
+      font-size: 16px;
+      line-height: 24px;
+
+      @media #{$media-sm-up} {
+        font-size: 2vw;
+        line-height: 3vw;
+        flex-direction: row;
+        padding: 6vw 4vw 6vw 5vw;
+      }
+      @media #{$media-lg-up} {
+        font-size: 1vw;
+        line-height: 2vw;
+      }
 
       &__right {
-        width: 59vw;
-
+        @media #{$media-sm-up} {
+          width: 59vw;
+        }
         .description {
-          width: 40vw;
+          @media #{$media-sm-up} {
+            width: 40vw;
+          }
         }
         .description_en {
-          float: right;
           margin-top: 6vw;
-          width: 40vw;
+          @media #{$media-sm-up} {
+            float: right;
+            width: 40vw;
+          }
         }
+      }
+    }
+
+    .web-page {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .web-page-components {
+        display: flex;
+        align-items: flex-end;
+        padding: 4vw 0;
       }
     }
   }
