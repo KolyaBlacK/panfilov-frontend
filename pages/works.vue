@@ -80,11 +80,15 @@ export default {
     line-height: 24px;
     text-align: right;
     margin-bottom: 48px;
+
     @media #{$media-sm-up} {
-      font-size: 1vw;
+      font-size: 2vw;
       line-height: 1.5vw;
       margin-bottom: 5.5vw;
       text-align: left;
+    }
+    @media #{$media-md-up} {
+      font-size: 1.5vw;
     }
   }
 
@@ -96,6 +100,10 @@ export default {
     text-transform: uppercase;
     @media #{$media-sm-up} {
       font-size: 2vw;
+      line-height: 4vw;
+    }
+    @media #{$media-md-up} {
+      font-size: 1.5vw;
       line-height: 3vw;
     }
   }
@@ -113,8 +121,11 @@ export default {
   margin-bottom: 20px;
 
   @media #{$media-sm-up} {
-    font-size: 1vw;
-    width: 17vw;
+    font-size: 2vw;
+    width: 20vw;
+  }
+  @media #{$media-md-up} {
+    font-size: 1.5vw;
   }
 }
 .work-type-select::v-deep .vs__dropdown-toggle {
@@ -135,6 +146,7 @@ export default {
     margin: 12px 0;
     &:hover {
       background: $mainBlack;
+      color: $styleRose;
     }
   }
 }
