@@ -89,6 +89,9 @@ export default {
       this.strokeDashoffset = this.pathLength;
     },
     lineStart (event) {
+      if (this.isShowReel) {
+        return
+      }
       this.animateStatus = true
       clearTimeout(this.hideReelTimeout)
       this.animateStartTime = new Date()
@@ -112,31 +115,32 @@ export default {
       event.preventDefault()
     },
     lineStop () {
-      if (isMobile) {
+      if (isMobile || this.isShowReel) {
         return
       }
       this.animateStatus = false
       clearTimeout(this.strokeWidthTimeout)
       clearTimeout(this.showReelTimeout)
-      this.animationDurationTime = new Date() - this.animateStartTime;
-      const path = document.querySelector('.reel-container path');
+      this.animationDurationTime = new Date() - this.animateStartTime
+      const path = document.querySelector('.reel-container path')
       const transitionTime = Math.round(this.animationDurationTime / 1000 / 0.5) * 0.5
-      path.style.transition = path.style.WebkitTransition = 'all ' + transitionTime + 's ease-in-out';
-      this.strokeWidth = STROKE_DEFAULT_WIDTH;
-      this.strokeDashoffset = this.pathLength;
+      path.style.transition = path.style.WebkitTransition = 'all ' + transitionTime + 's ease-in-out'
+      this.strokeWidth = STROKE_DEFAULT_WIDTH
+      this.strokeDashoffset = this.pathLength
       this.hideReelTimeout = setTimeout(() => {
         this.isShowReelContainer = false
         this.animationDurationTime = 0
         enableBodyScroll(this.$refs.reelContainer)
-      }, transitionTime * 1000);
+      }, transitionTime * 1000)
     },
     hideReel () {
       clearTimeout(this.strokeWidthTimeout)
       clearTimeout(this.showReelTimeout)
+      this.animateStatus = false
       this.isShowReel = false
       this.isShowReelContainer = false
-      this.strokeWidth = STROKE_DEFAULT_WIDTH;
-      this.strokeDashoffset = this.pathLength;
+      this.strokeWidth = STROKE_DEFAULT_WIDTH
+      this.strokeDashoffset = this.pathLength
       enableBodyScroll(this.$refs.reelContainer)
     }
   }
