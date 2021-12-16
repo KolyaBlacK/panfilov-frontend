@@ -1,5 +1,5 @@
 <template>
-  <div class="text" :class="[align, widthClass]">
+  <div class="text" :class="[fontSize, color, align, widthClass]">
     {{ text }}
   </div>
 </template>
@@ -8,6 +8,14 @@
 export default {
   props: {
     text: {
+      type: String,
+      default: ''
+    },
+    fontSize: {
+      type: String,
+      default: ''
+    },
+    color: {
       type: String,
       default: ''
     },
@@ -32,6 +40,10 @@ export default {
   color: $darkGray;
   font-size: 1.4vw;
   line-height: 2vw;
+  padding: 5vw 0;
+  @media #{$media-sm-up} {
+    padding: 5vw;
+  }
 }
 
 .left {
@@ -42,9 +54,46 @@ export default {
   text-align: right;
 }
 
-.width_605 {
+.white {
+  color: $white;
+}
+
+.gray {
+  color: $darkGray;
+}
+
+.font_16 {
+  font-size: 16px;
+}
+
+.font_24 {
+  font-size: 18px;
+  line-height: 40px;
   @media #{$media-sm-up} {
-    width: 47vw;
+    font-size: 1.6vw;
+    line-height: 3vw;
+  }
+  text-transform: uppercase;
+}
+
+.width_100 {
+  @media #{$media-sm-up} {
+    width: 100vw;
+  }
+}
+.width_65 {
+  @media #{$media-sm-up} {
+    width: 65vw;
+  }
+}
+.width_50 {
+  @media #{$media-sm-up} {
+    width: 45vw;
+  }
+}
+.width_35 {
+  @media #{$media-sm-up} {
+    width: 35vw;
   }
 }
 </style>
