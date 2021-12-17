@@ -1,68 +1,92 @@
 <template>
-  <div v-intersect="{ in: ['animate-line'] }" class='about top-border'>
-    <h4 v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">О нас</h4>
-    <div v-intersect="{ in: ['fade-in'] }" class='about__top opacity-0'>
-      <a href='#' class='about__video-button'>
-        <img v-lazy="'images/about.jpg'" class='about__image' alt='about'>
-        <svg class='about__video-icon' width="73" height="53" viewBox="0 0 73 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M69.8975 5.03719C67.9174 1.3686 65.7685 0.693802 61.393 0.437191C57.0221 0.128306 46.0311 0 36.5091 0C26.9689 0 15.9733 0.128306 11.607 0.432439C7.24069 0.693803 5.08719 1.36384 3.08881 5.03719C1.04938 8.70104 0 15.0118 0 26.1221C0 26.1316 0 26.1364 0 26.1364C0 26.1459 0 26.1506 0 26.1506V26.1602C0 37.223 1.04938 43.5812 3.08881 47.2071C5.08719 50.8757 7.23613 51.541 11.6024 51.8498C15.9733 52.116 26.9689 52.2728 36.5091 52.2728C46.0311 52.2728 57.0221 52.116 61.3976 51.8546C65.773 51.5457 67.922 50.8804 69.9021 47.2118C71.9598 43.586 73 37.2277 73 26.1649C73 26.1649 73 26.1506 73 26.1411C73 26.1411 73 26.1316 73 26.1269C73 15.0118 71.9598 8.70104 69.8975 5.03719ZM27.375 40.3926V11.8802L50.1875 26.1364L27.375 40.3926Z" fill="white"/>
+  <div v-intersect="{ in: ['animate-line'] }" class="about top-border">
+    <h4 v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">
+      О нас
+    </h4>
+    <div v-intersect="{ in: ['fade-in'] }" class="about__top opacity-0">
+      <a class="about__video-button" href="#" @click.prevent="openAboutModal">
+        <img v-lazy="'images/about.jpg'" class="about__image" alt="about" />
+        <svg
+          class="about__video-icon"
+          width="73"
+          height="53"
+          viewBox="0 0 73 53"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M69.8975 5.03719C67.9174 1.3686 65.7685 0.693802 61.393 0.437191C57.0221 0.128306 46.0311 0 36.5091 0C26.9689 0 15.9733 0.128306 11.607 0.432439C7.24069 0.693803 5.08719 1.36384 3.08881 5.03719C1.04938 8.70104 0 15.0118 0 26.1221C0 26.1316 0 26.1364 0 26.1364C0 26.1459 0 26.1506 0 26.1506V26.1602C0 37.223 1.04938 43.5812 3.08881 47.2071C5.08719 50.8757 7.23613 51.541 11.6024 51.8498C15.9733 52.116 26.9689 52.2728 36.5091 52.2728C46.0311 52.2728 57.0221 52.116 61.3976 51.8546C65.773 51.5457 67.922 50.8804 69.9021 47.2118C71.9598 43.586 73 37.2277 73 26.1649C73 26.1649 73 26.1506 73 26.1411C73 26.1411 73 26.1316 73 26.1269C73 15.0118 71.9598 8.70104 69.8975 5.03719ZM27.375 40.3926V11.8802L50.1875 26.1364L27.375 40.3926Z"
+            fill="white"
+          />
         </svg>
       </a>
-      <p class='about__main-text'>
-        Как руководитель брендингового агенства я стремлюсь создавать эстетичные продукты,
-        основанные на глубинном анализе среды его использования и двадцатилетнем <br>опыте дизайна.
-        <span class='about__main-text__second'>
-          Осознанный креатив с пониманием целевой аудитории и <br>
-          глубоким исследованием рынка работает и развивает <br>
-          компанию, вдохновляет любить продукт и приносит <br>
+      <p class="about__main-text">
+        Как руководитель брендингового агенства я стремлюсь создавать эстетичные
+        продукты, основанные на глубинном анализе среды его использования и
+        двадцатилетнем <br />опыте дизайна.
+        <span class="about__main-text__second">
+          Осознанный креатив с пониманием целевой аудитории и <br />
+          глубоким исследованием рынка работает и развивает <br />
+          компанию, вдохновляет любить продукт и приносит <br />
           перемены к лучшему.
         </span>
       </p>
     </div>
-    <p v-intersect="{ in: ['fade-in'] }" class='about__small-text opacity-0'>
-      Наш подход это своеобразная бренд-терапия, осознание бренда не как бездушный набор знаков и картинок, но как живой механизм, который говорит с живым человеком. У него есть потребности, цели и миссия, он эволюционирует и не теряет актуальности.
+    <p v-intersect="{ in: ['fade-in'] }" class="about__small-text opacity-0">
+      Наш подход это своеобразная бренд-терапия, осознание бренда не как
+      бездушный набор знаков и картинок, но как живой механизм, который говорит
+      с живым человеком. У него есть потребности, цели и миссия, он
+      эволюционирует и не теряет актуальности.
     </p>
-    <div v-intersect="{ in: ['fade-in'] }" class='we-do opacity-0'>
-      <h5 class='we-do__title'>Мы делаем</h5>
-      <ul class='we-do__list'>
-        <li class='we-do__item'>
-          Брендинг
-        </li>
-        <li class='we-do__item'>
-          Креативная концепция
-        </li>
-        <li class='we-do__item'>
-          Платформа бренда
-        </li>
-        <li class='we-do__item'>
-          Продакшн
-        </li>
-        <li class='we-do__item'>
-          Исследование
-        </li>
-        <li class='we-do__item'>
-          Медиа
-        </li>
-        <li class='we-do__item'>
-          Стратегии продвижения<br>
+    <div v-intersect="{ in: ['fade-in'] }" class="we-do opacity-0">
+      <h5 class="we-do__title">Мы делаем</h5>
+      <ul class="we-do__list">
+        <li class="we-do__item">Брендинг</li>
+        <li class="we-do__item">Креативная концепция</li>
+        <li class="we-do__item">Платформа бренда</li>
+        <li class="we-do__item">Продакшн</li>
+        <li class="we-do__item">Исследование</li>
+        <li class="we-do__item">Медиа</li>
+        <li class="we-do__item">
+          Стратегии продвижения<br />
           и позиционирования
         </li>
-        <li class='we-do__item'>
-          Бренд-терапия
-        </li>
+        <li class="we-do__item">Бренд-терапия</li>
       </ul>
     </div>
     <div v-intersect="{ in: ['fade-in'] }" class="wrapper-arrow-link opacity-0">
       <a href="#" class="arrow-link">Больше про нас</a>
     </div>
+    <modal
+      ref="modalAbout"
+      class="modal"
+      name="modal-about"
+      width="90%"
+      height="90%"
+      @closed="closedModal"
+      @opened="openedModal"
+    >
+      <modal-about />
+    </modal>
   </div>
 </template>
 <script>
-  export default {
-
-  }
+import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock'
+export default {
+  methods: {
+    openAboutModal() {
+      this.$modal.show('modal-about')
+    },
+    openedModal() {
+      disableBodyScroll(this.$refs.modalAbout)
+    },
+    closedModal() {
+      enableBodyScroll(this.$refs.modalAbout)
+    }
+  },
+}
 </script>
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import '~/assets/scss/variables';
 .about {
   &__top {
@@ -83,7 +107,6 @@
     }
   }
   &__image {
-
   }
   &__video-icon {
     position: absolute;
@@ -223,5 +246,13 @@
 
 .wrapper-arrow-link {
   text-align: right;
+}
+
+.modal::v-deep {
+  .vm--modal {
+    background-color: $styleRose;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 </style>
