@@ -58,20 +58,31 @@
       <a href="#" class="arrow-link">Больше про нас</a>
     </div>
     <modal
-      name="example"
-      width="80%"
-      height="auto"
+      ref="modalAbout"
+      class="modal"
+      name="modal-about"
+      width="90%"
+      height="90%"
+      @closed="closedModal"
+      @opened="openedModal"
     >
       <modal-about />
     </modal>
   </div>
 </template>
 <script>
+import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock'
 export default {
   methods: {
     openAboutModal() {
-      this.$modal.show('example')
+      this.$modal.show('modal-about')
     },
+    openedModal() {
+      disableBodyScroll(this.$refs.modalAbout)
+    },
+    closedModal() {
+      enableBodyScroll(this.$refs.modalAbout)
+    }
   },
 }
 </script>
@@ -235,5 +246,13 @@ export default {
 
 .wrapper-arrow-link {
   text-align: right;
+}
+
+.modal::v-deep {
+  .vm--modal {
+    background-color: $styleRose;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 </style>
