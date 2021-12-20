@@ -7,8 +7,6 @@
 }
 
 html, body {
-  background-color: $mainBlack;
-  color: $white;
   margin: 0;
   padding: 0;
   font-family: 'Object Sans', sans-serif;
@@ -16,8 +14,19 @@ html, body {
 }
 
 a {
-  color: $white;
   text-decoration: none;
+}
+
+.theme-light {
+  a {
+    color: $mainBlack;
+  }
+}
+
+.theme-dark {
+  a {
+    color: $white;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,6 +49,18 @@ ul {
 
 img {
   max-width: 100%;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
 }
 
 .block-title {

@@ -3,9 +3,22 @@
     <div v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">Обратная связь</div>
     <div v-intersect="{ in: ['fade-in'] }" class="footer__top opacity-0">
       <div class="feedback">
-        <button class="feedback__btn">
+        <button class="feedback__btn" :class="[theme]">
           <span>Напишите нам о<br> своем проекте</span>
-          <svg class="btn-icon" width="132" height="56" viewBox="0 0 132 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M106.71 1.42416L130.887 25.3449C132.371 26.8128 132.371 29.1927 130.887 30.6606L106.71 54.5814C105.226 56.0493 102.82 56.0493 101.337 54.5814C99.8531 53.1135 99.8531 50.7336 101.337 49.2657L119.029 31.7616L4.45699 31.7616C2.35878 31.7616 0.657837 30.0787 0.657837 28.0028C0.657837 25.9269 2.35878 24.244 4.45699 24.244L119.029 24.244L101.337 6.73989C99.8531 5.27199 99.8531 2.89206 101.337 1.42416C102.82 -0.0437321 105.226 -0.0437321 106.71 1.42416Z" fill="white"/></svg>
+          <svg
+            class="btn-icon"
+            width="132"
+            height="56"
+            viewBox="0 0 132 56"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M106.71 1.42416L130.887 25.3449C132.371 26.8128 132.371 29.1927 130.887 30.6606L106.71 54.5814C105.226 56.0493 102.82 56.0493 101.337 54.5814C99.8531 53.1135 99.8531 50.7336 101.337 49.2657L119.029 31.7616L4.45699 31.7616C2.35878 31.7616 0.657837 30.0787 0.657837 28.0028C0.657837 25.9269 2.35878 24.244 4.45699 24.244L119.029 24.244L101.337 6.73989C99.8531 5.27199 99.8531 2.89206 101.337 1.42416C102.82 -0.0437321 105.226 -0.0437321 106.71 1.42416Z"
+                :fill="arrowColor"
+              />
+            </svg>
         </button>
         <div class="desc">
           Мы изучаем все входящие заявки
@@ -44,12 +57,39 @@
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    theme () {
+      return this.$store.state.ui.theme
+    },
+    arrowColor () {
+      return this.$store.state.ui.theme === 'dark' ? 'white' : 'black'
+    },
+  }
+}
 </script>
 
 <style lang="scss">
 @import '~assets/scss/variables';
 
+.theme-light {
+  a {
+    transition: color $textTimeTransition ease;
+    color: $asphaltBlack;
+    &:hover {
+      color: $styleRose;
+    }
+  }
+}
+.theme-dark {
+  a {
+    transition: color $textTimeTransition ease;
+    color: $lightGray;
+    &:hover {
+      color: $styleRose;
+    }
+  }
+}
 .footer {
   margin: 0 32px;
   padding: 2% 0 3%;
@@ -82,7 +122,7 @@ export default {}
     .feedback__btn {
       background-color: transparent;
       border: none;
-      color: $white;
+      color: $mainBlack;
       cursor: pointer;
       font-size: $font-32;
       display: flex;
@@ -91,6 +131,10 @@ export default {}
       justify-content: flex-end;
       text-align: left;
       padding: 0 32px 72px;
+
+      &.dark {
+        color: $white;
+      }
 
       @media #{$media-sm-up} {
         font-size: $font-36;
@@ -128,9 +172,6 @@ export default {}
         @media #{$media-xs} {
           width: 35px;
           margin-left: 15px;
-        }
-        path {
-          fill: $white;
         }
       }
 
@@ -213,13 +254,6 @@ export default {}
           margin-bottom: 25px;
         }
       }
-    }
-  }
-  a {
-    transition: color $textTimeTransition ease;
-    color: $lightGray;
-    &:hover {
-      color: $styleRose;
     }
   }
 }

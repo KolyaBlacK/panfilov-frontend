@@ -3,7 +3,15 @@
     <div class="work-page">
       <div class="work-page__header">
         <div class="back-btn">
-          <NuxtLink to="/works">Назад к работам</NuxtLink>
+          <NuxtLink to="/works">
+            <svg width="35" height="16" viewBox="0 0 35 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M34 9C34.5523 9 35 8.55228 35 8C35 7.44772 34.5523 7 34 7V9ZM0.292892 7.29289C-0.0976295 7.68342 -0.0976295 8.31658 0.292892 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292892 7.29289ZM34 7L1 7V9L34 9V7Z"
+                :fill="arrowColor"
+              />
+            </svg>
+            Назад к работам
+          </NuxtLink>
         </div>
         <div class="work-title">
           {{ work.title }}
@@ -14,7 +22,7 @@
         <div class="work-info">
           <div class="work-info__left">
             <div>{{ work.date }}</div>
-            <div>{{ workTypes[work.type] }}</div>
+            <div>{{ WORK_TYPES[work.type] }}</div>
           </div>
           <div class="work-info__right">
             <div v-if="work.description" class="description">{{ work.description }}</div>
@@ -23,9 +31,11 @@
         </div>
 
         <div class="web-page">
-          <div v-for="(comp, index) in work.WebPage" :key="index" class="web-page-components">
-            <component :is="comp.__c" v-bind="comp" />
-          </div>
+          <client-only>
+            <div v-for="(comp, index) in work.WebPage" :key="index" class="web-page-components">
+              <component :is="comp.__c" v-bind="comp" />
+            </div>
+          </client-only>
         </div>
       </div>
     </div>
@@ -35,35 +45,54 @@
 
 <script>
 
+const WORK_TYPES = {
+  'package_design': 'Дизайн упаковки'
+}
+const COMPONENT_MAP = {
+  'text.tekst': '_Text',
+  'text.avtory': '_Authors',
+  'image.image': '_Image'
+}
+
 export default {
-  data () {
-    return {
-      id: this.$route.params.id,
-      work: {},
-      workTypes: {
-        'package_design': 'Дизайн упаковки'
-      },
-      componentMap: {
-        'text.tekst': '_Text',
-        'image.image': '_Image',
-        'text-with-image.tekst-s-kartinkoj': '_TextWithImage'
-      },
-      error: null
+  async asyncData ({ app, params, store }) {
+    try {
+      const work = await app.$strapi.$works.findOne(params.id)
+      if (work) {
+        store.commit('work/set', work)
+        store.commit('ui/set', work.theme)
+      }
+    } catch (error) {
+      console.error(error)
     }
   },
-  async mounted () {
-    try {
-      this.work = await this.$strapi.$works.findOne(this.id)
-      console.log('>>>>>>>>>', this.work)
-      this.initComponents(this.work.WebPage)
-    } catch (error) {
-      this.error = error
+  data () {
+    return {
+      WORK_TYPES
     }
+  },
+  computed: {
+    arrowColor () {
+      return this.$store.state.ui.theme === 'dark' ? 'white' : 'black'
+    },
+    work () {
+      return this.$store.state.work.currentWork
+    }
+  },
+  mounted () {
+    if (this.work.WebPage) {
+      this.initComponents(this.work.WebPage)
+    }
+  },
+  destroyed () {
+    setTimeout(() => {
+      this.$store.commit('ui/set', 'dark')
+    }, 700)
   },
   methods: {
     initComponents (WebPageComponents = []) {
       WebPageComponents.forEach(component => {
-        component.__c = () => import(`@/components/Works/${this.componentMap[component.__component]}.vue`)
+        component.__c = () => import(`@/components/Works/${COMPONENT_MAP[component.__component]}.vue`)
       });
     }
   }
@@ -88,18 +117,37 @@ export default {
     }
 
     .back-btn {
-      font-size: 2.2vw;
-      line-height: 4.5vw;
+      font-size: 18px;
+      line-height: 48px;
+      min-width: 250px;
 
       @media #{$media-sm-up} {
-        margin-right: 12vw;
+        font-size: 2vw;
+        line-height: 3vw;
+        margin-right: 3vw;
+      }
+
+      @media #{$media-lg-up} {
+        font-size: 1.6vw;
+        line-height: 4vw;
+        margin-right: 15vw;
       }
     }
 
     .work-title {
-      font-size: 2.6vw;
-      line-height: 4.5vw;
+      font-size: 24px;
+      line-height: 40px;
       text-transform: uppercase;
+
+      @media #{$media-sm-up} {
+        font-size: 3vw;
+        line-height: 4vw;
+      }
+
+      @media #{$media-lg-up} {
+        font-size: 2.6vw;
+        line-height: 4.5vw;
+      }
     }
   }
 
@@ -121,7 +169,7 @@ export default {
         font-size: 2vw;
         line-height: 3vw;
         flex-direction: row;
-        padding: 6vw 4vw 6vw 5vw;
+        padding: 6vw 4vw 6vw 3vw;
       }
       @media #{$media-lg-up} {
         font-size: 1vw;
@@ -143,6 +191,15 @@ export default {
             float: right;
             width: 40vw;
           }
+        }
+      }
+
+      &__left {
+        text-align: right;
+        margin-bottom: 40px;
+
+        @media #{$media-sm-up} {
+          text-align: left;
         }
       }
     }

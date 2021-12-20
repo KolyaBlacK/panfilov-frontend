@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container" :class="[theme]">
     <burger-menu />
     <Header/>
     <Nuxt />
@@ -7,14 +7,27 @@
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    theme () {
+      return 'theme-' + this.$store.state.ui.theme
+    }
+  }
+}
+</script>
+
+
 <style lang="scss" scoped>
-//@import '~assets/scss/variables';
-//.container {
-//  margin: 0 auto;
-//  padding: 75px 0 0;
-//  @media #{$media-sm-up} {
-//    padding: 70px 0 0;
-//  }
-//  // width: 1440px;
-//}
+@import '~assets/scss/variables';
+.container.theme-dark {
+  background-color: $mainBlack;
+  color: $white;
+}
+
+.container.theme-light {
+  background-color: $white;
+  color: $mainBlack;
+}
+
 </style>

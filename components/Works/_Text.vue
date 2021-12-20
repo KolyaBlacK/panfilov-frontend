@@ -46,14 +46,6 @@ export default {
   }
 }
 
-.left {
-  text-align: left;
-}
-
-.right {
-  text-align: right;
-}
-
 .white {
   color: $white;
 }
@@ -62,8 +54,13 @@ export default {
   color: $darkGray;
 }
 
+.black {
+  color: $mainBlack;
+}
+
 .font_16 {
   font-size: 16px;
+  line-height: 28px;
 }
 
 .font_24 {
