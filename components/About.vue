@@ -38,24 +38,9 @@
       с живым человеком. У него есть потребности, цели и миссия, он
       эволюционирует и не теряет актуальности.
     </p>
-    <div v-intersect="{ in: ['fade-in'] }" class="we-do opacity-0">
-      <h5 class="we-do__title">Мы делаем</h5>
-      <ul class="we-do__list">
-        <li class="we-do__item">Брендинг</li>
-        <li class="we-do__item">Креативная концепция</li>
-        <li class="we-do__item">Платформа бренда</li>
-        <li class="we-do__item">Продакшн</li>
-        <li class="we-do__item">Исследование</li>
-        <li class="we-do__item">Медиа</li>
-        <li class="we-do__item">
-          Стратегии продвижения<br />
-          и позиционирования
-        </li>
-        <li class="we-do__item">Бренд-терапия</li>
-      </ul>
-    </div>
+    <we-do />
     <div v-intersect="{ in: ['fade-in'] }" class="wrapper-arrow-link opacity-0">
-      <a href="#" class="arrow-link">Больше про нас</a>
+      <NuxtLink class="arrow-link" to="/agency">Больше про нас</NuxtLink>
     </div>
     <modal
       ref="modalAbout"
@@ -184,62 +169,6 @@ export default {
       margin-bottom: 50px;
       font-size: 14px;
       line-height: 18px;
-    }
-  }
-}
-
-.we-do {
-  padding: 0 5%;
-  margin-bottom: 6vw;
-  @media #{$media-xs} {
-    padding: 0;
-    margin-bottom: 50px;
-  }
-  &__title {
-    font-size: 3vw;
-    line-height: 3vw;
-    text-transform: uppercase;
-    margin-bottom: 1em;
-    @media #{$media-lg} {
-      font-size: 3.4vw;
-      line-height: 3.4vw;
-    }
-    @media #{$media-md} {
-      font-size: 3.6vw;
-      line-height: 3.6vw;
-    }
-    @media #{$media-xs} {
-      font-size: 32px;
-      margin-bottom: 32px;
-    }
-  }
-  &__list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    font-size: 1.4vw;
-    line-height: 1.6vw;
-    @media #{$media-lg} {
-      font-size: 1.6vw;
-      line-height: 1.8vw;
-    }
-    @media #{$media-md} {
-      font-size: 2vw;
-      line-height: 2.2vw;
-    }
-    @media #{$media-xs} {
-      font-size: 18px;
-      line-height: 32px;
-      display: block;
-    }
-  }
-  &__item {
-    width: 50%;
-    margin-bottom: 1.6vw;
-    text-transform: uppercase;
-    @media #{$media-xs} {
-      width: auto;
-      margin-bottom: 24px;
     }
   }
 }
