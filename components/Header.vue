@@ -2,7 +2,7 @@
   <div ref='header' class='header' :class="{ sticky: active && !isActiveMenu }">
     <div class='logo'>
       <nuxt-link to='/' class='logo__link'>
-        <img class='logo__image' src='~/assets/images/logo-dark-theme.svg' alt='logo-pnflv'>
+        <img class='logo__image' :src="logoPath" alt='logo-pnflv'>
       </nuxt-link>
     </div>
     <div class='menu'>
@@ -22,6 +22,14 @@ export default {
       active: false,
       isActiveMenu: false,
       fadeIn: false
+    }
+  },
+  computed: {
+    theme () {
+      return this.$store.state.ui.theme
+    },
+    logoPath () {
+      return require(`../assets/images/logo-${this.theme}-theme.svg`)
     }
   },
   watch: {
@@ -104,7 +112,6 @@ export default {
   &__link {
     display: inline-block;
     padding: 0.5vw;
-    color: $white;
     transition: color $textTimeTransition ease;
     &:hover {
       color: $styleRose;
