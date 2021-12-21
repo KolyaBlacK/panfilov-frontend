@@ -28,6 +28,7 @@ export default {
     { src: '~/plugins/intersect-directive', mode: 'client' },
     { src: '~/plugins/vue-lazy-load.js', mode: 'client' },
     { src: '~plugins/vue-js-modal.js', mode: 'client' },
+    { src: '~plugins/helper.js' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -45,7 +46,7 @@ export default {
     'nuxt-vue-select'
   ],
   strapi: {
-    entities: ['clients', 'works'],
+    entities: ['clients', 'works', 'categories'],
     url: 'http://localhost:1337'
   },
 

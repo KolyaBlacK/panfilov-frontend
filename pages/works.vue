@@ -3,16 +3,16 @@
     <div class="works-header">
       <div class="works-header__left">
         <v-select
-          v-model="workType"
+          v-model="filterCategory"
           class="work-type-select"
-          :options="workTypes"
+          :options="categories"
           :components="{Deselect}"
-          label="title"
+          label="name"
         ></v-select>
       </div>
       <div class="works-header__right">
         <div class="works-count">
-          29 работ — Все работы
+          {{ worksCount }}
         </div>
         <div class="works-tagline">
           — В своей работе я стремлюсь создать продукт, способный не только наилучшим образом справляться со своей функцией, но и вдохновлять, украшать и давать новый опыт
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="works-page">
-      <Works />
+      <Works :works="works" />
     </div>
   </div>
 
@@ -28,21 +28,53 @@
 
 <script>
 export default {
+  async asyncData ({ app, store }) {
+    try {
+      const categories = await app.$strapi.$categories.find()
+      const works = await app.$strapi.$works.find()
+      if (categories) {
+        store.commit('categories/setList', categories)
+      }
+      if (works) {
+        store.commit('work/setList', works)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  },
   data () {
     return {
       Deselect: {
         render: createElement => '',
-      },
-      workType: null,
-      workTypes: [
-        { title: 'Все работы' },
-        { title: 'Сделано руками' },
-        { title: 'Сделано руками 2' }
-      ]
+      }
     }
   },
+  computed: {
+    categories () {
+      return [
+        { id: null, name: 'Все работы' },
+        ...this.$store.state.categories.list
+      ]
+    },
+    filterCategory: {
+      get () {
+        return this.$store.state.categories.filterCategory
+      },
+      set (category) {
+        this.$store.commit('categories/setFilterCategory', category)
+      }
+    },
+    works () {
+      return this.filterCategory && this.filterCategory.id
+        ? this.$store.state.work.list.filter(work => work.category.id === this.filterCategory.id)
+        : this.$store.state.work.list
+    },
+    worksCount () {
+      return this.works.length + ' ' + this.$declOfNum(this.works.length, ['работа', 'работы', 'работ']) + (this.filterCategory ? ' — ' + this.filterCategory.name : '')
+    },
+  },
   mounted () {
-    this.workType = this.workTypes[0]
+    this.$store.commit('categories/setFilterCategory', this.categories[0])
   }
 }
 </script>

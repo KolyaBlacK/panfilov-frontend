@@ -13,7 +13,7 @@
         проработанной психологией взаимодействия продаются лучше, становятся
         любимыми.
       </p>
-      <Works />
+      <Works :works="works" />
       <div v-intersect="{ in: ['fade-in'] }" class="wrapper-arrow-link opacity-0">
         <NuxtLink to="/works" class="arrow-link">Все работы</NuxtLink>
       </div>
@@ -23,6 +23,28 @@
   </div>
 
 </template>
+
+<script>
+
+export default {
+  async asyncData ({ app, store }) {
+    try {
+      const works = await app.$strapi.$works.find()
+      if (works) {
+        store.commit('work/setList', works)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  },
+  computed: {
+    works () {
+      return this.$store.state.work.list
+    }
+  }
+}
+</script>
+
 
 
 <style lang="scss" scoped>
