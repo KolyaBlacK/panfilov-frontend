@@ -1,16 +1,16 @@
 <template>
   <li ref="scrollSections" class="work-item">
-    <a href="#" class="image-container">
+    <NuxtLink v-if="work.mainImage" :to="workUrl" class="image-container">
       <img
         ref="image"
-        v-lazy="work.image"
+        v-lazy="$strapi.options.url + work.mainImage.url"
         class="work-item__image"
         alt="work"
       />
-    </a>
+    </NuxtLink>
     <div class="work-item__text">
-      <a href="#" class="work-item__title">{{ work.name }}</a>
-      <a href="#" class="work-item__description">{{ work.category }}</a>
+      <NuxtLink :to="workUrl" class="work-item__title">{{ work.title }}</NuxtLink>
+      <NuxtLink v-if="work.category" :to="workUrl" class="work-item__description">{{ work.category.name }}</NuxtLink>
     </div>
   </li>
 </template>
@@ -23,7 +23,12 @@ export default {
       required: true,
     },
   },
-  mounted() {
+  computed: {
+    workUrl () {
+      return '/work/' + this.work.id
+    }
+  },
+  mounted () {
     const windowHeight = window.innerHeight
     const windowHeightHalf = Math.round(windowHeight / 2)
     window.addEventListener('scroll', (e) => {

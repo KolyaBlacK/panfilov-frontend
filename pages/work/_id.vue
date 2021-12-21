@@ -59,7 +59,7 @@ export default {
     try {
       const work = await app.$strapi.$works.findOne(params.id)
       if (work) {
-        store.commit('work/set', work)
+        store.commit('work/setCurrent', work)
         store.commit('ui/set', work.theme)
       }
     } catch (error) {
