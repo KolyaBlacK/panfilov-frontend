@@ -5,6 +5,7 @@
         <v-select
           v-model="filterCategory"
           class="work-type-select"
+          :searchable="false"
           :options="categories"
           :components="{Deselect}"
           label="name"
@@ -95,6 +96,7 @@ export default {
   }
 
   &__left {
+    margin-bottom: 15px;
     @media #{$media-sm-up} {
       margin-right: 10vw;
     }
@@ -115,12 +117,13 @@ export default {
 
     @media #{$media-sm-up} {
       font-size: 2vw;
-      line-height: 1.5vw;
+      line-height: 3.5vw;
       margin-bottom: 5.5vw;
       text-align: left;
     }
     @media #{$media-md-up} {
       font-size: 1.5vw;
+      line-height: 3vw;
     }
   }
 
@@ -166,6 +169,7 @@ export default {
   .vs__selected {
     color: $white;
     opacity: 1;
+    margin: 0;
   }
 }
 .work-type-select::v-deep .vs__dropdown-menu {
