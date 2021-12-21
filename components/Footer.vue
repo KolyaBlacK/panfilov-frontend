@@ -39,7 +39,7 @@
           <a href="mailto:panfiloffff@gmail.com">panfiloffff@gmail.com</a>
         </div>
         <div class="contacts__row address">
-          Ставрополь, Гражданская 8 3 этаж, офис 313
+          Ставрополь, Гражданская, 8 <br> 3 этаж, офис 313
         </div>
       </div>
     </div>
@@ -204,7 +204,7 @@ export default {
 
   .contacts {
     font-size: $font-16;
-    width: 223px;
+    width: 230px;
     padding-top: 50px;
 
     &__row {
