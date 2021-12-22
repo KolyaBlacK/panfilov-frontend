@@ -2,14 +2,16 @@
   <div>
     <div class="works-header">
       <div class="works-header__left">
-        <v-select
-          v-model="filterCategory"
-          class="work-type-select"
-          :searchable="false"
-          :options="categories"
-          :components="{Deselect}"
-          label="name"
-        ></v-select>
+        <client-only>
+          <v-select
+            v-model="filterCategory"
+            class="work-type-select"
+            :searchable="false"
+            :options="categories"
+            :components="{Deselect}"
+            label="name"
+          ></v-select>
+        </client-only>
       </div>
       <div class="works-header__right">
         <div class="works-count">
@@ -40,7 +42,6 @@ export default {
         store.commit('work/setList', works)
       }
     } catch (error) {
-      console.error(error)
     }
   },
   data () {

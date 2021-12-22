@@ -23,29 +23,42 @@ export default {
       required: true,
     },
   },
+  data () {
+    return {
+      windowHeight: 0,
+      windowHeightHalf: 0
+    }
+  },
   computed: {
     workUrl () {
       return '/work/' + this.work.id
     }
   },
   mounted () {
-    const windowHeight = window.innerHeight
-    const windowHeightHalf = Math.round(windowHeight / 2)
-    window.addEventListener('scroll', (e) => {
+    this.windowHeight = window.innerHeight
+    this.windowHeightHalf = Math.round(this.windowHeight / 2)
+    window.addEventListener('scroll', this.transformImage)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.transformImage)
+  },
+  methods: {
+    transformImage (e) {
+      if (!this.$refs.image) {
+        return
+      }
       const imageRect = this.$refs.image.getBoundingClientRect()
-      if (windowHeight > imageRect.top && imageRect.bottom > 0) {
+      if (this.windowHeight > imageRect.top && imageRect.bottom > 0) {
         // const ratio = Math.round(windowHeight / imageRect.height)
-        const direction = imageRect.top > windowHeightHalf ? -1 : 1
-        const offset =
-          (direction * 45 * Math.abs(imageRect.top - windowHeightHalf)) /
-          windowHeightHalf
+        const direction = imageRect.top > this.windowHeightHalf ? -1 : 1
+        const offset = (direction * 45 * Math.abs(imageRect.top - this.windowHeightHalf)) / this.windowHeightHalf
         this.$refs.image.style.transform =
           'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ' +
           offset +
           ', 0, 1)'
       }
-    })
-  },
+    }
+  }
 }
 </script>
 

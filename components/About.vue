@@ -42,17 +42,19 @@
     <div v-intersect="{ in: ['fade-in'] }" class="right opacity-0">
       <NuxtLink class="arrow-link" to="/agency">Больше про нас</NuxtLink>
     </div>
-    <modal
-      ref="modalAbout"
-      class="modal"
-      name="modal-about"
-      width="90%"
-      height="90%"
-      @closed="closedModal"
-      @opened="openedModal"
-    >
-      <modal-about />
-    </modal>
+    <client-only>
+      <modal
+        ref="modalAbout"
+        class="modal"
+        name="modal-about"
+        width="90%"
+        height="90%"
+        @closed="closedModal"
+        @opened="openedModal"
+      >
+        <modal-about />
+      </modal>
+    </client-only>
   </div>
 </template>
 <script>
