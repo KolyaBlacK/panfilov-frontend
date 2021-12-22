@@ -9,7 +9,7 @@
       <button class='close-button' :class="{ 'fade-in': isActiveMenu, 'fade-out': fadeIn }" @click='closeMenu'>Закрыть</button>
       <NuxtLink class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" to="/works">Работы</NuxtLink>
       <NuxtLink class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" to="/">Философия</NuxtLink>
-      <NuxtLink class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" to="/">Контакты</NuxtLink>
+      <NuxtLink class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" to="/contacts">Контакты</NuxtLink>
       <burger-button class='burger'/>
     </div>
   </div>
@@ -41,11 +41,15 @@ export default {
   },
   mounted() {
     this.$root.$on('toggleMenu', (isActive, changeRoute) => this.toggleMenu(isActive, changeRoute));
-    window.document.onscroll = () => {
-      this.active = window.scrollY > this.$refs.header.offsetTop;
-    }
+    window.addEventListener('scroll',this.scrollHandler);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.scrollHandler);
   },
   methods: {
+    scrollHandler() {
+      this.active = window.scrollY > this.$refs.header.offsetTop;
+    },
     toggleMenu(isActive, changeRoute) {
       this.isActiveMenu = isActive;
       if (!isActive && !changeRoute) {

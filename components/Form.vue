@@ -1,0 +1,170 @@
+<template>
+  <ValidationObserver v-slot="{ handleSubmit }" class='form'>
+    <form @submit.prevent="handleSubmit(onSubmit)">
+      <ValidationProvider v-slot='{ errors }' class='form-input-container' rules='required|email'>
+        <input
+          v-model='email'
+          type='text'
+          name='email'
+          class='form-input'
+          placeholder='Ваш E-mail'
+        >
+        <span class='form-input-error'>{{ errors[0] }}</span>
+      </ValidationProvider>
+      <ValidationProvider v-slot='{ errors }' class='form-input-container' rules='required'>
+        <input
+          v-model='name'
+          type='text'
+          name='name'
+          class='form-input'
+          placeholder='ФИО'
+        >
+        <span class='form-input-error'>{{ errors[0] }}</span>
+      </ValidationProvider>
+      <textarea
+        name='message'
+        cols='30'
+        rows='5'
+        class='form-textarea'
+        placeholder='Оставьте ваш комментарий'
+      ></textarea>
+      <button
+        type='submit'
+        class='form-submit'
+      >
+        Отправить
+      </button>
+    </form>
+  </ValidationObserver>
+</template>
+
+<script>
+import { ValidationProvider, ValidationObserver } from 'vee-validate'
+
+export default {
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
+  data() {
+    return {
+      email: '',
+      name: '',
+      message: ''
+    }
+  },
+  methods: {
+    async onSubmit() {
+      try {
+        // await this.$strapi.$http.$post('/email')
+        await this.$router.push('/thanks')
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  }
+}
+</script>
+
+<style lang='scss' scoped>
+@import '~/assets/scss/variables';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  @media #{$media-xs} {
+    width: 100%;
+  }
+}
+
+.form-input-container {
+  display: block;
+  margin-bottom: 1vw;
+}
+
+.form-input-error {
+  display: block;
+  color: $otherFocus;
+  font-size: 0.8vw;
+  @media #{$media-lg} {
+    font-size: 1vw;
+  }
+  @media #{$media-md} {
+    font-size: 1.4vw;
+  }
+  @media #{$media-xs} {
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+.form-input {
+  margin-bottom: 0.6vw;
+  @media #{$media-xs} {
+    margin-bottom: 8px;
+  }
+}
+
+.form-input,
+.form-textarea {
+  background: none;
+  border: none;
+  color: $white;
+  font-size: 1vw;
+  font-family: 'Object Sans', sans-serif;
+  padding: 0.5vw;
+  border-bottom: 1px solid $white;
+  width: 100%;
+  outline: none;
+  transition: border-bottom-color $textTimeTransition ease;
+  @media #{$media-lg} {
+    font-size: 1.4vw;
+  }
+  @media #{$media-md} {
+    font-size: 1.8vw;
+  }
+  @media #{$media-xs} {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 14px;
+  }
+  &::placeholder {
+    color: $darkGray;
+  }
+  &:focus {
+    border-bottom-color: $styleRose;
+  }
+}
+
+.form-textarea {
+  resize: none;
+}
+
+.form-submit {
+  background: $styleRose;
+  text-transform: uppercase;
+  font-size: 1.2vw;
+  line-height: 2.8vw;
+  width: 40%;
+  margin-top: 3em;
+  color: $white;
+  cursor: pointer;
+  transition: all $textTimeTransition ease;
+  &:hover {
+    background: $white;
+    color: $styleRose;
+  }
+  @media #{$media-md} {
+    font-size: 1.6vw;
+    line-height: 3.2vw;
+    width: 50%;
+  }
+  @media #{$media-xs} {
+    width: 230px;
+    font-size: 16px;
+    line-height: 12px;
+    height: 48px;
+  }
+}
+</style>

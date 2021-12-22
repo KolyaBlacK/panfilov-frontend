@@ -34,7 +34,7 @@
               <NuxtLink to="/about">Философия</NuxtLink>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.8s'>
-              <NuxtLink to="/about">Контакты</NuxtLink>
+              <NuxtLink to="/contacts">Контакты</NuxtLink>
             </li>
           </ul>
 

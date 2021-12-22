@@ -17,6 +17,7 @@ export default {
   },
 
   pageTransition: 'fade',
+  layoutTransition: 'fade',
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -28,6 +29,7 @@ export default {
     { src: '~/plugins/intersect-directive', mode: 'client' },
     { src: '~/plugins/vue-lazy-load.js', mode: 'client' },
     { src: '~plugins/vue-js-modal.js', mode: 'client' },
+    { src: '~plugins/vee-validate.js', mode: 'client' },
     { src: '~plugins/helper.js' },
   ],
 
@@ -47,10 +49,11 @@ export default {
   ],
   strapi: {
     entities: ['clients', 'works', 'categories'],
-    url: 'http://localhost:1337'
+    url: 'http://localhost:4000'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['vee-validate/dist/rules']
   }
 }
