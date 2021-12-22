@@ -59,6 +59,7 @@ export default {
         // await this.$strapi.$http.$post('/email')
         await this.$router.push('/thanks')
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error)
       }
     }
