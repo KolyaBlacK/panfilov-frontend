@@ -18,11 +18,11 @@ export default {
   },
   mounted() {
     this.$root.$on('closeMenu', (changeRoute) => this.toggleMenu(false, changeRoute));
-    window.document.onscroll = () => {
-      this.active = window.scrollY > this.$refs.header.offsetTop;
-    }
   },
   methods: {
+    scrollHandler() {
+      this.active = window.scrollY > this.$refs.header.offsetTop;
+    },
     toggleMenu(isActive, changeRoute) {
       this.isActive = isActive !== undefined ? isActive : !this.isActive;
       this.$root.$emit('toggleMenu', this.isActive, changeRoute);
