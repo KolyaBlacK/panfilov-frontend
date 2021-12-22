@@ -14,7 +14,7 @@
         любимыми.
       </p>
       <Works :works="works" />
-      <div v-intersect="{ in: ['fade-in'] }" class="wrapper-arrow-link opacity-0">
+      <div v-intersect="{ in: ['fade-in'] }" class="right opacity-0">
         <NuxtLink to="/works" class="arrow-link">Все работы</NuxtLink>
       </div>
     </div>
@@ -70,9 +70,6 @@ export default {
       margin: 0 0 3.7em auto;
     }
   }
-}
-.wrapper-arrow-link {
-  text-align: right;
 }
 
 </style>

@@ -21,7 +21,7 @@
       <div class="work-page__body">
         <div class="work-info">
           <div class="work-info__left">
-            <div>{{ work.date }}</div>
+            <div class="date">{{ work.date }}</div>
             <div>{{ WORK_TYPES[work.type] }}</div>
           </div>
           <div class="work-info__right">
@@ -36,6 +36,13 @@
               <component :is="comp.__c" v-bind="comp" />
             </div>
           </client-only>
+        </div>
+        <div v-if="work.similarWorks" class="similar-works">
+          <div class="title">Другие проекты</div>
+          <Works :works="work.similarWorks" />
+          <div v-intersect="{ in: ['fade-in'] }" class="right opacity-0">
+            <NuxtLink to="/works" class="arrow-link">Все работы</NuxtLink>
+          </div>
         </div>
       </div>
     </div>
@@ -59,8 +66,14 @@ export default {
     try {
       const work = await app.$strapi.$works.findOne(params.id)
       if (work) {
+        if (work.category) {
+          work.similarWorks = await app.$strapi.$works.find([['category.id', work.category.id], ['_limit', '3']])
+        }
         store.commit('work/setCurrent', work)
-        store.commit('ui/set', work.theme)
+
+        if (process.server) {
+          store.commit('ui/set', work.theme)
+        }
       }
     } catch (error) {
       console.error(error)
@@ -83,6 +96,7 @@ export default {
     if (this.work.WebPage) {
       this.initComponents(this.work.WebPage)
     }
+    this.$store.commit('ui/set', this.work.theme)
   },
   destroyed () {
     setTimeout(() => {
@@ -106,6 +120,7 @@ export default {
   margin-bottom: 72px;
   @media #{$media-sm-up} {
     flex-direction: row;
+    margin-bottom: 0px;
     padding: 8vw 2.5%;
   }
 
@@ -201,6 +216,9 @@ export default {
         @media #{$media-sm-up} {
           text-align: left;
         }
+        .date {
+          margin-bottom: 16px;
+        }
       }
     }
 
@@ -213,6 +231,37 @@ export default {
         display: flex;
         align-items: flex-end;
         padding: 4vw 0;
+      }
+    }
+
+    .similar-works::v-deep {
+      border-top: 1px solid $darkGray;
+      padding: 50px 0 0;
+      .title {
+        color: $darkGray;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        margin-bottom: 70px;
+        @media #{$media-sm-up} {
+          font-size: 2.2vw;
+        }
+        @media #{$media-lg-up} {
+          font-size: 1.8vw;
+        }
+      }
+      .works-list {
+        .work-item {
+          &:nth-child(1) {
+            width: 30%;
+          }
+          &:nth-child(2) {
+            width: 30%;
+          }
+          &:nth-child(3) {
+            width: 33%;
+          }
+        }
       }
     }
   }

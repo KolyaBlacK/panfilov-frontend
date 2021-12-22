@@ -39,7 +39,7 @@
       эволюционирует и не теряет актуальности.
     </p>
     <we-do />
-    <div v-intersect="{ in: ['fade-in'] }" class="wrapper-arrow-link opacity-0">
+    <div v-intersect="{ in: ['fade-in'] }" class="right opacity-0">
       <NuxtLink class="arrow-link" to="/agency">Больше про нас</NuxtLink>
     </div>
     <modal
@@ -171,10 +171,6 @@ export default {
       line-height: 18px;
     }
   }
-}
-
-.wrapper-arrow-link {
-  text-align: right;
 }
 
 .modal::v-deep {

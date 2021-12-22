@@ -157,6 +157,7 @@ export default {
       .btn-icon {
         width: 65px;
         margin-left: 25px;
+        transition: transform $textTimeTransition ease;
         @media #{$media-sm-up} {
           width: 70px;
           margin: 0 10px 0 10px;
@@ -178,7 +179,7 @@ export default {
       &:hover {
         color: $styleRose;
         .btn-icon {
-          transform: rotate(315deg);
+          transform: rotate(-50deg);
           path {
             fill: $styleRose;
           }
