@@ -22,6 +22,7 @@
         <span class='form-input-error'>{{ errors[0] }}</span>
       </ValidationProvider>
       <textarea
+        v-model='message'
         name='message'
         cols='30'
         rows='5'
@@ -56,8 +57,8 @@ export default {
   methods: {
     async onSubmit() {
       try {
-        // await this.$strapi.$http.$post('/email')
-        await this.$router.push('/thanks')
+        await this.$strapi.$http.$post('/form', {email: this.email, name: this.name, message: this.message});
+        await this.$router.push('/thanks');
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error)

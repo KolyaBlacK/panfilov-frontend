@@ -49,7 +49,7 @@ export default {
   ],
   strapi: {
     entities: ['clients', 'works', 'categories'],
-    url: 'http://localhost:4000'
+    url: 'http://localhost:1337'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
