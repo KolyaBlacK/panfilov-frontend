@@ -67,7 +67,7 @@ export default {
       const work = await app.$strapi.$works.findOne(params.id)
       if (work) {
         if (work.category) {
-          work.similarWorks = await app.$strapi.$works.find([['category.id', work.category.id], ['_limit', '3']])
+          work.similarWorks = await app.$strapi.$works.find([['category.id', work.category.id], ['id_ne', work.id], ['_limit', '3']])
         }
         store.commit('work/setCurrent', work)
 
