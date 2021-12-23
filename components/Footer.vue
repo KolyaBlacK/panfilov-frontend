@@ -3,7 +3,7 @@
     <div v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">Обратная связь</div>
     <div v-intersect="{ in: ['fade-in'] }" class="footer__top opacity-0">
       <div class="feedback">
-        <button class="feedback__btn" :class="[theme]">
+        <button class="feedback__btn" :class="[theme]" @click="$router.push('/contacts')">
           <span>Напишите нам о<br> своем проекте</span>
           <svg
             class="btn-icon"
@@ -32,8 +32,8 @@
           <a href="tel:+79197492688">+7 919 749 26 88</a>
         </div>
         <div class="contacts__row messengers">
-          <a href="#">Telegram</a>
-          <a href="#">Whatsapp</a>
+          <a href='https://t.me/pnflvcom' target="_blank">Telegram</a>
+          <a href='https://wa.me/79197492688' target="_blank">Whatsapp</a>
         </div>
         <div class="contacts__row email">
           <a href="mailto:panfiloffff@gmail.com">panfiloffff@gmail.com</a>

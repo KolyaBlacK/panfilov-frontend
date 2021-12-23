@@ -13,8 +13,7 @@
           {{ client.Description }}
         </div>
         <div v-if="client.Image" class="client-img">
-          <!-- <img :src="$strapi.options.url + client.Image.url" alt=""> -->
-          <img src="~/assets/images/client-img.jpg" alt="" />
+           <img :src="$strapi.options.url + client.Image.url" alt="">
         </div>
       </div>
     </div>

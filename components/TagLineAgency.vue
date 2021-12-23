@@ -7,9 +7,9 @@
         </svg>
       </div>
       <div class="tag-line__right fade-in" style='animation-delay: 0.6s'>
-        <button class="show-reel" :class="{ active: animateStatus }" @mousedown="lineStart" @click="lineStart">
+        <button class="show-reel" :class="{ active: animateStatus }" @mousedown="lineStart" @click="lineStart" @mouseover="mouseover" @mouseleave="mouseleave">
           <span v-if="animateStatus">Tap & hold</span>
-          <span v-else>Show reel</span>
+          <span ref="span" v-else>Show reel</span>
         </button>
       </div>
     </div>
@@ -81,6 +81,16 @@ export default {
     this.initLine()
   },
   methods: {
+    mouseover () {
+      if (this.$refs.span) {
+        this.$refs.span.innerHTML = 'Tap & hold'
+      }
+    },
+    mouseleave () {
+      if (this.$refs.span) {
+        this.$refs.span.innerHTML = 'Show reel'
+      }
+    },
     initLine () {
       const path = document.querySelector('.reel-container path');
       this.pathLength = path.getTotalLength();
@@ -207,6 +217,7 @@ export default {
   text-transform: initial;
   text-align: center;
   padding-right: 0.3vw;
+  padding-top: 0.3vw;
   transition: all $textTimeTransition ease;
   &:hover {
     background-color: $styleRose;

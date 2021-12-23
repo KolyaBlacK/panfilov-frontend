@@ -146,6 +146,20 @@ export default {
         line-height: 4vw;
         margin-right: 15vw;
       }
+      a {
+        svg {
+          path {
+            transition: fill $textTimeTransition ease;
+          }
+        }
+        &:hover {
+          svg {
+            path {
+              fill: $styleRose;
+            }
+          }
+        }
+      }
     }
 
     .work-title {
