@@ -9,12 +9,12 @@
           <a href='#' class='burger-menu__presentation fade-in hidden-xs' style='animation-delay: 0.5s'>Скачать презентацию</a>
           <div class='burger-menu__left__bottom'>
             <div class='burger-menu__contacts'>
-              <a href='#' class='fade-in' style='animation-delay: 0.6s'>+7 919 749 26 88</a>
+              <a href='tel:+79197492688' class='fade-in' style='animation-delay: 0.6s'>+7 919 749 26 88</a>
               <div class='burger-menu__messengers-links'>
-                <a href='#' class='fade-in' style='animation-delay: 0.7s'>Telegram</a>
-                <a href='#' class='fade-in' style='animation-delay: 0.8s'>Whatsapp</a>
+                <a href='https://t.me/pnflvcom' target="_blank" class='fade-in' style='animation-delay: 0.7s'>Telegram</a>
+                <a href='https://wa.me/79197492688' target="_blank" class='fade-in' style='animation-delay: 0.8s'>Whatsapp</a>
               </div>
-              <a href='#' class='fade-in' style='animation-delay: 0.9s'>panfiloffff@gmail.com</a>
+              <a href='mailto:panfiloffff@gmail.com' class='fade-in' style='animation-delay: 0.9s'>panfiloffff@gmail.com</a>
             </div>
             <div class='burger-menu__address fade-in' style='animation-delay: 1s'>
               Ставрополь, Гражданская 8<br>
@@ -31,18 +31,15 @@
               <NuxtLink to="/agency">Агенство</NuxtLink>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.7s'>
-              <NuxtLink to="/about">Философия</NuxtLink>
-            </li>
-            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.8s'>
               <NuxtLink to="/contacts">Контакты</NuxtLink>
             </li>
           </ul>
 
         </div>
         <div class='burger-menu__footer'>
-          <a href='#' class='fade-in' style='animation-delay: 0.5s'>Facebook</a>
-          <a href='#' class='fade-in' style='animation-delay: 0.6s'>Instagram</a>
-          <a href='#' class='fade-in' style='animation-delay: 0.7s'>Behance</a>
+          <a href='https://www.facebook.com/panfilofff' target="_blank" class='fade-in' style='animation-delay: 0.5s'>Facebook</a>
+          <a href='https://www.instagram.com/pnflv_agency/' target="_blank" class='fade-in' style='animation-delay: 0.6s'>Instagram</a>
+          <a href='https://www.behance.net/PNFLV' target="_blank" class='fade-in' style='animation-delay: 0.7s'>Behance</a>
         </div>
       </div>
     </div>
