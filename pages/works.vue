@@ -48,6 +48,7 @@ export default {
         store.commit('work/setList', works)
       }
     } catch (error) {
+      console.error(error)
     }
   },
   data () {
@@ -145,7 +146,7 @@ export default {
     }
     @media #{$media-md-up} {
       font-size: 1.5vw;
-      line-height: 3vw;
+      line-height: 2.8vw;
     }
   }
 
@@ -191,7 +192,6 @@ export default {
   .vs__selected {
     color: $white;
     opacity: 1;
-    margin: 0;
   }
 }
 .work-type-select::v-deep .vs__dropdown-menu {
