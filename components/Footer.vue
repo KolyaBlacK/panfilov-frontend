@@ -45,9 +45,9 @@
     </div>
     <div v-intersect="{ in: ['fade-in'] }" class="footer__bottom opacity-0">
       <div class="social-links">
-          <a class="social-link" href="#">Facebook</a>
-          <a class="social-link" href="#">Instagram</a>
-          <a class="social-link" href="#">Behance</a>
+        <a class="social-link" href="https://www.facebook.com/panfilofff" target="_blank">Facebook</a>
+        <a class="social-link" href="https://www.instagram.com/pnflv_agency/" target="_blank">Instagram</a>
+        <a class="social-link" href="https://www.behance.net/PNFLV" target="_blank">Behance</a>
       </div>
       <div class="copyright">
         (c) 2003 - 2021
