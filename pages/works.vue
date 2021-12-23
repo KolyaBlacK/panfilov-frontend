@@ -1,6 +1,12 @@
 <template>
   <div>
     <div class="works-header">
+      <img
+        v-if="filterCategory && filterCategory.imageUrl"
+        class="back-image"
+        :src="filterCategory.imageUrl"
+        :alt="filterCategory.name"
+      />
       <div class="works-header__left">
         <client-only>
           <v-select
@@ -54,8 +60,12 @@ export default {
   computed: {
     categories () {
       return [
-        { id: null, name: 'Все работы' },
-        ...this.$store.state.categories.list
+        { id: null, name: 'Все работы', imageUrl: require(`../assets/images/chair.png`) },
+        ...this.$store.state.categories.list.map(c => ({
+          id: c.id,
+          name: c.name,
+          imageUrl: c.image ? this.$strapi.options.url + c.image.url : ''
+        }))
       ]
     },
     filterCategory: {
@@ -84,26 +94,37 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/scss/variables.scss';
 .works-header {
-  background: url('~/assets/images/chair.png') center 0 no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
   padding: 112px 15px 0;
   margin-bottom: 72px;
+  position: relative;
   @media #{$media-sm-up} {
     flex-direction: row;
     height: 100vh;
     padding: 16vw 2vw 4vw 6vw;
   }
 
+  .back-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   &__left {
     margin-bottom: 15px;
+    z-index: 15;
     @media #{$media-sm-up} {
-      margin-right: 10vw;
+      margin-right: 8vw;
     }
   }
 
   &__right {
+    z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
