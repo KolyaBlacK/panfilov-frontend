@@ -10,7 +10,7 @@
     </NuxtLink>
     <div class="work-item__text">
       <NuxtLink :to="workUrl" class="work-item__title">{{ work.title }}</NuxtLink>
-      <NuxtLink v-if="work.category" :to="workUrl" class="work-item__description">{{ work.category.name }}</NuxtLink>
+      <NuxtLink v-if="work.category" :to="workCategoryUrl" class="work-item__description">{{ work.category.name }}</NuxtLink>
     </div>
   </li>
 </template>
@@ -32,6 +32,9 @@ export default {
   computed: {
     workUrl () {
       return '/work/' + this.work.id
+    },
+    workCategoryUrl () {
+      return '/works/' + this.work.category.id
     }
   },
   mounted () {

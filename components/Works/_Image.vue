@@ -23,6 +23,7 @@ export default {
 @import '~/assets/scss/variables.scss';
 
 .image {
+  margin: 4vw 0;
   &.width_100 {
     @media #{$media-sm-up} {
       img {

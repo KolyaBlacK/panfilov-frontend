@@ -23,8 +23,8 @@
         <div class="works-count">
           {{ worksCount }}
         </div>
-        <div class="works-tagline">
-          — В своей работе я стремлюсь создать продукт, способный не только наилучшим образом справляться со своей функцией, но и вдохновлять, украшать и давать новый опыт
+        <div v-if="filterCategory && filterCategory.description" class="works-tagline">
+          {{ filterCategory.description }}
         </div>
       </div>
     </div>
@@ -37,15 +37,24 @@
 
 <script>
 export default {
-  async asyncData ({ app, store }) {
+  async asyncData ({ app, params, store }) {
     try {
       const categories = await app.$strapi.$categories.find()
       const works = await app.$strapi.$works.find()
       if (categories) {
-        store.commit('categories/setList', categories)
+        store.commit('categories/setList', categories.map(c => ({
+          id: c.id,
+          name: c.name,
+          description: c.description,
+          imageUrl: c.image ? app.$strapi.options.url + c.image.url : ''
+        })))
       }
       if (works) {
         store.commit('work/setList', works)
+      }
+      const filterCategory = params.id ? store.state.categories.list.find(c => c.id === parseInt(params.id)) : null
+      if (filterCategory) {
+        store.commit('categories/setFilterCategory', filterCategory)
       }
     } catch (error) {
       console.error(error)
@@ -61,12 +70,8 @@ export default {
   computed: {
     categories () {
       return [
-        { id: null, name: 'Все работы', imageUrl: require(`../assets/images/chair.png`) },
-        ...this.$store.state.categories.list.map(c => ({
-          id: c.id,
-          name: c.name,
-          imageUrl: c.image ? this.$strapi.options.url + c.image.url : ''
-        }))
+        { id: null, name: 'Все работы', imageUrl: require(`../../assets/images/chair.png`) },
+        ...this.$store.state.categories.list
       ]
     },
     filterCategory: {
@@ -75,6 +80,8 @@ export default {
       },
       set (category) {
         this.$store.commit('categories/setFilterCategory', category)
+        const categoryUrl = category.id ? '/works/' + category.id : '/works/'
+        window.history.pushState("object or string", "Title", categoryUrl)
       }
     },
     works () {
@@ -87,7 +94,9 @@ export default {
     },
   },
   mounted () {
-    this.$store.commit('categories/setFilterCategory', this.categories[0])
+    if (!this.filterCategory) {
+      this.$store.commit('categories/setFilterCategory', this.categories[0])
+    }
   }
 }
 </script>
