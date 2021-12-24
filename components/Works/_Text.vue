@@ -41,6 +41,7 @@ export default {
   font-size: 1.4vw;
   line-height: 2vw;
   padding: 5vw 0;
+  margin: 4vw 0;
   @media #{$media-sm-up} {
     padding: 5vw;
   }
@@ -80,7 +81,7 @@ export default {
 }
 .width_65 {
   @media #{$media-sm-up} {
-    width: 65vw;
+    width: 60vw;
   }
 }
 .width_50 {

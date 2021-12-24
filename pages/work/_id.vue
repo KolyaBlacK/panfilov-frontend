@@ -58,7 +58,8 @@ const WORK_TYPES = {
 const COMPONENT_MAP = {
   'text.tekst': '_Text',
   'text.avtory': '_Authors',
-  'image.image': '_Image'
+  'image.image': '_Image',
+  'empty.empty': '_Empty'
 }
 
 export default {
@@ -244,7 +245,6 @@ export default {
       .web-page-components {
         display: flex;
         align-items: flex-end;
-        padding: 4vw 0;
       }
     }
 
