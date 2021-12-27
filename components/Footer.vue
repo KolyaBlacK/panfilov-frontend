@@ -91,7 +91,7 @@ export default {
   }
 }
 .footer {
-  margin: 0 32px;
+  margin: 0 2.5%;
   padding: 2% 0 3%;
   @media #{$media-xs} {
     margin: 0 15px;
