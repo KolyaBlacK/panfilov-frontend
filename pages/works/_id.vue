@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="works-page">
-      <Works :works="works" />
+      <Works :works="works" :return-category-id="returnCategoryId" />
     </div>
   </div>
 
@@ -83,6 +83,9 @@ export default {
         const categoryUrl = category.id ? '/works/' + category.id : '/works/'
         window.history.pushState("object or string", "Title", categoryUrl)
       }
+    },
+    returnCategoryId () {
+      return this.filterCategory ? this.filterCategory.id : null
     },
     works () {
       return this.filterCategory && this.filterCategory.id
