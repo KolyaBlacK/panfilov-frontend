@@ -22,6 +22,9 @@ export default {
       type: Object,
       required: true,
     },
+    returnCategoryId: {
+      type: Number
+    }
   },
   data () {
     return {
@@ -31,7 +34,7 @@ export default {
   },
   computed: {
     workUrl () {
-      return '/work/' + this.work.id
+      return '/work/' + this.work.id + (this.returnCategoryId ? '?return_category_id=' + this.returnCategoryId : '')
     },
     workCategoryUrl () {
       return '/works/' + this.work.category.id

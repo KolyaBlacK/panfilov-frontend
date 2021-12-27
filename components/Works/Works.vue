@@ -7,6 +7,7 @@
         v-intersect="{ in: ['fade-in'] }"
         class="opacity-0"
         :work="work"
+        :return-category-id="returnCategoryId"
       />
     </ul>
   </div>
@@ -20,6 +21,9 @@ export default {
     works: {
       type: Array,
       default: () => []
+    },
+    returnCategoryId : {
+      type: Number
     }
   }
 }
