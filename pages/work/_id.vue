@@ -59,6 +59,7 @@ const COMPONENT_MAP = {
   'text.tekst': '_Text',
   'text.avtory': '_Authors',
   'image.image': '_Image',
+  'video.video': '_Video',
   'empty.empty': '_Empty'
 }
 
