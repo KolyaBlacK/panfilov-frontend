@@ -23,7 +23,8 @@ export default {
       default: () => []
     },
     returnCategoryId : {
-      type: Number
+      type: Number,
+      default: 0
     }
   }
 }
