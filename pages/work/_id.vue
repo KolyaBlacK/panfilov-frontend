@@ -61,6 +61,16 @@ const COMPONENT_MAP = {
 }
 
 export default {
+  head: {
+    title: 'PNFLV - портфолио агентства Дмитрия Панфилова',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Разработка логотипов, фирменных стилей, этикеток и упаковки, нейминга, иллюстрации.'
+      }
+    ],
+  },
   async asyncData ({ app, params, store }) {
     try {
       const work = await app.$strapi.$works.findOne(params.id)

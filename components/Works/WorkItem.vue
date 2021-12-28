@@ -102,7 +102,6 @@ export default {
   }
   .image-container {
     display: block;
-    border-radius: 0.375rem;
     overflow: hidden;
     transform: translate3d(0, 0, 0);
     transition: opacity .6s cubic-bezier(.075, .82, .165, 1);
