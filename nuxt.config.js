@@ -1,15 +1,14 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'panfilov-frontend',
+    title: 'PNFLV - дизайн агентство Дмитрия Панфилова Ставрополь: брендинг, дизайн упаковки, дизайн фирменного стиля, разработка логотипов, названий, слоганов',
     htmlAttrs: {
       lang: 'ru'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { hid: 'description', name: 'description', content: 'Креативное агентство дизайнера Дмитрия Панфилова: создание бренда, разработка логотипа и фирменного стиля, брендинг, нейминг, дизайн упаковки и этикетки FMCG, b2b; 11 лет работы в Py-Group' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

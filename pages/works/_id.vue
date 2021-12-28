@@ -37,6 +37,16 @@
 
 <script>
 export default {
+  head: {
+    title: 'PNFLV - портфолио агентства Дмитрия Панфилова',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Разработка логотипов, фирменных стилей, этикеток и упаковки, нейминга, иллюстрации.'
+      }
+    ],
+  },
   async asyncData ({ app, params, store }) {
     try {
       const categories = await app.$strapi.$categories.find()
@@ -70,7 +80,7 @@ export default {
   computed: {
     categories () {
       return [
-        { id: null, name: 'Все работы', imageUrl: require(`../../assets/images/chair.png`) },
+        { id: null, name: 'Все работы', description: '— В своей работе я стремлюсь создать продукт, способный не только наилучшим образом справляться со своей функцией, но и вдохновлять, украшать и давать новый опыт', imageUrl: require(`../../assets/images/chair.png`) },
         ...this.$store.state.categories.list
       ]
     },
