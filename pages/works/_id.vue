@@ -20,7 +20,7 @@
         </client-only>
       </div>
       <div class="works-header__right">
-        <div class="works-count">
+        <div v-if="worksCount" class="works-count">
           {{ worksCount }}
         </div>
         <div v-if="filterCategory && filterCategory.description" class="works-tagline">
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="works-page">
+    <div v-if="works" class="works-page">
       <Works :works="works" :return-category-id="returnCategoryId" />
     </div>
   </div>
@@ -37,16 +37,6 @@
 
 <script>
 export default {
-  head: {
-    title: 'PNFLV - портфолио агентства Дмитрия Панфилова',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Разработка логотипов, фирменных стилей, этикеток и упаковки, нейминга, иллюстрации.'
-      }
-    ],
-  },
   async asyncData ({ app, params, store }) {
     try {
       const categories = await app.$strapi.$categories.find()
@@ -77,6 +67,16 @@ export default {
       }
     }
   },
+  head: {
+    title: 'PNFLV - портфолио агентства Дмитрия Панфилова',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Разработка логотипов, фирменных стилей, этикеток и упаковки, нейминга, иллюстрации.'
+      }
+    ],
+  },
   computed: {
     categories () {
       return [
@@ -99,7 +99,7 @@ export default {
     },
     works () {
       return this.filterCategory && this.filterCategory.id
-        ? this.$store.state.work.list.filter(work => work.category.id === this.filterCategory.id)
+        ? this.$store.state.work.list.filter(work => (work.category && work.category.id) ? work.category.id === this.filterCategory.id : false)
         : this.$store.state.work.list
     },
     worksCount () {

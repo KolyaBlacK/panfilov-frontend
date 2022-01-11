@@ -76,28 +76,28 @@ export default {
   @media #{$media-xs} {
     width: 100% !important;
   }
-  &:nth-child(1) {
+  &.nth-child-0 {
     width: 58%;
   }
-  &:nth-child(2) {
+  &.nth-child-1 {
     width: 38%;
   }
-  &:nth-child(3) {
+  &.nth-child-2 {
     width: 38%;
   }
-  &:nth-child(4) {
+  &.nth-child-3 {
     width: 48%;
   }
-  &:nth-child(5) {
+  &.nth-child-4 {
     width: 50%;
   }
-  &:nth-child(6) {
+  &.nth-child-5 {
     width: 40%;
   }
-  &:nth-child(7) {
+  &.nth-child-6 {
     width: 40%;
   }
-  &:nth-child(8) {
+  &.nth-child-7 {
     width: 50%;
   }
   .image-container {
