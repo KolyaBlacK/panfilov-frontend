@@ -20,8 +20,7 @@
         </client-only>
       </div>
       <div class="works-header__right">
-        <div v-if="worksCount" class="works-count">
-          {{ worksCount }}
+        <div class="works-count">
         </div>
         <div v-if="filterCategory && filterCategory.description" class="works-tagline">
           {{ filterCategory.description }}
@@ -102,9 +101,9 @@ export default {
         ? this.$store.state.work.list.filter(work => (work.category && work.category.id) ? work.category.id === this.filterCategory.id : false)
         : this.$store.state.work.list
     },
-    worksCount () {
-      return this.works.length + ' ' + this.$declOfNum(this.works.length, ['работа', 'работы', 'работ']) + (this.filterCategory ? ' — ' + this.filterCategory.name : '')
-    },
+    // worksCount () {
+    //   return this.works.length + ' ' + this.$declOfNum(this.works.length, ['работа', 'работы', 'работ']) + (this.filterCategory ? ' — ' + this.filterCategory.name : '')
+    // },
   },
   mounted () {
     if (!this.filterCategory) {
