@@ -146,12 +146,13 @@ export default {
     flex-direction: column;
     @media #{$media-sm-up} {
       flex-direction: row;
+      justify-content: space-between;
     }
 
     .back-btn {
       font-size: 18px;
       line-height: 48px;
-      min-width: 250px;
+      min-width: 220px;
 
       @media #{$media-sm-up} {
         font-size: 2vw;
@@ -162,10 +163,23 @@ export default {
       @media #{$media-lg-up} {
         font-size: 1.6vw;
         line-height: 4vw;
-        margin-right: 15vw;
       }
       a {
         svg {
+          width: 2vw;
+          height: 1vw;
+          @media #{$media-lg} {
+            width: 2.2vw;
+            height: 1.3vw;
+          }
+          @media #{$media-md} {
+            width: 2.5vw;
+            height: 1.5vw;
+          }
+          @media #{$media-xs} {
+            width: 25px;
+            height: 12px;
+          }
           path {
             transition: fill $textTimeTransition ease;
           }
@@ -184,6 +198,7 @@ export default {
       font-size: 24px;
       line-height: 40px;
       text-transform: uppercase;
+      width: 64vw;
 
       @media #{$media-sm-up} {
         font-size: 3vw;
@@ -215,7 +230,7 @@ export default {
         font-size: 2vw;
         line-height: 3vw;
         flex-direction: row;
-        padding: 6vw 4vw 6vw 3vw;
+        padding: 6vw 4.8vw 6vw 2.7vw;
       }
       @media #{$media-lg-up} {
         font-size: 1vw;

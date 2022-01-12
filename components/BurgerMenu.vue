@@ -187,7 +187,10 @@ export default {
     }
   }
   &__address {
-    margin-top: 15px;
+    margin-top: 1.3vw;
+    @media #{$media-xs} {
+      margin-top: 15px;
+    }
   }
   &__presentation {
     font-size: 0.9vw;

@@ -21,10 +21,7 @@
             </svg>
         </button>
         <div class="desc">
-          Мы изучаем все входящие заявки
-        </div>
-        <div class="desc">
-          и гарантируем обратную связь
+          Мы изучаем все входящие заявки <br>и гарантируем обратную связь
         </div>
       </div>
       <div class="contacts">
@@ -91,7 +88,7 @@ export default {
   }
 }
 .footer {
-  margin: 0 32px;
+  margin: 0 2.5% 0;
   padding: 2% 0 3%;
   @media #{$media-xs} {
     margin: 0 15px;
@@ -113,7 +110,7 @@ export default {
     align-items: flex-end;
     justify-content: right;
     flex: 1;
-    margin-left: 30px;
+    margin-left: 2vw;
     @media #{$media-xs} {
       align-items: flex-start;
       margin-left: 0;
@@ -124,51 +121,51 @@ export default {
       border: none;
       color: $mainBlack;
       cursor: pointer;
-      font-size: $font-32;
+      font-size: 6vw;
       display: flex;
       align-items: center;
       flex-direction: row;
       justify-content: flex-end;
       text-align: left;
-      padding: 0 32px 72px;
+      padding: 0 3vw 6vw;
 
       &.dark {
         color: $white;
       }
 
       @media #{$media-sm-up} {
-        font-size: $font-36;
+        font-size: 6vw;
       }
 
       @media #{$media-md-up} {
-        font-size: $font-60;
+        font-size: 6vw;
       }
 
       @media #{$media-lg-up} {
-        font-size: $font-88;
+        font-size: 6vw;
       }
 
       @media #{$media-xs} {
-        padding: 0 0 72px;
+        padding: 0 0 40px;
         font-size: 28px;
         line-height: 38px;
       }
 
       .btn-icon {
-        width: 65px;
-        margin-left: 25px;
+        width: 4vw;
+        margin-left: 2vw;
         transition: transform $textTimeTransition ease;
         @media #{$media-sm-up} {
-          width: 70px;
-          margin: 0 10px 0 10px;
+          width: 5vw;
+          margin: 0 1vw 0 1vw;
         }
         @media #{$media-md-up} {
-          width: 100px;
-          margin: 0 20px 0 30px;
+          width: 7vw;
+          margin: 0 2vw 0 3vw;
         }
         @media #{$media-lg-up} {
-          width: 120px;
-          margin: 0 30px 0 45px;
+          width: 6vw;
+          margin: 0 2vw 0 4vw;
         }
         @media #{$media-xs} {
           width: 35px;
@@ -193,46 +190,77 @@ export default {
         text-align: right;
       }
       @media #{$media-md-up} {
-        font-size: $font-28;
+        font-size: 2.4vw;
         text-align: right;
       }
       @media #{$media-lg-up} {
-        font-size: $font-32;
+        font-size: 2.2vw;
         text-align: right;
+      }
+      @media #{$media-xs} {
+        max-width: 400px;
+      }
+      br {
+        @media #{$media-xs} {
+          display: none;
+        }
       }
     }
   }
 
   .contacts {
-    font-size: $font-16;
-    width: 230px;
-    padding-top: 50px;
-
-    &__row {
-      padding: 12px 0;
+    //width: 230px;
+    padding-top: 4vw;
+    font-size: 1vw;
+    line-height: 1.4vw;
+    @media #{$media-lg} {
+      font-size: 1.4vw;
+      line-height: 1.8vw;
+    }
+    @media #{$media-md} {
+      font-size: 1.8vw;
+      line-height: 2vw;
+    }
+    @media #{$media-xs} {
+      font-size: 14px;
+      line-height: 14px;
+      padding-top: 0;
+      margin-top: 40px;
     }
 
     .messengers {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      margin: 1.3vw 0;
+      @media #{$media-xs} {
+        margin: 15px 0;
+      }
+      a {
+        &:first-child {
+          margin-right: 2.6vw;
+        }
+      }
     }
 
     .address {
-      margin-top: 20px;
+      margin-top: 1.3vw;
+      @media #{$media-xs} {
+        margin-top: 15px;
+      }
     }
   }
 
   &__bottom {
-    margin-top: 36px;
+    margin-top: 3vw;
     justify-content: flex-end;
 
     @media #{$media-sm-up} {
       align-items: center;
-      margin-top: 88px;
+      margin-top: 7vw;
     }
     @media #{$media-md-up} {
       justify-content: space-between;
+    }
+    @media #{$media-xs} {
+      margin-top: 40px;
     }
 
     .social-links {
@@ -240,20 +268,46 @@ export default {
       flex-direction: row;
       flex: 1;
       @media #{$media-sm-up} {
-        margin-left: 80px;
+        margin-left: 7vw;
       }
       @media #{$media-md-up} {
-        width: 800px;
+        width: 60%;
       }
-      .social-link {
-        margin-right: 32px;
-        @media #{$media-sm-up} {
-          margin-right: 57px;
-          width: 115px;
-        }
-        @media #{$media-xs} {
-          margin-bottom: 25px;
-        }
+      @media #{$media-xs} {
+        justify-content: space-between;
+        margin-bottom: 24px;
+      }
+    }
+    .social-link {
+      padding: 0 2vw;
+      font-size: 0.9vw;
+      @media #{$media-lg} {
+        font-size: 1.2vw;
+        line-height: 1.2vw;
+      }
+      @media #{$media-md} {
+        font-size: 1.8vw;
+        line-height: 1.8vw;
+      }
+      @media #{$media-xs} {
+        padding: 0;
+        font-size: 14px;
+        line-height: 14px;
+      }
+    }
+    .copyright {
+      font-size: 0.9vw;
+      @media #{$media-lg} {
+        font-size: 1.2vw;
+        line-height: 1.2vw;
+      }
+      @media #{$media-md} {
+        font-size: 1.8vw;
+        line-height: 1.8vw;
+      }
+      @media #{$media-xs} {
+        font-size: 14px;
+        line-height: 14px;
       }
     }
   }
