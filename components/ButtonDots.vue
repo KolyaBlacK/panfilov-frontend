@@ -40,6 +40,7 @@ export default {
   height: 3.8vw;
   min-width: 64px;
   min-height: 60px;
+  outline: none;
   @media #{$media-xs} {
     padding: 15px 0;
     min-width: 52px;

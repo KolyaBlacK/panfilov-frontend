@@ -70,6 +70,16 @@ export default {
       if (isMobileOnly && !this.isActive) {
         enableBodyScroll(this.$refs.burgerMenu)
       }
+      if (isActive) {
+        window.addEventListener('keyup',  this.closeMenu);
+      } else {
+        window.removeEventListener('keyup', this.closeMenu);
+      }
+    },
+    closeMenu(event) {
+      if (event.keyCode === 27) {
+        this.$root.$emit('closeMenu');
+      }
     }
   }
 }
