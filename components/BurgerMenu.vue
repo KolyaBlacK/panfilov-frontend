@@ -28,7 +28,7 @@
               <NuxtLink to="/works">Работы</NuxtLink>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.6s'>
-              <NuxtLink to="/agency">Агенство</NuxtLink>
+              <NuxtLink to="/agency">Агентство</NuxtLink>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.7s'>
               <NuxtLink to="/contacts">Контакты</NuxtLink>
