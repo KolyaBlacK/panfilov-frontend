@@ -44,11 +44,20 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/strapi',
-    'nuxt-vue-select'
+    'nuxt-vue-select',
+    'nuxt-i18n'
   ],
   strapi: {
     entities: ['clients', 'works', 'categories'],
     url: 'http://localhost:1337'
+  },
+  i18n: {
+    locales: [
+      {code: 'en', name: 'EN', file: 'en.js'},
+      {code: 'ru-RU', name: 'RU', file: 'ru.js'},
+    ],
+    defaultLocale: 'ru-RU',
+    langDir: '~/locales/'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

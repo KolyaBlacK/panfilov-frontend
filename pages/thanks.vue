@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: 'Thanks',
   layout: 'thanks'
 }
 </script>

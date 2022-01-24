@@ -9,6 +9,11 @@
 
 <script>
 export default {
+  transition: {
+    beforeEnter() {
+      this.$i18n.finalizePendingLocaleChange()
+    }
+  },
   computed: {
     theme () {
       return 'theme-' + this.$store.state.ui.theme

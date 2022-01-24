@@ -39,6 +39,7 @@
 
 <script>
 export default {
+  name: 'Contacts',
   layout: 'contacts',
   head: {
     title: 'PNFLV - дизайн агентство: Контакты',

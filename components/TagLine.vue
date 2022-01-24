@@ -1,26 +1,28 @@
 <template>
   <div class="tag-line">
     <div class="first-line fade-in" style='animation-delay: 0.3s'>
-      <div class="left">В</div>
-      <div class="right">дизайне</div>
+      <div class="left">
+        {{$t('tagLine.string1')}}
+      </div>
+      <div class="right">{{$t('tagLine.string2')}}</div>
     </div>
     <div class="second-line fade-in" style='animation-delay: 0.4s'>
-      <div class="right">красота</div>
+      <div class="right">{{$t('tagLine.string3')}}</div>
     </div>
     <div class="third-line fade-in" style='animation-delay: 0.5s'>
-      <div class="left">становится</div>
+      <div class="left">{{$t('tagLine.string4')}}</div>
       <div class="right">
         <button class="show-reel" :class="{ active: animateStatus }" @mousedown="lineStart" @click="lineStart" @mouseover="mouseover" @mouseleave="mouseleave">
           <span v-if="animateStatus">Tap & hold</span>
-          <span ref="span" v-else>Show reel</span>
+          <span v-else ref="span">Show reel</span>
         </button>
       </div>
     </div>
     <div class="fourth-line fade-in" style='animation-delay: 0.6s'>
-      инструментом
+      {{$t('tagLine.string5')}}
     </div>
     <div class="fifth-line fade-in" style='animation-delay: 0.7s'>
-      бренда
+      {{$t('tagLine.string6')}}
     </div>
     <div v-show="isShowReelContainer" ref="reelContainer" class="reel-container" @mousedown="lineStart" @mouseup="lineStop">
       <svg width="100%" height="100%" viewBox="0 0 1350 753" fill="none" xmlns="http://www.w3.org/2000/svg">
