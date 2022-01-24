@@ -6,7 +6,9 @@
         :key="index"
         v-intersect="{ in: ['fade-in'] }"
         class="opacity-0"
+        :class="'nth-child-' + index % 8"
         :work="work"
+        :return-category-id="returnCategoryId"
       />
     </ul>
   </div>
@@ -20,6 +22,10 @@ export default {
     works: {
       type: Array,
       default: () => []
+    },
+    returnCategoryId : {
+      type: Number,
+      default: 0
     }
   }
 }

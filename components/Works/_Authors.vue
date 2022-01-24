@@ -42,6 +42,7 @@ export default {
 }
 
 .authors {
+  margin: 4vw 0;
   font-size: 16px;
   line-height: 32px;
 

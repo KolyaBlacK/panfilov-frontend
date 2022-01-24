@@ -28,7 +28,7 @@
               <NuxtLink to="/works">Работы</NuxtLink>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.6s'>
-              <NuxtLink to="/agency">Агенство</NuxtLink>
+              <NuxtLink to="/agency">Агентство</NuxtLink>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.7s'>
               <NuxtLink to="/public">Паблик</NuxtLink>
@@ -72,6 +72,16 @@ export default {
       })
       if (isMobileOnly && !this.isActive) {
         enableBodyScroll(this.$refs.burgerMenu)
+      }
+      if (isActive) {
+        window.addEventListener('keyup',  this.closeMenu);
+      } else {
+        window.removeEventListener('keyup', this.closeMenu);
+      }
+    },
+    closeMenu(event) {
+      if (event.keyCode === 27) {
+        this.$root.$emit('closeMenu');
       }
     }
   }
@@ -180,7 +190,10 @@ export default {
     }
   }
   &__address {
-    margin-top: 15px;
+    margin-top: 1.3vw;
+    @media #{$media-xs} {
+      margin-top: 15px;
+    }
   }
   &__presentation {
     font-size: 0.9vw;

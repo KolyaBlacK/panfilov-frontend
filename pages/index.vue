@@ -29,7 +29,7 @@
 export default {
   async asyncData ({ app, store }) {
     try {
-      const works = await app.$strapi.$works.find()
+      const works = await app.$strapi.$works.find([['_limit', '6']])
       if (works) {
         store.commit('work/setList', works)
       }

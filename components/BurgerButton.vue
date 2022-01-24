@@ -20,9 +20,6 @@ export default {
     this.$root.$on('closeMenu', (changeRoute) => this.toggleMenu(false, changeRoute));
   },
   methods: {
-    scrollHandler() {
-      this.active = window.scrollY > this.$refs.header.offsetTop;
-    },
     toggleMenu(isActive, changeRoute) {
       this.isActive = isActive !== undefined ? isActive : !this.isActive;
       this.$root.$emit('toggleMenu', this.isActive, changeRoute);

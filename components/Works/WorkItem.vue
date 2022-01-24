@@ -10,7 +10,7 @@
     </NuxtLink>
     <div class="work-item__text">
       <NuxtLink :to="workUrl" class="work-item__title">{{ work.title }}</NuxtLink>
-      <NuxtLink v-if="work.category" :to="workUrl" class="work-item__description">{{ work.category.name }}</NuxtLink>
+      <NuxtLink v-if="work.category" :to="workCategoryUrl" class="work-item__description">{{ work.category.name }}</NuxtLink>
     </div>
   </li>
 </template>
@@ -22,6 +22,10 @@ export default {
       type: Object,
       required: true,
     },
+    returnCategoryId: {
+      type: Number,
+      default: 0
+    }
   },
   data () {
     return {
@@ -31,7 +35,10 @@ export default {
   },
   computed: {
     workUrl () {
-      return '/work/' + this.work.id
+      return '/work/' + this.work.id + (this.returnCategoryId ? '?return_category_id=' + this.returnCategoryId : '')
+    },
+    workCategoryUrl () {
+      return '/works/' + this.work.category.id
     }
   },
   mounted () {
@@ -68,34 +75,34 @@ export default {
   margin-bottom: 6vw;
   @media #{$media-xs} {
     width: 100% !important;
+    margin-bottom: 32px;
   }
-  &:nth-child(1) {
+  &.nth-child-0 {
     width: 58%;
   }
-  &:nth-child(2) {
+  &.nth-child-1 {
     width: 38%;
   }
-  &:nth-child(3) {
+  &.nth-child-2 {
     width: 38%;
   }
-  &:nth-child(4) {
+  &.nth-child-3 {
     width: 48%;
   }
-  &:nth-child(5) {
+  &.nth-child-4 {
     width: 50%;
   }
-  &:nth-child(6) {
+  &.nth-child-5 {
     width: 40%;
   }
-  &:nth-child(7) {
+  &.nth-child-6 {
     width: 40%;
   }
-  &:nth-child(8) {
+  &.nth-child-7 {
     width: 50%;
   }
   .image-container {
     display: block;
-    border-radius: 0.375rem;
     overflow: hidden;
     transform: translate3d(0, 0, 0);
     transition: opacity .6s cubic-bezier(.075, .82, .165, 1);
@@ -110,6 +117,10 @@ export default {
   &__text {
     display: flex;
     margin-top: 1.6vw;
+    @media #{$media-xs} {
+      display: block;
+      margin-top: 16px;
+    }
   }
   &__title {
     font-weight: normal;
@@ -129,8 +140,9 @@ export default {
     @media #{$media-xs} {
       font-size: 16px;
       line-height: 22px;
-      width: calc(60% - 24px);
-      margin: 0px 24px 0 0px;
+      width: 100%;
+      margin: 0 0 8px;
+      display: inline-block;
     }
   }
   &__description {
@@ -146,8 +158,8 @@ export default {
       line-height: 1.8vw;
     }
     @media #{$media-xs} {
-      font-size: 16px;
-      line-height: 24px;
+      font-size: 12px;
+      line-height: 22px;
     }
   }
   a {
