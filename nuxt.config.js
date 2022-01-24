@@ -47,7 +47,7 @@ export default {
     'nuxt-vue-select'
   ],
   strapi: {
-    entities: ['clients', 'works', 'categories'],
+    entities: ['clients', 'works', 'categories', 'publics'],
     url: 'http://localhost:1337'
   },
 
