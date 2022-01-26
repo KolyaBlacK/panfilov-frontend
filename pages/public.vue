@@ -34,7 +34,7 @@ export default {
 .public-page {
   padding: 10% 2.5% 0;
   @media #{$media-xs} {
-    padding: 15px 15px;
+    padding: 80px 15px 15px;
   }
 }
 
@@ -42,6 +42,11 @@ export default {
   margin-bottom: 2em;
   @media #{$media-xs} {
     max-width: 100%;
+  }
+  br {
+    @media #{$media-xs} {
+      display: none;
+    }
   }
 }
 
