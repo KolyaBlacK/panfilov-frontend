@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: 'LayoutContacts',
   layoutTransition: 'fade',
   computed: {
     theme () {

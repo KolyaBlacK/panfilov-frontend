@@ -1,7 +1,7 @@
 <template>
   <div v-intersect="{ in: ['animate-line'] }" class="key-clients top-border">
     <div v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">
-      Ключевые клиенты
+      {{$t('keyClients')}}
     </div>
 
     <div v-intersect="{ in: ['fade-in'] }" class="client-list opacity-0">

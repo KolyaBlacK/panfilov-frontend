@@ -1,15 +1,18 @@
 <template>
   <div ref='header' class='header' :class="{ sticky: active && !isActiveMenu }">
     <div class='logo'>
-      <nuxt-link to='/' class='logo__link'>
+      <nuxt-link :to="localePath('/')" class='logo__link'>
         <img class='logo__image' :src="logoPath" alt='logo-pnflv'>
       </nuxt-link>
     </div>
     <div class='menu'>
-      <button class='close-button' :class="{ 'fade-in': isActiveMenu, 'fade-out': fadeIn }" @click='closeMenu'>Закрыть</button>
-      <NuxtLink class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" to="/works">Работы</NuxtLink>
-      <NuxtLink class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" to="/public">Паблик</NuxtLink>
-      <NuxtLink class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" to="/contacts">Контакты</NuxtLink>
+      <button class='close-button' :class="{ 'fade-in': isActiveMenu, 'fade-out': fadeIn }" @click='closeMenu'>{{$t('close')}}</button>
+      <nuxt-link class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" :to="localePath('/works')">{{$t('works')}}</nuxt-link>
+      <nuxt-link class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" :to="localePath('/contacts')">{{$t('contacts.title')}}</nuxt-link>
+      <nuxt-link class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" :to="localePath('/public')">{{$t('public.title')}}</nuxt-link>
+      <client-only>
+        <locale-switcher class="locale-switcher menu__link" :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }"/>
+      </client-only>
       <burger-button class='burger'/>
     </div>
   </div>
@@ -151,6 +154,11 @@ export default {
 
 .burger {
   margin-left: 1vw;
+}
+
+.locale-switcher {
+  display: inline-block;
+  padding: 0.5vw;
 }
 
 .fade-out {

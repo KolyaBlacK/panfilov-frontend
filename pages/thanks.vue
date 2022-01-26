@@ -3,17 +3,18 @@
     <div class='thanks-page__text'>
       <div class='thanks-page__top'>
         <h1 class='title'>Спасибо!</h1>
-        <NuxtLink class='close' to="/">Закрыть</NuxtLink>
+        <nuxt-link class='close' :to="localePath('/')">{{$t('close')}}</nuxt-link>
       </div>
       <p class='text'>Ваш запрос успешно отправлен.</p>
       <p class='text'>Мы ответим вам в самое ближайшее время.</p>
     </div>
-    <NuxtLink class='button' to="/">Хорошо</NuxtLink>
+    <nuxt-link class='button' :to="localePath('/')">Хорошо</nuxt-link>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'Thanks',
   layout: 'thanks'
 }
 </script>

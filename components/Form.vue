@@ -33,7 +33,7 @@
         type='submit'
         class='form-submit'
       >
-        Отправить
+        {{$t('send')}}
       </button>
     </form>
   </ValidationObserver>
@@ -58,7 +58,7 @@ export default {
     async onSubmit() {
       try {
         await this.$strapi.$http.$post('/form', {email: this.email, name: this.name, message: this.message});
-        await this.$router.push('/thanks');
+        await this.$router.push(this.localePath('/thanks'));
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error)

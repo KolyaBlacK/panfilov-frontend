@@ -1,18 +1,20 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: 'PNFLV - дизайн агентство Дмитрия Панфилова Ставрополь: брендинг, дизайн упаковки, дизайн фирменного стиля, разработка логотипов, названий, слоганов',
-    htmlAttrs: {
-      lang: 'ru'
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Креативное агентство дизайнера Дмитрия Панфилова: создание бренда, разработка логотипа и фирменного стиля, брендинг, нейминг, дизайн упаковки и этикетки FMCG, b2b; 11 лет работы в Py-Group' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+  head () {
+    return {
+      title: this.$t('SEO.mainTitle'),
+      htmlAttrs: {
+        lang: 'ru'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: this.$t('SEO.mainDescription') }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
+    }
   },
 
   pageTransition: 'fade',
@@ -29,6 +31,7 @@ export default {
     { src: '~/plugins/vue-lazy-load.js', mode: 'client' },
     { src: '~plugins/vue-js-modal.js', mode: 'client' },
     { src: '~plugins/vee-validate.js', mode: 'client' },
+    { src: '~plugins/router.js', mode: 'client' },
     { src: '~plugins/helper.js' },
   ],
 
@@ -44,11 +47,22 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/strapi',
-    'nuxt-vue-select'
+    'nuxt-vue-select',
+    'nuxt-i18n'
   ],
   strapi: {
     entities: ['clients', 'works', 'categories', 'publics'],
     url: 'http://localhost:1337'
+  },
+  i18n: {
+    locales: [
+      {code: 'en', iso: 'en-US', name: 'EN', file: 'en.js'},
+      {code: 'ru-RU', iso: 'ru-RU', name: 'RU', file: 'ru.js'},
+    ],
+    defaultLocale: 'ru-RU',
+    langDir: '~/locales/',
+    skipSettingLocaleOnNavigate: true,
+    baseUrl: 'http://localhost:3000',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

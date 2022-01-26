@@ -1,18 +1,17 @@
 <template>
   <div v-intersect="{ in: ['fade-in'] }" class="we-do opacity-0">
-    <h5 class="we-do__title">Мы делаем</h5>
+    <h5 class="we-do__title">{{$t('weDo.title')}}</h5>
     <ul class="we-do__list">
-      <li class="we-do__item">Брендинг</li>
-      <li class="we-do__item">Креативная концепция</li>
-      <li class="we-do__item">Платформа бренда</li>
-      <li class="we-do__item">Продакшн</li>
-      <li class="we-do__item">Исследование</li>
-      <li class="we-do__item">Медиа</li>
-      <li class="we-do__item">
-        Стратегии продвижения<br />
-        и позиционирования
-      </li>
-      <li class="we-do__item">Бренд-терапия</li>
+      <li class="we-do__item">{{$t('weDo.list.item1')}}</li>
+      <li class="we-do__item">{{$t('weDo.list.item2')}}</li>
+      <li class="we-do__item">{{$t('weDo.list.item3')}}</li>
+      <li class="we-do__item">{{$t('weDo.list.item4')}}</li>
+      <li class="we-do__item">{{$t('weDo.list.item5')}}</li>
+      <li class="we-do__item">{{$t('weDo.list.item6')}}</li>
+      <!-- eslint-disable vue/no-v-html -->
+      <li class="we-do__item" v-html="$t('weDo.list.item7')"/>
+      <!-- eslint-enable -->
+      <li class="we-do__item">{{$t('weDo.list.item8')}}</li>
     </ul>
   </div>
 </template>

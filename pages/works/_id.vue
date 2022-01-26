@@ -36,11 +36,13 @@
 
 <script>
 export default {
-  async asyncData ({ app, params, store }) {
+  name: 'WorksId',
+  async asyncData ({ app, params, store, i18n }) {
     try {
-      const categories = await app.$strapi.$categories.find()
-      const works = await app.$strapi.$works.find()
+      const categories = await app.$strapi.$categories.find({ _locale: i18n.locale })
+      const works = await app.$strapi.$works.find({ _locale: i18n.locale })
       if (categories) {
+        console.log(categories)
         store.commit('categories/setList', categories.map(c => ({
           id: c.id,
           name: c.name,
@@ -83,7 +85,7 @@ export default {
   computed: {
     categories () {
       return [
-        { id: null, name: 'Все работы', description: '— В своей работе я стремлюсь создать продукт, способный не только наилучшим образом справляться со своей функцией, но и вдохновлять, украшать и давать новый опыт', imageUrl: require(`../../assets/images/chair.png`) },
+        { id: null, name: this.$t('allWorks.title'), description: this.$t('allWorks.description'), imageUrl: require(`../../assets/images/chair.png`) },
         ...this.$store.state.categories.list
       ]
     },
@@ -93,8 +95,9 @@ export default {
       },
       set (category) {
         this.$store.commit('categories/setFilterCategory', category)
-        const categoryUrl = category.id ? '/works/' + category.id : '/works/'
-        window.history.pushState("object or string", "Title", categoryUrl)
+        const categoryUrl = this.localePath(category.id ? '/works/' + category.id : '/works/')
+        this.$router.push(categoryUrl)
+        // window.history.pushState("object or string", "Title", categoryUrl)
       }
     },
     returnCategoryId () {
@@ -111,6 +114,11 @@ export default {
   },
   mounted () {
     if (!this.filterCategory) {
+      this.$store.commit('categories/setFilterCategory', this.categories[0])
+    }
+  },
+  watch: {
+    '$i18n.locale'(newVal, oldVal) {
       this.$store.commit('categories/setFilterCategory', this.categories[0])
     }
   }

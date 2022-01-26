@@ -1,7 +1,7 @@
 <template>
   <div v-intersect="{ in: ['animate-line'] }" class="about top-border">
     <h4 v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">
-      О нас
+      {{$t('aboutUs')}}
     </h4>
     <div v-intersect="{ in: ['fade-in'] }" class="about__top opacity-0">
       <a class="about__video-button" href="#" @click.prevent="openAboutModal">
@@ -20,27 +20,18 @@
           />
         </svg>
       </a>
+      <!-- eslint-disable vue/no-v-html -->
       <p class="about__main-text">
-        Как руководитель брендингового агенства я стремлюсь создавать эстетичные
-        продукты, основанные на глубинном анализе среды его использования и
-        двадцатилетнем <br />опыте дизайна.
-        <span class="about__main-text__second">
-          Осознанный креатив с пониманием целевой аудитории и <br />
-          глубоким исследованием рынка работает и развивает <br />
-          компанию, вдохновляет любить продукт и приносит <br />
-          перемены к лучшему.
-        </span>
+        <span v-html="$t('aboutUsMainText')"/>
+
+        <span class="about__main-text__second" v-html="$t('aboutUsSecondText')"/>
       </p>
     </div>
-    <p v-intersect="{ in: ['fade-in'] }" class="about__small-text opacity-0">
-      Наш подход это своеобразная бренд-терапия, осознание бренда не как
-      бездушный набор знаков и картинок, но как живой механизм, который говорит
-      с живым человеком. У него есть потребности, цели и миссия, он
-      эволюционирует и не теряет актуальности.
-    </p>
+    <p v-intersect="{ in: ['fade-in'] }" class="about__small-text opacity-0" v-html="$t('aboutUsSmallText')"/>
+    <!-- eslint-enable -->
     <we-do />
     <div v-intersect="{ in: ['fade-in'] }" class="right opacity-0">
-      <NuxtLink class="arrow-link" to="/agency">Больше про нас</NuxtLink>
+      <nuxt-link class="arrow-link" :to="localePath('/agency')">{{$t('moreAboutUs')}}</nuxt-link>
     </div>
     <client-only>
       <modal

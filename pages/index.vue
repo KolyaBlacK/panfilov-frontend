@@ -1,25 +1,23 @@
 <template>
   <div class="main-page">
-    <TagLine />
+    <tag-line />
     <div v-intersect="{ in: ['animate-line'] }" class="works top-border">
       <h4 v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">
-        Работы
+        {{$t('works')}}
       </h4>
       <p
         v-intersect="{ in: ['fade-in'] }"
         class="works__description block-description opacity-0"
       >
-        Покупка это доверие, более привлекательные, эстетичные продукты, с
-        проработанной психологией взаимодействия продаются лучше, становятся
-        любимыми.
+        {{$t('worksDescription')}}
       </p>
-      <Works :works="works" />
+      <works :works="works" />
       <div v-intersect="{ in: ['fade-in'] }" class="right opacity-0">
-        <NuxtLink to="/works" class="arrow-link">Все работы</NuxtLink>
+        <nuxt-link :to="localePath('/works')" class="arrow-link">{{$t('allWorks.title')}}</nuxt-link>
       </div>
     </div>
-    <About />
-    <KeyClients />
+    <about />
+    <key-clients />
   </div>
 
 </template>
@@ -27,9 +25,10 @@
 <script>
 
 export default {
+  name: 'HomePage',
   async asyncData ({ app, store }) {
     try {
-      const works = await app.$strapi.$works.find([['_limit', '6']])
+      const works = await app.$strapi.$works.find([['_locale', app.i18n.locale],['_limit', '6']])
       if (works) {
         store.commit('work/setList', works)
       }
