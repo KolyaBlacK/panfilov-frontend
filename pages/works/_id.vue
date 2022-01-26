@@ -85,7 +85,7 @@ export default {
   computed: {
     categories () {
       return [
-        { id: null, name: 'Все работы', description: '— В своей работе я стремлюсь создать продукт, способный не только наилучшим образом справляться со своей функцией, но и вдохновлять, украшать и давать новый опыт', imageUrl: require(`../../assets/images/chair.png`) },
+        { id: null, name: this.$t('allWorks.title'), description: this.$t('allWorks.description'), imageUrl: require(`../../assets/images/chair.png`) },
         ...this.$store.state.categories.list
       ]
     },

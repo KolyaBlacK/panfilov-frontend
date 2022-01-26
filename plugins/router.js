@@ -1,8 +1,6 @@
-export default ({ app, store }) => {
-  // store.commit('locale/SET_LANG', app.i18n.locale);
+export default ({ app}) => {
 
   app.nuxt.defaultTransition.beforeEnter = () => {
-    // console.log(app.i18n)
     app.i18n.finalizePendingLocaleChange()
   }
 

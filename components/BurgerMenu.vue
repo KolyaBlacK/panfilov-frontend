@@ -25,16 +25,16 @@
         <div class='burger-menu__right'>
           <ul class='burger-menu__navigation'>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.5s'>
-              <NuxtLink to="/works">Работы</NuxtLink>
+              <nuxt-link :to="localePath('/works')">{{$t('works')}}</nuxt-link>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.6s'>
-              <NuxtLink to="/agency">Агентство</NuxtLink>
+              <nuxt-link :to="localePath('/agency')">{{$t('agency')}}</nuxt-link>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.7s'>
-              <NuxtLink to="/public">Паблик</NuxtLink>
+              <nuxt-link :to="localePath('/public')">{{$t('public.title')}}</nuxt-link>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.8s'>
-              <NuxtLink to="/contacts">Контакты</NuxtLink>
+              <nuxt-link :to="localePath('/contacts')">{{$t('contacts.title')}}</nuxt-link>
             </li>
           </ul>
 

@@ -13,7 +13,7 @@
       </p>
       <works :works="works" />
       <div v-intersect="{ in: ['fade-in'] }" class="right opacity-0">
-        <nuxt-link :to="localePath('/works')" class="arrow-link">{{$t('allWorks')}}</nuxt-link>
+        <nuxt-link :to="localePath('/works')" class="arrow-link">{{$t('allWorks.title')}}</nuxt-link>
       </div>
     </div>
     <about />

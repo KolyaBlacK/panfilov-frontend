@@ -1,16 +1,16 @@
 <template>
   <li ref="scrollSections" class="work-item">
-    <NuxtLink v-if="work.mainImage" :to="localePath(workUrl)" class="image-container">
+    <nuxt-link v-if="work.mainImage" :to="localePath(workUrl)" class="image-container">
       <img
         ref="image"
         v-lazy="$strapi.options.url + work.mainImage.url"
         class="work-item__image"
         alt="work"
       />
-    </NuxtLink>
+    </nuxt-link>
     <div class="work-item__text">
-      <NuxtLink :to="localePath(workUrl)" class="work-item__title">{{ work.title }}</NuxtLink>
-      <NuxtLink v-if="work.category" :to="localePath(workCategoryUrl)" class="work-item__description">{{ work.category.name }}</NuxtLink>
+      <nuxt-link :to="localePath(workUrl)" class="work-item__title">{{ work.title }}</nuxt-link>
+      <nuxt-link v-if="work.category" :to="localePath(workCategoryUrl)" class="work-item__description">{{ work.category.name }}</nuxt-link>
     </div>
   </li>
 </template>

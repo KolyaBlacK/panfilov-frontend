@@ -1,4 +1,9 @@
 export default {
+  SEO: {
+    mainTitle: 'EN PNFLV - дизайн агентство Дмитрия Панфилова Ставрополь: брендинг, дизайн упаковки, дизайн фирменного стиля, разработка логотипов, названий, слоганов',
+    mainDescription: 'EN Креативное агентство дизайнера Дмитрия Панфилова: создание бренда, разработка логотипа и фирменного стиля, брендинг, нейминг, дизайн упаковки и этикетки FMCG, b2b; 11 лет работы в Py-Group',
+    lang: 'en'
+  },
   tagLine: {
     string1: "In",
     string2: "design",
@@ -7,10 +12,19 @@ export default {
     "string5": "a brand",
     "string6": "tool"
   },
-  contacts: "Contacts",
+  contacts: {
+    SEO: {
+      title: 'EN PNFLV - дизайн агентство: Контакты',
+      description: 'EN Мы близко! Ставрополь, Гражданская 8, оф. 313. +7 919 749 26 88'
+    },
+    title: 'Contacts'
+  },
   "works": "Works",
   "worksDescription": "To buy is to trust. Customers are attracted to aesthetically improved product with elaborated relationship psychology. Its easier to sell products, filled with love and customer care.",
-  "allWorks": "All works",
+  allWorks: {
+    title: 'All works',
+    description: 'EN — В своей работе я стремлюсь создать продукт, способный не только наилучшим образом справляться со своей функцией, но и вдохновлять, украшать и давать новый опыт'
+  },
   "aboutUs": "About us",
   aboutUsMainText: 'As the CEO of branding agency I aim to create aesthetically beautiful product, based on the deep market research and 20 years of my design practice.',
   aboutUsSecondText: 'Creativity requires conscious approach with deep market and customer comprehension, therefor it works, improves business stats, inspires to love the product, so it can change the environment for good.',
@@ -29,6 +43,12 @@ export default {
     }
   },
   moreAboutUs: 'More about us',
-  keyClients: 'Key clients'
+  keyClients: 'Key clients',
+  public: {
+    title: 'Public'
+  },
+  close: 'Close',
+  agency: 'Agency',
+  send: 'Send'
 }
 

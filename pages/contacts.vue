@@ -41,15 +41,17 @@
 export default {
   name: 'Contacts',
   layout: 'contacts',
-  head: {
-    title: 'PNFLV - дизайн агентство: Контакты',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Мы близко! Ставрополь, Гражданская 8, оф. 313. +7 919 749 26 88'
-      }
-    ],
+  head() {
+    return {
+      title: this.$t('contacts.SEO.title'),
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('contacts.SEO.description')
+        }
+      ],
+    }
   }
 }
 </script>

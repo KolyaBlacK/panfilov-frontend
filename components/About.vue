@@ -31,7 +31,7 @@
     <!-- eslint-enable -->
     <we-do />
     <div v-intersect="{ in: ['fade-in'] }" class="right opacity-0">
-      <NuxtLink class="arrow-link" to="/agency">{{$t('moreAboutUs')}}</NuxtLink>
+      <nuxt-link class="arrow-link" :to="localePath('/agency')">{{$t('moreAboutUs')}}</nuxt-link>
     </div>
     <client-only>
       <modal
