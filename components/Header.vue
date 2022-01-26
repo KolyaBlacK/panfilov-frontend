@@ -9,6 +9,7 @@
       <button class='close-button' :class="{ 'fade-in': isActiveMenu, 'fade-out': fadeIn }" @click='closeMenu'>Закрыть</button>
       <NuxtLink class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" :to="localePath('/works')">{{$t('works')}}</NuxtLink>
       <NuxtLink class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" :to="localePath('/contacts')">{{$t('contacts')}}</NuxtLink>
+      <NuxtLink class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" to="/public">Паблик</NuxtLink>
       <client-only>
         <locale-switcher class="locale-switcher"/>
       </client-only>

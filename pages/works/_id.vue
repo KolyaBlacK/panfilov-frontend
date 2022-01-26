@@ -47,7 +47,9 @@ export default {
           id: c.id,
           name: c.name,
           description: c.description,
-          imageUrl: c.image ? app.$strapi.options.url + c.image.url : ''
+          imageUrl: c.image ? app.$strapi.options.url + c.image.url : '',
+          metaTitle: c.metaTitle || null,
+          metaDescription: c.metaDescription
         })))
       }
       if (works) {
@@ -68,15 +70,17 @@ export default {
       }
     }
   },
-  head: {
-    title: 'PNFLV - портфолио агентства Дмитрия Панфилова',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Разработка логотипов, фирменных стилей, этикеток и упаковки, нейминга, иллюстрации.'
-      }
-    ],
+  head() {
+    return {
+      title: this.filterCategory?.metaTitle || 'PNFLV - портфолио агентства Дмитрия Панфилова',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.filterCategory?.metaDescription || 'Разработка логотипов, фирменных стилей, этикеток и упаковки, нейминга, иллюстрации.'
+        }
+      ],
+    }
   },
   computed: {
     categories () {

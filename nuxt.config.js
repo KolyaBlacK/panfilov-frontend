@@ -48,7 +48,7 @@ export default {
     'nuxt-i18n'
   ],
   strapi: {
-    entities: ['clients', 'works', 'categories'],
+    entities: ['clients', 'works', 'categories', 'publics'],
     url: 'http://localhost:1337'
   },
   i18n: {

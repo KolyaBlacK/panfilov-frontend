@@ -60,11 +60,9 @@ const COMPONENT_MAP = {
 }
 
 export default {
-  async asyncData ({ app, params, store, i18n }) {
+  async asyncData ({ app, params, store }) {
     try {
-      const work = await app.$strapi.$works.findOne(params.id, { _locale: i18n.locale })
-      // const work = await app.$strapi.$http.$get('/works', {id: params.id,_locale: i18n.locale});
-
+      const work = await app.$strapi.$works.findOne(params.id)
       if (work) {
         if (work.category) {
           work.similarWorks = await app.$strapi.$works.find([['category.id', work.category.id], ['id_ne', work.id], ['_limit', '3']])
@@ -86,12 +84,12 @@ export default {
   },
   head() {
     return {
-      title: this.work.meta_title,
+      title: this.work?.metaTitle || 'PNFLV - портфолио агентства Дмитрия Панфилова',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.work.meta_description
+          content: this.work?.metaDescription || 'Разработка логотипов, фирменных стилей, этикеток и упаковки, нейминга, иллюстрации.'
         }
       ],
     }

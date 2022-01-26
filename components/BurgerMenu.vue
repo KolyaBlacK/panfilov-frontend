@@ -31,6 +31,9 @@
               <NuxtLink to="/agency">Агентство</NuxtLink>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.7s'>
+              <NuxtLink to="/public">Паблик</NuxtLink>
+            </li>
+            <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.8s'>
               <NuxtLink to="/contacts">Контакты</NuxtLink>
             </li>
           </ul>
