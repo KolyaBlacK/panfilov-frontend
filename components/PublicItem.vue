@@ -2,7 +2,7 @@
   <div class="public">
     <p v-if="date" class="date">{{date}}</p>
     <p v-if="article.text" class="text">{{article.text}}</p>
-    <a v-if="article.socialLink" :href="article.socialLink.link" target="_blank" class="link arrow-link">{{article.socialLink.socialName}}</a>
+    <a v-if="article.socialLink" :href="article.socialLink.link" target="_blank" class="link arrow-link" :class="article.socialLink.social">{{article.socialLink.social}}</a>
   </div>
 </template>
 
@@ -67,6 +67,33 @@ export default {
       height: 10px;
       top: 0px;
       margin-left: 10px;
+    }
+  }
+
+  &.Facebook {
+    &:hover {
+      color: $otherLink;
+      &:after {
+        background-color: $otherLink;
+      }
+    }
+  }
+
+  &.Instagram {
+    &:hover {
+      color: $styleRose;
+      &:after {
+        background-color: $styleRose;
+      }
+    }
+  }
+
+  &.Behance {
+    &:hover {
+      color: $darkGray;
+      &:after {
+        background-color: $darkGray;
+      }
     }
   }
 }
