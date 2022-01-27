@@ -65,7 +65,7 @@ export default {
       const work = await app.$strapi.$works.findOne(params.id)
       if (work) {
         if (work.category) {
-          work.similarWorks = await app.$strapi.$works.find([['category.id', work.category.id], ['id_ne', work.id], ['_limit', '3']])
+          work.similarWorks = await app.$strapi.$works.find([['category.id', work.category.id], ['id_ne', work.id], ['_locale', app.i18n.locale], ['_limit', '3']])
         }
         store.commit('work/setCurrent', work)
 
@@ -114,7 +114,7 @@ export default {
       this.initComponents(this.work.WebPage)
     }
     this.$store.commit('ui/set', this.work.theme)
-    this.categories = await this.$strapi.$categories.find()
+    this.categories = await this.$strapi.$categories.find({ _locale: this.$i18n.locale })
   },
   destroyed () {
     setTimeout(() => {

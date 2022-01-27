@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="localePath('/', locale.code)" class="link">{{ locale.name }}</nuxt-link>
+  <a :href="href" class="link">{{ locale.name }}</a>
 </template>
 <script>
 export default {
@@ -7,6 +7,9 @@ export default {
   computed: {
     locale() {
       return this.$i18n.locales.find(locale => locale.code !== this.$i18n.locale)
+    },
+    href() {
+      return this.$i18n.locale === 'en' ? '/' : '/en'
     }
   }
 }

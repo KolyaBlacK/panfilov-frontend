@@ -15,9 +15,9 @@
 <script>
 export default {
   name: 'Public',
-  async asyncData ({ app, params, store }) {
+  async asyncData ({ app, i18n }) {
     try {
-      const publics = await app.$strapi.$publics.find() || []
+      const publics = await app.$strapi.$publics.find({ _locale: i18n.locale }) || []
       return {
         articles: publics
       }

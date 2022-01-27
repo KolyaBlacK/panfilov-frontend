@@ -42,7 +42,6 @@ export default {
       const categories = await app.$strapi.$categories.find({ _locale: i18n.locale })
       const works = await app.$strapi.$works.find({ _locale: i18n.locale })
       if (categories) {
-        console.log(categories)
         store.commit('categories/setList', categories.map(c => ({
           id: c.id,
           name: c.name,
@@ -56,9 +55,7 @@ export default {
         store.commit('work/setList', works)
       }
       const filterCategory = params.id ? store.state.categories.list.find(c => c.id === parseInt(params.id)) : null
-      if (filterCategory) {
-        store.commit('categories/setFilterCategory', filterCategory)
-      }
+      store.commit('categories/setFilterCategory', filterCategory)
     } catch (error) {
       console.error(error)
     }
@@ -114,11 +111,6 @@ export default {
   },
   mounted () {
     if (!this.filterCategory) {
-      this.$store.commit('categories/setFilterCategory', this.categories[0])
-    }
-  },
-  watch: {
-    '$i18n.locale'(newVal, oldVal) {
       this.$store.commit('categories/setFilterCategory', this.categories[0])
     }
   }
