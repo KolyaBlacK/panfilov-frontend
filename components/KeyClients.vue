@@ -24,17 +24,27 @@
 export default {
   data() {
     return {
-      clients: [],
-      error: null,
+      clients: []
     }
   },
-  async mounted() {
+  mounted() {
     try {
-      this.clients = await this.$strapi.$clients.find()
+      this.$nextTick().then(() => {
+        this.getClients()
+      })
     } catch (error) {
-      this.error = error
+      console.log(error)
     }
   },
+  methods: {
+    async getClients() {
+      try {
+        this.clients = await this.$strapi.$clients.find({ _locale: this.$i18n.locale })
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  }
 }
 </script>
 

@@ -31,7 +31,6 @@ export default {
     { src: '~/plugins/vue-lazy-load.js', mode: 'client' },
     { src: '~plugins/vue-js-modal.js', mode: 'client' },
     { src: '~plugins/vee-validate.js', mode: 'client' },
-    { src: '~plugins/router.js', mode: 'client' },
     { src: '~plugins/helper.js' },
   ],
 
@@ -61,7 +60,6 @@ export default {
     ],
     defaultLocale: 'ru-RU',
     langDir: '~/locales/',
-    skipSettingLocaleOnNavigate: true,
     baseUrl: 'http://localhost:3000',
   },
 
