@@ -1,6 +1,6 @@
 <template>
   <div class="video" :class="[widthClass]">
-    <video autoplay loop muted>
+    <video autoplay loop muted playsinline>
       <source :src="$strapi.options.url + Video.url">
     </video>
   </div>
