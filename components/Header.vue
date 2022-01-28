@@ -117,6 +117,8 @@ export default {
   display: flex;
   align-items: center;
   &__link {
+    position: relative;
+    top: 0.18em;
     display: inline-block;
     padding: 0.5vw;
     transition: color $textTimeTransition ease;
@@ -159,6 +161,7 @@ export default {
 .locale-switcher {
   display: inline-block;
   padding: 0.5vw;
+  margin-left: 1vw;
 }
 
 .fade-out {
