@@ -40,7 +40,8 @@
 </template>
 
 <script>
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
+import { ValidationProvider, ValidationObserver, setInteractionMode } from 'vee-validate'
+setInteractionMode('passive')
 
 export default {
   components: {
@@ -119,6 +120,7 @@ export default {
   border-bottom: 1px solid $white;
   width: 100%;
   outline: none;
+  border-radius: 0;
   transition: border-bottom-color $textTimeTransition ease;
   @media #{$media-lg} {
     font-size: 1.4vw;
@@ -147,7 +149,8 @@ export default {
   background: $styleRose;
   text-transform: uppercase;
   font-size: 1.2vw;
-  line-height: 2.8vw;
+  line-height: 3.5vw;
+  height: 3.3vw;
   width: 40%;
   margin-top: 3em;
   color: $white;
@@ -159,13 +162,14 @@ export default {
   }
   @media #{$media-md} {
     font-size: 1.6vw;
-    line-height: 3.2vw;
+    line-height: 3.8vw;
     width: 50%;
+    height: 4.5vw;
   }
   @media #{$media-xs} {
     width: 230px;
     font-size: 16px;
-    line-height: 12px;
+    line-height: 21px;
     height: 48px;
   }
 }

@@ -72,9 +72,9 @@ export default {
 
   &.Facebook {
     &:hover {
-      color: $otherLink;
+      color: #82ACFF;
       &:after {
-        background-color: $otherLink;
+        background-color: #82ACFF;
       }
     }
   }
@@ -90,9 +90,17 @@ export default {
 
   &.Behance {
     &:hover {
-      color: $darkGray;
+      color: $otherLink;
       &:after {
-        background-color: $darkGray;
+        background-color: $otherLink;
+      }
+    }
+  }
+  &.Youtube {
+    &:hover {
+      color: #E9E9E9;
+      &:after {
+        background-color: #E9E9E9;
       }
     }
   }

@@ -105,15 +105,15 @@ export default {
   }
 
   .feedback {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: right;
-    flex: 1;
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: right;
+    //flex: 1;
     margin-left: 2vw;
     @media #{$media-xs} {
       align-items: flex-start;
       margin-left: 0;
+      flex: 1;
     }
 
     .feedback__btn {
@@ -127,7 +127,7 @@ export default {
       flex-direction: row;
       justify-content: flex-end;
       text-align: left;
-      padding: 0 3vw 6vw;
+      padding: 0 0 3vw 0;
 
       &.dark {
         color: $white;
@@ -157,15 +157,15 @@ export default {
         transition: transform $textTimeTransition ease;
         @media #{$media-sm-up} {
           width: 5vw;
-          margin: 0 1vw 0 1vw;
+          margin: 0 0 0 1vw;
         }
         @media #{$media-md-up} {
           width: 7vw;
-          margin: 0 2vw 0 3vw;
+          margin: 0 0 0 3vw;
         }
         @media #{$media-lg-up} {
           width: 6vw;
-          margin: 0 2vw 0 4vw;
+          margin: 0 0 0 4vw;
         }
         @media #{$media-xs} {
           width: 35px;
@@ -185,20 +185,16 @@ export default {
     }
     .desc {
       font-size: $font-20;
-      text-align: left;
-      @media #{$media-sm-up} {
-        text-align: right;
-      }
+      padding-left: 0.2em;
       @media #{$media-md-up} {
         font-size: 2.4vw;
-        text-align: right;
       }
       @media #{$media-lg-up} {
         font-size: 2.2vw;
-        text-align: right;
       }
       @media #{$media-xs} {
         max-width: 400px;
+        padding-left: 0;
       }
       br {
         @media #{$media-xs} {
@@ -209,8 +205,7 @@ export default {
   }
 
   .contacts {
-    //width: 230px;
-    padding-top: 4vw;
+    padding-top: 1.2vw;
     font-size: 1vw;
     line-height: 1.4vw;
     @media #{$media-lg} {
@@ -250,14 +245,12 @@ export default {
 
   &__bottom {
     margin-top: 3vw;
-    justify-content: flex-end;
+    justify-content: space-between;
+    //justify-content: flex-end;
 
     @media #{$media-sm-up} {
       align-items: center;
       margin-top: 7vw;
-    }
-    @media #{$media-md-up} {
-      justify-content: space-between;
     }
     @media #{$media-xs} {
       margin-top: 40px;
@@ -266,12 +259,8 @@ export default {
     .social-links {
       display: flex;
       flex-direction: row;
-      flex: 1;
       @media #{$media-sm-up} {
         margin-left: 7vw;
-      }
-      @media #{$media-md-up} {
-        width: 60%;
       }
       @media #{$media-xs} {
         justify-content: space-between;
@@ -281,6 +270,9 @@ export default {
     .social-link {
       padding: 0 2vw;
       font-size: 0.9vw;
+      &:last-child {
+        padding-right: 0;
+      }
       @media #{$media-lg} {
         font-size: 1.2vw;
         line-height: 1.2vw;
