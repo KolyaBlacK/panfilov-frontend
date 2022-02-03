@@ -118,9 +118,9 @@ export default {
   align-items: center;
   &__link {
     position: relative;
-    top: 0.18em;
+    top: 0.20em;
     display: inline-block;
-    padding: 0.5vw;
+    padding: 0.5vw 1vw;
     transition: color $textTimeTransition ease;
     &:hover {
       color: $styleRose;
@@ -161,7 +161,7 @@ export default {
 .locale-switcher {
   display: inline-block;
   padding: 0.5vw;
-  margin-left: 1vw;
+  margin-left: 1.5vw;
 }
 
 .fade-out {

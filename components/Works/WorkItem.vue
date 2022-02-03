@@ -1,16 +1,18 @@
 <template>
   <li ref="scrollSections" class="work-item">
-    <nuxt-link v-if="work.mainImage" :to="localePath(workUrl)" class="image-container">
-      <img
-        ref="image"
-        v-lazy="$strapi.options.url + work.mainImage.url"
-        class="work-item__image"
-        alt="work"
-      />
-    </nuxt-link>
-    <div class="work-item__text">
-      <nuxt-link :to="localePath(workUrl)" class="work-item__title">{{ work.title }}</nuxt-link>
-      <nuxt-link v-if="work.category" :to="localePath(workCategoryUrl)" class="work-item__description">{{ work.category.name }}</nuxt-link>
+    <div class="work-item__inner">
+      <nuxt-link v-if="work.mainImage" :to="localePath(workUrl)" class="image-container">
+        <img
+          ref="image"
+          v-lazy="$strapi.options.url + work.mainImage.url"
+          class="work-item__image"
+          alt="work"
+        />
+      </nuxt-link>
+      <div class="work-item__text">
+        <nuxt-link :to="localePath(workUrl)" class="work-item__title">{{ work.title }}</nuxt-link>
+        <nuxt-link v-if="work.category" :to="localePath(workCategoryUrl)" class="work-item__description">{{ work.category.name }}</nuxt-link>
+      </div>
     </div>
   </li>
 </template>
@@ -77,6 +79,9 @@ export default {
     width: 100% !important;
     margin-bottom: 32px;
   }
+  &__inner {
+    display: inline-block;
+  }
   &.nth-child-0 {
     width: 58%;
   }
@@ -117,9 +122,12 @@ export default {
   &__text {
     display: flex;
     margin-top: 1.6vw;
+    padding-right: 2em;
+    justify-content: space-between;
     @media #{$media-xs} {
       display: block;
       margin-top: 16px;
+      padding-right: 0;
     }
   }
   &__title {
