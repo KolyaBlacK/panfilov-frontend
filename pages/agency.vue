@@ -6,19 +6,19 @@
         О нас
       </h4>
       <p v-intersect="{ in: ['fade-in'] }" class="about__main-text opacity-0">
-        Мы работаем в первую очередь со смыслами. <br>
-        Команда состоит из людей, анализирующих <br>
-        потребности и находящих решения <br>
-        выходящих за рамки визуального <br>
-        оформления. Концептуальное преображение, <br>
-        повышение значимости и нужности продукта <br>
-        потребителю а не только красивые решения.
+        МЫ РАБОТАЕМ В ПЕРВУЮ ОЧЕРЕДЬ СО <br>
+        СМЫСЛАМИ. КОМАНДА СОСТОИТ ИЗ ЛЮДЕЙ, <br>
+        АНАЛИЗИРУЮЩИХ ПОТРЕБНОСТИ И НАХОДЯЩИХ <br>
+        РЕШЕНИЯ ВЫХОДЯЩИЕ ЗА РАМКИ ВИЗУАЛЬНОГО <br>
+        ОФОРМЛЕНИЯ. КОНЦЕПТУАЛЬНОЕ ПРЕОБРАЖЕНИЕ, <br>
+        ПОВЫШЕНИЕ ЗНАЧИМОСТИ И НУЖНОСТИ ПРОДУКТА <br>
+        ДЛЯ ПОТРЕБИТЕЛЯ. ТОЛЬКО ПОТОМ-КРАСИВЫЕ РЕШЕНИЯ
       </p>
       <p v-intersect="{ in: ['fade-in'] }" class="about__small-text opacity-0">
         Наш подход это своеобразная бренд-терапия, осознание бренда не как <br>
         бездушный набор знаков и картинок, но как живой <br>
         механизм, который говорит с живым человеком. У него есть потребности, <br>
-        цели и миссия, он эволюционирует и не теряет актуальности.
+        цели и миссия, он эволюционирует и не теряет актуальности
       </p>
     </div>
     <key-clients />
@@ -26,25 +26,26 @@
     <div class='counters'>
       <ul class='counters__list'>
         <li v-intersect="{ in: ['fade-in'] }" class='counters__item opacity-0'>
-          <span class='counters__number'>400</span>
+          <span class='counters__number'>405</span>
           <span class='counters__text'>проектов по <br>брендингу</span>
         </li>
         <li v-intersect="{ in: ['fade-in'] }" class='counters__item opacity-0'>
-          <span class='counters__number'>100</span>
+          <span class='counters__number'>102</span>
           <span class='counters__text'>проектов по <br>упаковке</span>
         </li>
         <li v-intersect="{ in: ['fade-in'] }" class='counters__item opacity-0'>
-          <span class='counters__number'>200</span>
+          <span class='counters__number'>207</span>
           <span class='counters__text'>проектов по <br>неймингу</span>
         </li>
       </ul>
       <p v-intersect="{ in: ['fade-in'] }" class='counters__description opacity-0'>
-        Мы постоянно наблюдаем, учимся, <br>
-        анализируем среду. Логически, системно и <br>
-        интуитивно подходим к решению задач. <br>
-        Глобальное чувство рынка для локальных <br>
-        решений. Нам приятно смотреть как вы <br>
-        растете.
+        МЫ ПОСТОЯННО НАБЛЮДАЕМ, УЧИМСЯ, <br>
+        АНАЛИЗИРУЕМ СРЕДУ. ЛОГИЧЕСКИ, СИСТЕМНО, <br>
+        ОСНОВЫВАЯСЬ НА ОПЫТЕ И ЭКСПЕРТНОСТИ <br>
+        ПОДХОДИМ К РЕШЕНИЮ ЗАДАЧ. ГЛОБАЛЬНОЕ <br>
+        ЧУВСТВО РЫНКА ДЛЯ ЛОКАЛЬНЫХ РЕШЕНИЙ. <br>
+        НАМ ПРИЯТНО ВИДЕТЬ ВАШИ ДОСТИЖЕНИЯ И <br>
+        СМОТРЕТЬ КАК ВЫ РАСТЕТЕ!
       </p>
     </div>
   </div>
@@ -126,7 +127,7 @@ export default {
 }
 
 .counters {
-  margin-left: 20%;
+  margin-left: 5%;
   padding-bottom: 6vw;
   @media #{$media-md} {
     padding-bottom: 70px;
@@ -139,8 +140,10 @@ export default {
   &__list {
     display: flex;
     justify-content: space-between;
+    max-width: 75%;
     @media #{$media-xs} {
       display: block;
+      max-width: none;
     }
   }
   &__item {
@@ -152,7 +155,7 @@ export default {
   }
   &__number {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     font-size: 4vw;
     line-height: 0;
     &:before {
@@ -211,6 +214,8 @@ export default {
     margin: 3em 0 0;
     font-size: 2vw;
     line-height: 2.8vw;
+    display: flex;
+    justify-content: flex-end;
     @media #{$media-lg} {
       font-size: 2.2vw;
       line-height: 3vw;
@@ -222,6 +227,7 @@ export default {
     @media #{$media-xs} {
       font-size: 16px;
       line-height: 28px;
+      display: block;
     }
   }
 }

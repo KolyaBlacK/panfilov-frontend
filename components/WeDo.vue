@@ -1,18 +1,24 @@
 <template>
   <div v-intersect="{ in: ['fade-in'] }" class="we-do opacity-0">
     <h5 class="we-do__title">{{$t('weDo.title')}}</h5>
-    <ul class="we-do__list">
-      <li class="we-do__item">{{$t('weDo.list.item1')}}</li>
-      <li class="we-do__item">{{$t('weDo.list.item2')}}</li>
-      <li class="we-do__item">{{$t('weDo.list.item3')}}</li>
-      <li class="we-do__item">{{$t('weDo.list.item4')}}</li>
-      <li class="we-do__item">{{$t('weDo.list.item5')}}</li>
-      <li class="we-do__item">{{$t('weDo.list.item6')}}</li>
-      <!-- eslint-disable vue/no-v-html -->
-      <li class="we-do__item" v-html="$t('weDo.list.item7')"/>
-      <!-- eslint-enable -->
-      <li class="we-do__item">{{$t('weDo.list.item8')}}</li>
-    </ul>
+    <div class="we-do__lists">
+      <ul class="we-do__list">
+        <li class="we-do__item">{{$t('weDo.list.item1')}}</li>
+        <li class="we-do__item">{{$t('weDo.list.item2')}}</li>
+        <li class="we-do__item">{{$t('weDo.list.item3')}}</li>
+
+        <li class="we-do__item">{{$t('weDo.list.item4')}}</li>
+        <li class="we-do__item">{{$t('weDo.list.item5')}}</li>
+      </ul>
+      <ul class="we-do__list">
+        <li class="we-do__item">{{$t('weDo.list.item6')}}</li>
+        <!-- eslint-disable vue/no-v-html -->
+        <li class="we-do__item" v-html="$t('weDo.list.item7')"></li>
+        <!-- eslint-enable -->
+        <li class="we-do__item">{{$t('weDo.list.item8')}}</li>
+        <li class="we-do__item">{{$t('weDo.list.item9')}}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -48,12 +54,18 @@ export default {
       margin-bottom: 32px;
     }
   }
-  &__list {
+  &__lists {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    @media #{$media-xs} {
+      display: block;
+    }
+  }
+  &__list {
+    display: flex;
     font-size: 1.4vw;
     line-height: 1.6vw;
+    flex-direction: column;
     @media #{$media-lg} {
       font-size: 1.6vw;
       line-height: 1.8vw;
@@ -69,7 +81,6 @@ export default {
     }
   }
   &__item {
-    width: 50%;
     margin-bottom: 1.6vw;
     text-transform: uppercase;
     @media #{$media-xs} {

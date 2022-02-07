@@ -5,12 +5,13 @@
       <h4 v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">
         {{$t('works')}}
       </h4>
+      <!-- eslint-disable vue/no-v-html -->
       <p
         v-intersect="{ in: ['fade-in'] }"
         class="works__description block-description opacity-0"
-      >
-        {{$t('worksDescription')}}
-      </p>
+        v-html="$t('worksDescription')"
+      />
+      <!-- eslint-enable -->
       <works :works="works" />
       <div v-intersect="{ in: ['fade-in'] }" class="right opacity-0">
         <nuxt-link :to="localePath('/works')" class="arrow-link">{{$t('allWorks.title')}}</nuxt-link>
@@ -67,6 +68,11 @@ export default {
     @media #{$media-xs} {
       max-width: 100%;
       margin: 0 0 3.7em auto;
+    }
+    br {
+      @media #{$media-xs} {
+        display: none;
+      }
     }
   }
 }
