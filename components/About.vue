@@ -4,7 +4,7 @@
       {{$t('aboutUs')}}
     </h4>
     <div v-intersect="{ in: ['fade-in'] }" class="about__top opacity-0">
-      <div>
+      <div class="about__video-button--wrapper">
         <a class="about__video-button" href="#" @click.prevent="openAboutModal">
           <img v-lazy="'images/about.jpg'" class="about__image" alt="about" />
           <svg
@@ -23,13 +23,13 @@
         </a>
       </div>
       <!-- eslint-disable vue/no-v-html -->
-      <p class="about__main-text">
-        <span v-html="$t('aboutUsMainText')"/>
+      <p v-intersect="{ in: ['fade-in'] }" class="about__main-text opacity-0">
+        <span class="ignore-br" v-html="$t('aboutUsMainText')"/>
 
         <span class="about__main-text__second" v-html="$t('aboutUsSecondText')"/>
+        <span class="about__small-text ignore-br" v-html="$t('aboutUsSmallText')"/>
       </p>
     </div>
-    <p v-intersect="{ in: ['fade-in'] }" class="about__small-text opacity-0" v-html="$t('aboutUsSmallText')"/>
     <!-- eslint-enable -->
     <we-do />
     <div v-intersect="{ in: ['fade-in'] }" class="right opacity-0">
@@ -79,10 +79,18 @@ export default {
   &__video-button {
     display: block;
     position: relative;
-    flex: 1;
     &:hover {
       path {
         fill: $styleRose;
+      }
+    }
+    &--wrapper {
+      @media #{$media-lg} {
+        max-width: 40%;
+        flex: 1;
+      }
+      @media #{$media-xs} {
+        max-width: none;
       }
     }
   }
@@ -104,23 +112,17 @@ export default {
     margin: 0;
     width: 55%;
     @media #{$media-lg} {
-      font-size: 2.6vw;
-      line-height: 3vw;
+      font-size: 2.4vw;
+      line-height: 2.8vw;
       margin-left: 2vw;
-      br {
-        display: none;
-      }
     }
     @media #{$media-xs} {
       width: auto;
       font-size: 22px;
       line-height: 36px;
       margin: 32px 0;
-      br {
-        display: none;
-      }
     }
-    &__second {
+    &__second::v-deep {
       display: inline-block;
       margin-top: 2.5vw;
       font-size: 1.2vw;
@@ -148,9 +150,8 @@ export default {
     font-size: 1vw;
     line-height: 1.6vw;
     color: $darkGray;
-    margin: 0;
-    margin-left: 50%;
-    margin-bottom: 6em;
+    margin: 9em 0;
+    display: inline-block;
     @media #{$media-lg} {
       font-size: 1.6vw;
       line-height: 2vw;
@@ -160,8 +161,7 @@ export default {
       line-height: 2vw;
     }
     @media #{$media-xs} {
-      margin-left: 0;
-      margin-bottom: 50px;
+      margin: 32px 0;
       font-size: 14px;
       line-height: 18px;
     }
@@ -173,6 +173,14 @@ export default {
     background-color: $styleRose;
     border-radius: 0;
     box-shadow: none;
+  }
+}
+
+.ignore-br::v-deep {
+  @media #{$media-lg} {
+    br {
+      display: none;
+    }
   }
 }
 </style>
