@@ -7,6 +7,14 @@
         :src="filterCategory.imageUrl"
         :alt="filterCategory.name"
       />
+      <video
+        v-if="filterCategory && filterCategory.videoUrl"
+        class="back-image"
+        :src="filterCategory.videoUrl"
+        autoplay loop muted playsinline
+      >
+        <source :src="filterCategory.videoUrl">
+      </video>
       <div class="works-header__left">
         <client-only>
           <v-select
@@ -42,14 +50,25 @@ export default {
       const categories = await app.$strapi.$categories.find({ _locale: i18n.locale })
       const works = await app.$strapi.$works.find({ _locale: i18n.locale })
       if (categories) {
-        store.commit('categories/setList', categories.map(c => ({
-          id: c.id,
-          name: c.name,
-          description: c.description,
-          imageUrl: c.image ? app.$strapi.options.url + c.image.url : '',
-          metaTitle: c.metaTitle || null,
-          metaDescription: c.metaDescription
-        })))
+        store.commit('categories/setList', categories.map(c => {
+          const element = {
+            id: c.id,
+            name: c.name,
+            description: c.description,
+            metaTitle: c.metaTitle || null,
+            metaDescription: c.metaDescription
+          }
+          if (c.headerMedia[0]) {
+            if (c.headerMedia[0].video) {
+              element.videoUrl = app.$strapi.options.url + c.headerMedia[0].video.url
+            }
+            if (c.headerMedia[0].image) {
+              element.imageUrl = app.$strapi.options.url + c.headerMedia[0].image.url
+            }
+          }
+
+          return element
+        }))
       }
       if (works) {
         store.commit('work/setList', works)
@@ -220,15 +239,17 @@ export default {
   }
 }
 .work-type-select::v-deep .vs__dropdown-menu {
-  background: $mainBlack;
-  border: 1px solid $blackGray;
+  background: transparent;
+  box-shadow: none;
+  border: none;
 
   .vs__dropdown-option {
     color: $white;
-    background: $mainBlack;
-    margin: 12px 0;
+    background: transparent;
+    margin: 6px 0;
+    padding: 3px 11px;
     &:hover {
-      background: $mainBlack;
+      background: transparent;
       color: $styleRose;
     }
   }
