@@ -7,6 +7,7 @@
       <div class="about__video-button--wrapper">
         <a class="about__video-button" href="#" @click.prevent="openAboutModal">
           <img v-lazy="'images/about.jpg'" class="about__image" alt="about" />
+          <span class="about__video-text">Дмитрий Панфилов</span>
           <svg
             class="about__video-icon"
             width="73"
@@ -25,10 +26,11 @@
       <!-- eslint-disable vue/no-v-html -->
       <p v-intersect="{ in: ['fade-in'] }" class="about__main-text opacity-0">
         <span class="ignore-br" v-html="$t('aboutUsMainText')"/>
-
-        <span class="about__main-text__second" v-html="$t('aboutUsSecondText')"/>
-        <span class="about__small-text ignore-br" v-html="$t('aboutUsSmallText')"/>
       </p>
+    </div>
+    <div v-intersect="{ in: ['fade-in'] }" class="about__bottom opacity-0">
+      <div class="about__bottom__left about__small-text ignore-br" v-html="$t('aboutUsSecondText')"/>
+      <div class="about__bottom__right about__small-text ignore-br" v-html="$t('aboutUsSmallText')"/>
     </div>
     <!-- eslint-enable -->
     <we-do />
@@ -76,10 +78,27 @@ export default {
       display: block;
     }
   }
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    @media #{$media-xs} {
+      display: block;
+    }
+    &__left {
+      @media #{$media-lg} {
+        max-width: 40%;
+        flex: 1;
+      }
+    }
+    &__right {
+      width: 55%;
+    }
+  }
   &__video-button {
     display: block;
     position: relative;
     &:hover {
+      color: $white;
       path {
         fill: $styleRose;
       }
@@ -95,6 +114,20 @@ export default {
     }
   }
   &__image {
+  }
+  &__video-text {
+    text-transform: uppercase;
+    position: absolute;
+    left: 8%;
+    bottom: 22%;
+    font-size: 1vw;
+    @media #{$media-md} {
+      font-size: 1.2vw;
+      bottom: 25%;
+    }
+    @media #{$media-xs} {
+      font-size: 14px;
+    }
   }
   &__video-icon {
     position: absolute;
@@ -150,7 +183,7 @@ export default {
     font-size: 1vw;
     line-height: 1.6vw;
     color: $darkGray;
-    margin: 9em 0;
+    margin: 6em 0;
     display: inline-block;
     @media #{$media-lg} {
       font-size: 1.6vw;
@@ -164,6 +197,9 @@ export default {
       margin: 32px 0;
       font-size: 14px;
       line-height: 18px;
+      width: auto;
+      max-width: 100%;
+      display: block;
     }
   }
 }

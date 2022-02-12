@@ -10,7 +10,7 @@
         <li class="we-do__item">{{$t('weDo.list.item4')}}</li>
         <li class="we-do__item">{{$t('weDo.list.item5')}}</li>
       </ul>
-      <ul class="we-do__list">
+      <ul class="we-do__list we-do__list-last">
         <li class="we-do__item">{{$t('weDo.list.item6')}}</li>
         <!-- eslint-disable vue/no-v-html -->
         <li class="we-do__item" v-html="$t('weDo.list.item7')"></li>
@@ -30,10 +30,8 @@ export default {
 <style lang='scss' scoped>
 @import '~/assets/scss/variables.scss';
 .we-do {
-  padding: 0 5%;
   margin-bottom: 6vw;
   @media #{$media-xs} {
-    padding: 0;
     margin-bottom: 50px;
   }
   &__title {
@@ -78,6 +76,12 @@ export default {
       font-size: 18px;
       line-height: 32px;
       display: block;
+    }
+    &-last {
+      width: 55%;
+      @media #{$media-xs} {
+        width: auto;
+      }
     }
   }
   &__item {

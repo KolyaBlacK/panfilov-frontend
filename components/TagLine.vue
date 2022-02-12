@@ -208,6 +208,7 @@ export default {
   .right {
     display: flex;
     .show-reel {
+      position: relative;
       border: 8px solid $styleRose;
       border-radius: 50%;
       color: $darkGray;
@@ -225,6 +226,26 @@ export default {
       padding-right: 0.3vw;
       padding-top: 0.3vw;
       transition: all $textTimeTransition ease;
+      &:before {
+        box-sizing: content-box;
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border: 8px solid $styleRose;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        margin-left: -8px;
+        animation: pulsation 1.5s ease-out infinite;
+        @media #{$media-lg-up} {
+          border: 0.6vw solid $styleRose;
+          margin-left: -0.6vw;
+        }
+      }
       &:hover {
         background-color: $styleRose;
         color: $white;
@@ -288,6 +309,17 @@ export default {
   right: 2%;
   z-index: 51;
   cursor: pointer;
+}
+
+@keyframes pulsation {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 0;
+  }
 }
 
 </style>
