@@ -66,15 +66,18 @@ export default {
               element.imageUrl = app.$strapi.options.url + c.headerMedia[0].image.url
             }
           }
-
           return element
         }))
       }
-      if (works) {
-        store.commit('work/setList', works)
-      }
+      // if (works) {
+      //   store.commit('work/setList', works)
+      // }
       const filterCategory = params.id ? store.state.categories.list.find(c => c.id === parseInt(params.id)) : null
-      store.commit('categories/setFilterCategory', filterCategory)
+      // store.commit('categories/setFilterCategory', filterCategory)
+      return {
+        worksData: works,
+        filterCategoryData: filterCategory
+      }
     } catch (error) {
       console.error(error)
     }
@@ -83,7 +86,10 @@ export default {
     return {
       Deselect: {
         render: createElement => '',
-      }
+      },
+      worksData: null,
+      filterCategoryData: null
+
     }
   },
   head() {
@@ -110,9 +116,9 @@ export default {
         return this.$store.state.categories.filterCategory
       },
       set (category) {
-        this.$store.commit('categories/setFilterCategory', category)
         const categoryUrl = this.localePath(category.id ? '/works/' + category.id : '/works/')
         this.$router.push(categoryUrl)
+        // this.$store.commit('categories/setFilterCategory', category)
         // window.history.pushState("object or string", "Title", categoryUrl)
       }
     },
@@ -129,6 +135,8 @@ export default {
     // },
   },
   mounted () {
+    this.$store.commit('work/setList', this.worksData)
+    this.$store.commit('categories/setFilterCategory', this.filterCategoryData)
     if (!this.filterCategory) {
       this.$store.commit('categories/setFilterCategory', this.categories[0])
     }
