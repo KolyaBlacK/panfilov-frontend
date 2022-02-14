@@ -33,6 +33,7 @@ export default {
   margin-bottom: 6vw;
   @media #{$media-xs} {
     margin-bottom: 50px;
+    margin-top: 96px;
   }
   &__title {
     font-size: 3vw;
