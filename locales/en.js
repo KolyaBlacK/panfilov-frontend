@@ -6,7 +6,7 @@ export default {
   },
   tagLine: {
     string1: "In",
-    string2: "design",
+    string2: "design,",
     "string3": "beauty",
     "string4": "becomes",
     "string5": "a brand",
@@ -20,15 +20,15 @@ export default {
     title: 'Contacts'
   },
   "works": "Works",
-  "worksDescription": "To buy is to trust. Customers are attracted to aesthetically improved product with elaborated relationship psychology. Its easier to sell products, filled with love and customer care.",
+  worksDescription: "Customers are attracted to esthetically enhanced products with sophisticated relational psychology. It's easier to sell products filled with love and customer care.",
   allWorks: {
     title: 'All works',
     description: 'EN — В своей работе я стремлюсь создать продукт, способный не только наилучшим образом справляться со своей функцией, но и вдохновлять, украшать и давать новый опыт'
   },
   "aboutUs": "About us",
-  aboutUsMainText: 'As the CEO of branding agency I aim to create aesthetically beautiful product, based on the deep market research and 20 years of my design practice.',
-  aboutUsSecondText: 'Creativity requires conscious approach with deep market and customer comprehension, therefor it works, improves business stats, inspires to love the product, so it can change the environment for good.',
-  aboutUsSmallText: 'Our approach is some kind of brand therapy, we dont assume the brand as a soulless bunch of signs and pictures but as a living creature communicating with human beings. It has its way, mission, it evolves and stays true for years.',
+  aboutUsMainText: 'As the CEO of a branding agency, my goal is to create esthetically beautiful products based on deep market research and 20 years of design practice.',
+  aboutUsSecondText: 'Creativity requires a deliberate approach with deep market and customer understanding to make it work, improve business statistics and inspire people to love the product so it can change the environment for the better.',
+  aboutUsSmallText: 'Our approach is a kind of brand therapy, we do not consider the brand as a soulless pile of signs and images, but as a living entity that communicates with people. It has its own path, its own mission, it evolves and stays true to itself for years.',
   weDo: {
     title: 'We do',
     list: {
