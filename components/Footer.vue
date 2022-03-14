@@ -1,9 +1,9 @@
 <template>
   <div v-intersect="{ in: ['animate-line'] }" class="footer top-border">
-    <div v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">Обратная связь</div>
+    <div v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">{{$t('feedback')}}</div>
     <div v-intersect="{ in: ['fade-in'] }" class="footer__top opacity-0">
       <div class="feedback">
-        <button class="feedback__btn" :class="[theme]" @click="$router.push('/contacts')">
+        <button class="feedback__btn" :class="[theme]" @click="$router.push(localePath('/contacts'))">
           <!-- eslint-disable vue/no-v-html -->
           <span v-html="$t('footer.feedback.item1')"/>
           <!-- eslint-enable -->
@@ -37,9 +37,9 @@
         <div class="contacts__row email">
           <a href="mailto:panfiloffff@gmail.com">panfiloffff@gmail.com</a>
         </div>
-        <div class="contacts__row address">
-          Ставрополь, Гражданская, 8 <br> 3 этаж, офис 313
-        </div>
+        <!-- eslint-disable vue/no-v-html -->
+        <div class="contacts__row address" v-html="$t('address')" />
+        <!-- eslint-enable -->
       </div>
     </div>
     <div v-intersect="{ in: ['fade-in'] }" class="footer__bottom opacity-0">

@@ -10,10 +10,9 @@
           </div>
           <a href='mailto:panfiloffff@gmail.com' class='fade-in' style='animation-delay: 0.9s'>panfiloffff@gmail.com</a>
         </div>
-        <div class='address fade-in' style='animation-delay: 1s'>
-          Ставрополь, Гражданская 8<br>
-          3 этаж, офис 313
-        </div>
+        <!-- eslint-disable vue/no-v-html -->
+        <div class='address fade-in' style='animation-delay: 1s' v-html="$t('address')" />
+        <!-- eslint-enable -->
       </div>
       <div class='contacts-page__right'>
         <!-- eslint-disable vue/no-v-html -->
