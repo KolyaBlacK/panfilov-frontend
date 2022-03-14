@@ -1,8 +1,13 @@
 <template>
   <div class="public-page">
-    <!-- eslint-disable vue/no-v-html -->
-    <h1 v-intersect="{ in: ['fade-in'] }" class="public-title block-description ignore-br opacity-0" v-html="$t('public.description')"/>
-    <!-- eslint-enable -->
+    <div class="public-top-container">
+      <!-- eslint-disable vue/no-v-html -->
+      <h1 v-intersect="{ in: ['fade-in'] }" class="public-title block-description ignore-br opacity-0" v-html="$t('public.description')"/>
+      <!-- eslint-enable -->
+      <div class="wrapper-gif">
+        <img :src="randomNumber" alt='gif'>
+      </div>
+    </div>
     <div v-intersect="{ in: ['animate-line'] }" class="top-border items">
       <public-item v-for="(article, index) in articles" :key="index" v-intersect="{ in: ['fade-in'] }" :article="article" class="item opacity-0"/>
     </div>
@@ -22,7 +27,14 @@ export default {
       console.error(error)
     }
   },
-
+  computed: {
+    randomNumber () {
+      const min = 1
+      const max = 5
+      const number = Math.floor(Math.random() * (max - min)) + min
+      return require(`../assets/gifs/${number}.gif`)
+    }
+  }
 }
 </script>
 
@@ -35,15 +47,35 @@ export default {
   }
 }
 
-.public-title {
+.public-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2em;
+  @media #{$media-xs} {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+.wrapper-gif {
+  flex: 1;
+  img {
+    display: block;
+  }
+}
+
+.public-title {
+  @media #{$media-lg} {
+    max-width: 70%;
+  }
   @media #{$media-xs} {
     max-width: 100%;
   }
 }
 
 .ignore-br::v-deep {
-  @media #{$media-xs} {
+  @media #{$media-lg} {
     br {
       display: none;
     }
