@@ -107,7 +107,7 @@ export default {
   computed: {
     categories () {
       return [
-        { id: null, name: this.$t('allWorks.title'), description: this.$t('allWorks.description'), imageUrl: require(`../../assets/images/chair.png`) },
+        { id: null, name: this.$t('allWorks.title'), description: this.$t('allWorks.description'), videoUrl: require(`../../assets/video/lovepanfilove.mp4`) },
         ...this.$store.state.categories.list
       ]
     },
