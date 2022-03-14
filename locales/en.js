@@ -52,7 +52,7 @@ export default {
   keyClients: 'Key clients',
   public: {
     title: 'Public',
-    description: 'In my work, I want to create a product that can<br> both inspire, decorate, and give a fresh experience<br> while still doing its function to the best of its capacity.'
+    description: 'In my work, I want to create a product that can<br> both inspire, decorate, and give a fresh experience<br> while still doing its function to the best of its capacity'
   },
   close: 'Close',
   agency: {
@@ -66,6 +66,8 @@ export default {
       item1: 'Tell us about<br> your project',
       item2: 'We analyze all incoming applications<br> and respond as soon as possible',
     }
-  }
+  },
+  feedback: 'Feedback',
+  address: 'Stavropol, Grazhdanskaya, 8<br> 3rd floor, office 313'
 }
 
