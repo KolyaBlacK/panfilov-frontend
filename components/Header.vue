@@ -8,8 +8,8 @@
     <div class='menu'>
       <button class='close-button' :class="{ 'fade-in': isActiveMenu, 'fade-out': fadeIn }" @click='closeMenu'>{{$t('close')}}</button>
       <nuxt-link class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" :to="localePath('/works')">{{$t('works')}}</nuxt-link>
-      <nuxt-link class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" :to="localePath('/contacts')">{{$t('contacts.title')}}</nuxt-link>
       <nuxt-link class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" :to="localePath('/public')">{{$t('public.title')}}</nuxt-link>
+      <nuxt-link class='menu__link hidden-xs' :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }" :to="localePath('/contacts')">{{$t('contacts.title')}}</nuxt-link>
       <client-only>
         <locale-switcher class="locale-switcher menu__link" :class="{ 'fade-out': isActiveMenu, 'fade-in': fadeIn }"/>
       </client-only>
