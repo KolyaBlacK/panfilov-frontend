@@ -5,15 +5,9 @@
       <h4 v-intersect="{ in: ['fade-in'] }" class="block-title opacity-0">
         О нас
       </h4>
-      <p v-intersect="{ in: ['fade-in'] }" class="about__main-text opacity-0">
-        МЫ РАБОТАЕМ В ПЕРВУЮ ОЧЕРЕДЬ СО <br>
-        СМЫСЛАМИ. КОМАНДА СОСТОИТ ИЗ ЛЮДЕЙ, <br>
-        АНАЛИЗИРУЮЩИХ ПОТРЕБНОСТИ И НАХОДЯЩИХ <br>
-        РЕШЕНИЯ ВЫХОДЯЩИЕ ЗА РАМКИ ВИЗУАЛЬНОГО <br>
-        ОФОРМЛЕНИЯ. КОНЦЕПТУАЛЬНОЕ ПРЕОБРАЖЕНИЕ, <br>
-        ПОВЫШЕНИЕ ЗНАЧИМОСТИ И НУЖНОСТИ ПРОДУКТА <br>
-        ДЛЯ ПОТРЕБИТЕЛЯ. ТОЛЬКО ПОТОМ-КРАСИВЫЕ РЕШЕНИЯ
-      </p>
+      <!-- eslint-disable vue/no-v-html -->
+      <p v-intersect="{ in: ['fade-in'] }" class="about__main-text ignore-br opacity-0" v-html="$t('agency.mainText')" />
+      <!-- eslint-enable -->
       <p v-intersect="{ in: ['fade-in'] }" class="about__small-text opacity-0">
         Наш подход это своеобразная бренд-терапия, осознание бренда не как <br>
         бездушный набор знаков и картинок, но как живой <br>
@@ -228,6 +222,14 @@ export default {
       font-size: 16px;
       line-height: 28px;
       display: block;
+    }
+  }
+}
+
+.ignore-br::v-deep {
+  @media #{$media-xs} {
+    br {
+      display: none;
     }
   }
 }

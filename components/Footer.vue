@@ -4,7 +4,9 @@
     <div v-intersect="{ in: ['fade-in'] }" class="footer__top opacity-0">
       <div class="feedback">
         <button class="feedback__btn" :class="[theme]" @click="$router.push('/contacts')">
-          <span>Напишите нам о<br> своем проекте</span>
+          <!-- eslint-disable vue/no-v-html -->
+          <span v-html="$t('footer.feedback.item1')"/>
+          <!-- eslint-enable -->
           <svg
             class="btn-icon"
             width="132"
@@ -20,9 +22,9 @@
               />
             </svg>
         </button>
-        <div class="desc">
-          Мы изучаем все входящие заявки <br>и гарантируем обратную связь
-        </div>
+        <!-- eslint-disable vue/no-v-html -->
+        <div class="desc" v-html="$t('footer.feedback.item2')"/>
+        <!-- eslint-enable -->
       </div>
       <div class="contacts">
         <div class="contacts__row phone">

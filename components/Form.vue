@@ -7,7 +7,7 @@
           type='text'
           name='email'
           class='form-input'
-          placeholder='Ваш E-mail'
+          :placeholder="$t('contacts.email')"
         >
         <span class='form-input-error'>{{ errors[0] }}</span>
       </ValidationProvider>
@@ -17,7 +17,7 @@
           type='text'
           name='name'
           class='form-input'
-          placeholder='ФИО'
+          :placeholder="$t('contacts.fullName')"
         >
         <span class='form-input-error'>{{ errors[0] }}</span>
       </ValidationProvider>
@@ -27,7 +27,7 @@
         cols='30'
         rows='5'
         class='form-textarea'
-        placeholder='Оставьте ваш комментарий'
+        :placeholder="$t('contacts.message')"
       ></textarea>
       <button
         type='submit'
