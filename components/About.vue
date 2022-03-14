@@ -183,7 +183,7 @@ export default {
     font-size: 1vw;
     line-height: 1.6vw;
     color: $darkGray;
-    margin: 6em 0;
+    margin: 6em 2em 0 0;
     display: inline-block;
     @media #{$media-lg} {
       font-size: 1.6vw;
