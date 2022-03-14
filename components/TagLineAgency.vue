@@ -9,17 +9,14 @@
       <div class="tag-line__right fade-in" style='animation-delay: 0.6s'>
         <button class="show-reel" :class="{ active: animateStatus }" @mousedown="lineStart" @click="lineStart" @mouseover="mouseover" @mouseleave="mouseleave">
           <span v-if="animateStatus">Tap & hold</span>
-          <span ref="span" v-else>Show reel</span>
+          <span v-else ref="span">Show reel</span>
         </button>
       </div>
     </div>
     <div class='tag-line__bottom fade-in' style='animation-delay: 0.9s'>
-      <p class='description'>
-        Для успеха нужно больше, чем функционал. Красивый и <br>
-        эстетичный брендинг с пониманием законов восприятия <br>
-        способен стать новым, а зачастую и одним из самых важных, <br>
-        преимуществ товара, услуги или компании
-      </p>
+      <!-- eslint-disable vue/no-v-html -->
+      <p class='description' v-html="$t('tagLine.description')" />
+      <!-- eslint-enable -->
     </div>
     <div v-show="isShowReelContainer" ref="reelContainer" class="reel-container" @mousedown="lineStart" @mouseup="lineStop">
       <svg width="100%" height="100%" viewBox="0 0 1350 753" fill="none" xmlns="http://www.w3.org/2000/svg">

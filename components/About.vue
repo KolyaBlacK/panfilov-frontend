@@ -7,7 +7,7 @@
       <div class="about__video-button--wrapper">
         <a class="about__video-button" href="#" @click.prevent="openAboutModal">
           <img v-lazy="'images/about.jpg'" class="about__image" alt="about" />
-          <span class="about__video-text">Дмитрий Панфилов</span>
+          <span class="about__video-text">{{$t('panfilov')}}</span>
           <svg
             class="about__video-icon"
             width="73"

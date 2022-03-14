@@ -1,11 +1,8 @@
 <template>
   <div class="public-page">
-    <h1 v-intersect="{ in: ['fade-in'] }" class="public-title block-description opacity-0">
-      — В своей работе я стремлюсь создать продукт, <br>
-      способный не только наилучшим образом <br>
-      справляться со своей функцией, но и <br>
-      вдохновлять, украшать и давать новый опыт
-    </h1>
+    <!-- eslint-disable vue/no-v-html -->
+    <h1 v-intersect="{ in: ['fade-in'] }" class="public-title block-description ignore-br opacity-0" v-html="$t('public.description')"/>
+    <!-- eslint-enable -->
     <div v-intersect="{ in: ['animate-line'] }" class="top-border items">
       <public-item v-for="(article, index) in articles" :key="index" v-intersect="{ in: ['fade-in'] }" :article="article" class="item opacity-0"/>
     </div>
@@ -43,8 +40,11 @@ export default {
   @media #{$media-xs} {
     max-width: 100%;
   }
-  br {
-    @media #{$media-xs} {
+}
+
+.ignore-br::v-deep {
+  @media #{$media-xs} {
+    br {
       display: none;
     }
   }

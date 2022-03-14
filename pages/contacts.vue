@@ -16,11 +16,9 @@
         </div>
       </div>
       <div class='contacts-page__right'>
-        <h1 class='contacts-page__title'>
-          Если у вас есть проект, который вы <br>
-          хотели бы обсудить с нами — пишите <br>
-          или звоните.
-        </h1>
+        <!-- eslint-disable vue/no-v-html -->
+        <h1 class='contacts-page__title' v-html="$t('contacts.description')" />
+        <!-- eslint-enable -->
         <Form class='form' />
       </div>
     </div>

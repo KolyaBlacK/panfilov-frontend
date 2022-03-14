@@ -28,7 +28,7 @@
               <nuxt-link :to="localePath('/works')">{{$t('works')}}</nuxt-link>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.6s'>
-              <nuxt-link :to="localePath('/agency')">{{$t('agency')}}</nuxt-link>
+              <nuxt-link :to="localePath('/agency')">{{$t('agency.title')}}</nuxt-link>
             </li>
             <li class='burger-menu__navigation__item fade-in' style='animation-delay: 0.7s'>
               <nuxt-link :to="localePath('/public')">{{$t('public.title')}}</nuxt-link>
