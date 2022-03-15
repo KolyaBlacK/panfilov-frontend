@@ -31,6 +31,7 @@ export default {
 @import '~/assets/scss/variables.scss';
 .we-do {
   margin-bottom: 6vw;
+  margin-top: 6vw;
   @media #{$media-xs} {
     margin-bottom: 50px;
     margin-top: 96px;
