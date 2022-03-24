@@ -3,10 +3,10 @@
     <div v-if='isActive' ref='burgerMenu' class='burger-menu'>
       <div class='burger-menu__inner'>
         <div class="visible-xs burger-menu__presentation-mobile">
-          <a href='#' class='burger-menu__presentation fade-in' style='animation-delay: 0.5s'>Скачать презентацию</a>
+          <a href='/pnflv.pdf' target='_blank' class='burger-menu__presentation fade-in' style='animation-delay: 0.5s'>Скачать презентацию</a>
         </div>
         <div class='burger-menu__left'>
-          <a href='#' class='burger-menu__presentation fade-in hidden-xs' style='animation-delay: 0.5s'>Скачать презентацию</a>
+          <a href='/pnflv.pdf' target='_blank' class='burger-menu__presentation fade-in hidden-xs' style='animation-delay: 0.5s'>Скачать презентацию</a>
           <div class='burger-menu__left__bottom'>
             <div class='burger-menu__contacts'>
               <a href='tel:+79197492688' class='fade-in' style='animation-delay: 0.6s'>+7 919 749 26 88</a>
