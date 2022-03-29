@@ -250,12 +250,19 @@ export default {
   background: transparent;
   box-shadow: none;
   border: none;
+  border-radius: 0;
+  @media #{$media-xs} {
+    background: rgba(15, 15, 15, 0.70);
+  }
 
   .vs__dropdown-option {
     color: $white;
     background: transparent;
     margin: 6px 0;
     padding: 3px 11px;
+    //@media #{$media-xs} {
+    //  background: rgba(15, 15, 15, 0.47);
+    //}
     &:hover {
       background: transparent;
       color: $styleRose;
