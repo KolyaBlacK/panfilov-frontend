@@ -9,7 +9,10 @@ export default {
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: this.$t('SEO.mainDescription') }
+        { hid: 'description', name: 'description', content: this.$t('SEO.mainDescription') },
+        { hid: 'og:title', name: 'og:title', content: this.$t('SEO.mainTitle') },
+        { hid: 'og:description', name: 'og:description', content: this.$t('SEO.mainDescription') },
+        { hid: 'og:image', name: 'og:image', content: 'https://pnflv.com/og.svg' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

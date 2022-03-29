@@ -8,7 +8,7 @@
             <a href='https://t.me/pnflvcom' class='fade-in' style='animation-delay: 0.7s' target="_blank">Telegram</a>
             <a href='https://wa.me/79197492688' class='fade-in' style='animation-delay: 0.8s' target="_blank">Whatsapp</a>
           </div>
-          <a href='mailto:panfiloffff@gmail.com' class='fade-in' style='animation-delay: 0.9s'>panfiloffff@gmail.com</a>
+          <a href='mailto:hello@pnflv.com' class='fade-in' style='animation-delay: 0.9s'>hello@pnflv.com</a>
         </div>
         <!-- eslint-disable vue/no-v-html -->
         <div class='address fade-in' style='animation-delay: 1s' v-html="$t('address')" />
@@ -23,8 +23,6 @@
     </div>
     <div class='contacts-page__footer'>
       <div class="social-links">
-        <a class="social-link" href="https://www.facebook.com/panfilofff" target="_blank">Facebook</a>
-        <a class="social-link" href="https://www.instagram.com/pnflv_agency/" target="_blank">Instagram</a>
         <a class="social-link" href="https://www.behance.net/PNFLV" target="_blank">Behance</a>
       </div>
       <div class="copyright">

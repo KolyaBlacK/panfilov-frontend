@@ -35,7 +35,7 @@
           <a href='https://wa.me/79197492688' target="_blank">Whatsapp</a>
         </div>
         <div class="contacts__row email">
-          <a href="mailto:panfiloffff@gmail.com">panfiloffff@gmail.com</a>
+          <a href="mailto:hello@pnflv.com">hello@pnflv.com</a>
         </div>
         <!-- eslint-disable vue/no-v-html -->
         <div class="contacts__row address" v-html="$t('address')" />
@@ -44,8 +44,6 @@
     </div>
     <div v-intersect="{ in: ['fade-in'] }" class="footer__bottom opacity-0">
       <div class="social-links">
-        <a class="social-link" href="https://www.facebook.com/panfilofff" target="_blank">Facebook</a>
-        <a class="social-link" href="https://www.instagram.com/pnflv_agency/" target="_blank">Instagram</a>
         <a class="social-link" href="https://www.behance.net/PNFLV" target="_blank">Behance</a>
       </div>
       <div class="copyright">
