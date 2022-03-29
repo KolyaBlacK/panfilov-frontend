@@ -3,10 +3,10 @@
     <div v-if='isActive' ref='burgerMenu' class='burger-menu'>
       <div class='burger-menu__inner'>
         <div class="visible-xs burger-menu__presentation-mobile">
-          <a href='/pnflv.pdf' target='_blank' class='burger-menu__presentation fade-in' style='animation-delay: 0.5s'>Скачать презентацию</a>
+          <a :href='pdfLink' target='_blank' class='burger-menu__presentation fade-in' style='animation-delay: 0.5s'>Скачать презентацию</a>
         </div>
         <div class='burger-menu__left'>
-          <a href='/pnflv.pdf' target='_blank' class='burger-menu__presentation fade-in hidden-xs' style='animation-delay: 0.5s'>Скачать презентацию</a>
+          <a :href='pdfLink' target='_blank' class='burger-menu__presentation fade-in hidden-xs' style='animation-delay: 0.5s'>Скачать презентацию</a>
           <div class='burger-menu__left__bottom'>
             <div class='burger-menu__contacts'>
               <a href='tel:+79197492688' class='fade-in' style='animation-delay: 0.6s'>+7 919 749 26 88</a>
@@ -14,7 +14,7 @@
                 <a href='https://t.me/pnflvcom' target="_blank" class='fade-in' style='animation-delay: 0.7s'>Telegram</a>
                 <a href='https://wa.me/79197492688' target="_blank" class='fade-in' style='animation-delay: 0.8s'>Whatsapp</a>
               </div>
-              <a href='mailto:panfiloffff@gmail.com' class='fade-in' style='animation-delay: 0.9s'>panfiloffff@gmail.com</a>
+              <a href='mailto:hello@pnflv.com' class='fade-in' style='animation-delay: 0.9s'>hello@pnflv.com</a>
             </div>
             <!-- eslint-disable vue/no-v-html -->
             <div class='burger-menu__address fade-in' style='animation-delay: 1s' v-html="$t('address')" />
@@ -39,8 +39,6 @@
 
         </div>
         <div class='burger-menu__footer'>
-          <a href='https://www.facebook.com/panfilofff' target="_blank" class='fade-in' style='animation-delay: 0.5s'>Facebook</a>
-          <a href='https://www.instagram.com/pnflv_agency/' target="_blank" class='fade-in' style='animation-delay: 0.6s'>Instagram</a>
           <a href='https://www.behance.net/PNFLV' target="_blank" class='fade-in' style='animation-delay: 0.7s'>Behance</a>
         </div>
       </div>
@@ -56,6 +54,11 @@ export default {
   data() {
     return {
       isActive: false
+    }
+  },
+  computed: {
+    pdfLink() {
+      return this.$i18n.locale === 'en' ? '/pnflv-eng.pdf' : '/pnflv.pdf'
     }
   },
   mounted() {
