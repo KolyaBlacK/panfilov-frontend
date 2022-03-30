@@ -12,7 +12,7 @@ export default {
         { hid: 'description', name: 'description', content: this.$t('SEO.mainDescription') },
         { hid: 'og:title', name: 'og:title', content: this.$t('SEO.mainTitle') },
         { hid: 'og:description', name: 'og:description', content: this.$t('SEO.mainDescription') },
-        { hid: 'og:image', name: 'og:image', content: 'https://pnflv.com/og.svg' }
+        { hid: 'og:image', name: 'og:image', content: 'https://pnflv.com/og.jpg' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
