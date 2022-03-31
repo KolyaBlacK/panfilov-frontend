@@ -86,8 +86,6 @@
 <script>
 import { isMobile } from 'mobile-device-detect'
 import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock'
-import 'pathseg'
-import decomp from 'poly-decomp'
 import Matter from 'matter-js'
 
 const STROKE_DEFAULT_WIDTH = '40'
@@ -115,16 +113,50 @@ export default {
 
     const Engine = Matter.Engine
     const Render = Matter.Render
-    const Runner = Matter.Runner
-    const Common = Matter.Common
+    const World = Matter.World
+    // const Runner = Matter.Runner
+    const Bodies = Matter.Bodies
     const MouseConstraint = Matter.MouseConstraint
     const Mouse = Matter.Mouse
-    const Composite = Matter.Composite
-    // const World = Matter.World
-    const Vertices = Matter.Vertices
-    const Svg = Matter.Svg
-    const Bodies = Matter.Bodies
-    Common.setDecomp(decomp)
+    // const Body = Matter.Body
+
+    // const y = 200;
+    const width = 800;
+    const height = 500;
+    const radius = 100;
+    const scale = 0.7;
+
+    const things = [];
+
+    const emojis = {
+      p: "/matter-png/P.png",
+      n: "/matter-png/n.png",
+      f: "/matter-png/F.png",
+      l: "/matter-png/L.png",
+      v: "/matter-png/V.png",
+    };
+
+    let i = 100;
+    let j = 100;
+
+    const makeThing = (path) => {
+      things.push(
+        Bodies.circle(i, j, radius, {
+          render: {
+            sprite: {
+              texture: path,
+              xScale: scale,
+              yScale: scale
+            }
+          }
+        })
+      );
+      i += 0;
+      j -= 1;
+    };
+    for (const emoji in emojis) {
+      makeThing(emojis[emoji]);
+    }
 
     // create engine
     const engine = Engine.create()
@@ -134,104 +166,34 @@ export default {
       element: this.$refs.matter,
       engine,
       options: {
+        width,
+        height,
         pixelRatio: 'auto',
         wireframes: false,
-        background: 'none',
+        background: 'none'
       },
     })
 
-    Render.run(render)
 
-    // create runner
-    const runner = Runner.create()
-    Runner.run(runner, engine)
+    const topWall = Bodies.rectangle(width / 2, 0, width, 1, { isStatic: true,render: {
+        lineWidth: 0,
+        // opacity: 0
+      } });
+    const leftWall = Bodies.rectangle(0, height / 2, 1, height, { isStatic: true,render: {
+        lineWidth: 0,
+        // opacity: 0
+      } });
+    const rightWall = Bodies.rectangle(width, height / 2, 1, height, { isStatic: true,render: {
+        lineWidth: 0,
+        // opacity: 0
+      } });
+    const bottomWall = Bodies.rectangle(width / 2, height, width, 1, { isStatic: true,render: {
+        lineWidth: 0,
+        // opacity: 0
+      } });
 
-    // add bodies
-    if (typeof fetch !== 'undefined') {
-      const select = function (root, selector) {
-        return Array.prototype.slice.call(root.querySelectorAll(selector))
-      }
+    things.push(topWall, leftWall, rightWall, bottomWall);
 
-      const loadSvg = function (url) {
-        return fetch(url)
-          .then(function (response) {
-            return response.text()
-          })
-          .then(function (raw) {
-            return new window.DOMParser().parseFromString(
-              raw,
-              'image/svg+xml'
-            )
-          })
-      }
-
-      ;[
-        '/matter-svg/P.svg',
-        '/matter-svg/N.svg',
-        '/matter-svg/F.svg',
-        '/matter-svg/L.svg',
-        '/matter-svg/V.svg',
-      ].forEach(function (path, i) {
-        loadSvg(path).then(function (root) {
-
-          const vertexSets = select(root, 'path').map(function (path) {
-            return Vertices.scale(Svg.pathToVertices(path, 30), 0.6, 0.6)
-          })
-
-          Composite.add(
-            world,
-            Bodies.fromVertices(
-              i * 100,
-              300 + i * 50,
-              vertexSets,
-              {
-                render: {
-                  fillStyle: '#fff',
-                  strokeStyle: '#fff',
-                  lineWidth: 1,
-                },
-              },
-              true
-            )
-          )
-        })
-      })
-    } else {
-      Common.warn('Fetch is not available. Could not load SVG.')
-    }
-
-    Composite.add(world, [
-      Bodies.rectangle(400, 0, 800, 1, {
-        isStatic: true,
-        render: {
-          lineWidth: 0,
-          opacity: 0
-        }
-      }),
-      Bodies.rectangle(400, 600, 800, 1, {
-        isStatic: true,
-        render: {
-          lineWidth: 0,
-          opacity: 0
-        }
-      }),
-      Bodies.rectangle(800, 300, 1, 600, {
-        isStatic: true,
-        render: {
-          lineWidth: 0,
-          opacity: 0
-        }
-      }),
-      Bodies.rectangle(0, 300, 1, 600, {
-        isStatic: true,
-        render: {
-          lineWidth: 0,
-          opacity: 0
-        }
-      })
-    ])
-
-    // add mouse control
     const mouse = Mouse.create(render.canvas)
     const mouseConstraint = MouseConstraint.create(engine, {
       mouse,
@@ -243,15 +205,18 @@ export default {
       },
     })
 
-    Composite.add(world, mouseConstraint)
+    things.push(mouseConstraint);
+// things.push(clubs)
+    World.add(world, things);
 
-    // keep the mouse in sync with rendering
-    render.mouse = mouse
+    Engine.run(engine);
+
+    Render.run(render);
 
     // fit the render viewport to the scene
     Render.lookAt(render, {
       min: { x: 0, y: 0 },
-      max: { x: 800, y: 600 },
+      max: { x: width, y: height },
     })
 
     // context for MatterTools.Demo
@@ -375,11 +340,11 @@ export default {
     padding-top: 5%;
   }
   &__image {
-    width: 50%;
+    //width: 50%;
     height: auto;
-    @media #{$media-xs} {
-      width: 75%;
-    }
+    //@media #{$media-xs} {
+    //  width: 75%;
+    //}
   }
   &__bottom {
     margin-left: 30%;
