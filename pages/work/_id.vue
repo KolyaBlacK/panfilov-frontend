@@ -90,6 +90,21 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.work?.metaDescription || 'Разработка логотипов, фирменных стилей, этикеток и упаковки, нейминга, иллюстрации.'
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.work?.metaTitle || 'PNFLV - портфолио агентства Дмитрия Панфилова'
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.work?.metaDescription || 'Разработка логотипов, фирменных стилей, этикеток и упаковки, нейминга, иллюстрации.'
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.work?.mainImage?.url ? 'https://pnflv.com/api' + this.work?.mainImage?.url : 'https://pnflv.com/og.jpg'
         }
       ],
     }

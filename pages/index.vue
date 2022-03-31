@@ -29,7 +29,7 @@ export default {
   name: 'HomePage',
   async asyncData ({ app, store }) {
     try {
-      const works = await app.$strapi.$works.find([['_locale', app.i18n.locale],['_limit', '6']])
+      const works = await app.$strapi.$works.find([['_locale', app.i18n.locale],['_limit', '6'], ['_sort', 'date:desc']])
       if (works) {
         store.commit('work/setList', works)
       }

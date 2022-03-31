@@ -48,7 +48,7 @@ export default {
   async asyncData ({ app, params, store, i18n }) {
     try {
       const categories = await app.$strapi.$categories.find({ _locale: i18n.locale })
-      const works = await app.$strapi.$works.find({ _locale: i18n.locale })
+      const works = await app.$strapi.$works.find({ _locale: i18n.locale, _sort: 'date:desc' })
       if (categories) {
         store.commit('categories/setList', categories.map(c => {
           const element = {
@@ -58,7 +58,7 @@ export default {
             metaTitle: c.metaTitle || null,
             metaDescription: c.metaDescription
           }
-          if (c.headerMedia[0]) {
+          if (c.headerMedia?.[0]) {
             if (c.headerMedia[0].video) {
               element.videoUrl = app.$strapi.options.url + c.headerMedia[0].video.url
             }
@@ -250,12 +250,19 @@ export default {
   background: transparent;
   box-shadow: none;
   border: none;
+  border-radius: 0;
+  @media #{$media-xs} {
+    background: rgba(15, 15, 15, 0.70);
+  }
 
   .vs__dropdown-option {
     color: $white;
     background: transparent;
     margin: 6px 0;
     padding: 3px 11px;
+    //@media #{$media-xs} {
+    //  background: rgba(15, 15, 15, 0.47);
+    //}
     &:hover {
       background: transparent;
       color: $styleRose;
