@@ -1,23 +1,23 @@
 <template>
   <div class="tag-line">
     <div class="tag-line__top">
-      <div class="tag-line__left fade-in" style="animation-delay: 0.3s">
-        <div ref="matter" class="matter-container tag-line__image"></div>
-<!--        <svg-->
-<!--          class="tag-line__image"-->
-<!--          width="570"-->
-<!--          height="583"-->
-<!--          viewBox="0 0 570 583"-->
-<!--          fill="none"-->
-<!--          xmlns="http://www.w3.org/2000/svg"-->
-<!--        >-->
-<!--          <path-->
-<!--            fill-rule="evenodd"-->
-<!--            clip-rule="evenodd"-->
-<!--            d="M471.66 277.263L485.572 257.982L488.757 204.249L478.654 219.138L385.152 155.697L471.66 277.263ZM569.355 205.937L519.715 274.737L517.632 307.706L490.275 315.541L418.689 414.758L537.3 500.336L518.015 527.065L369 419.55L449.781 307.588L342.576 157.73L306.051 211.561L414.126 284.89L395.621 312.165L287.545 238.836L250.114 294.004L343.586 476.532L295.914 500.945L63.5731 349.141L59.906 351.019L169.765 565.546L136.394 582.635L36.7216 388H0V72H126.29C195.503 72 240.446 108.306 239.997 168.817C239.997 193.681 231.944 214.646 217.665 230.639L230.412 255.531L319.067 124.868L282 73.0542L318.835 62.5044L340.615 93.1104L344.082 88L489.787 186.861L500.238 10.5495L537.073 -0.000238072L524.152 204.511L538.95 184L569.355 205.937ZM187.073 253.155L206.407 290.91L181 328.357L212.366 349.638L226.109 329.383L287.68 449.616L284.38 451.306L52.0393 299.502L39.9994 305.668V265.634H126.29C149.362 265.634 169.959 261.277 187.073 253.155ZM39.9994 107.858V229.328H126.29C172.132 229.328 199.548 205.572 199.548 168.817C199.548 131.614 172.132 107.858 126.29 107.858H39.9994Z"-->
-<!--            fill="white"-->
-<!--          />-->
-<!--        </svg>-->
+      <div ref="matterContainer" class="tag-line__left fade-in" style="animation-delay: 0.3s">
+        <div ref="matter" class="matter-container tag-line__image hidden-xs"></div>
+        <svg
+          class="tag-line__image visible-xs"
+          width="570"
+          height="583"
+          viewBox="0 0 570 583"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M471.66 277.263L485.572 257.982L488.757 204.249L478.654 219.138L385.152 155.697L471.66 277.263ZM569.355 205.937L519.715 274.737L517.632 307.706L490.275 315.541L418.689 414.758L537.3 500.336L518.015 527.065L369 419.55L449.781 307.588L342.576 157.73L306.051 211.561L414.126 284.89L395.621 312.165L287.545 238.836L250.114 294.004L343.586 476.532L295.914 500.945L63.5731 349.141L59.906 351.019L169.765 565.546L136.394 582.635L36.7216 388H0V72H126.29C195.503 72 240.446 108.306 239.997 168.817C239.997 193.681 231.944 214.646 217.665 230.639L230.412 255.531L319.067 124.868L282 73.0542L318.835 62.5044L340.615 93.1104L344.082 88L489.787 186.861L500.238 10.5495L537.073 -0.000238072L524.152 204.511L538.95 184L569.355 205.937ZM187.073 253.155L206.407 290.91L181 328.357L212.366 349.638L226.109 329.383L287.68 449.616L284.38 451.306L52.0393 299.502L39.9994 305.668V265.634H126.29C149.362 265.634 169.959 261.277 187.073 253.155ZM39.9994 107.858V229.328H126.29C172.132 229.328 199.548 205.572 199.548 168.817C199.548 131.614 172.132 107.858 126.29 107.858H39.9994Z"
+            fill="white"
+          />
+        </svg>
       </div>
       <div class="tag-line__right fade-in" style="animation-delay: 0.6s">
         <button
@@ -110,126 +110,137 @@ export default {
   },
   mounted() {
     this.initLine()
+    if (window.innerWidth > 767) {
+      const Engine = Matter.Engine
+      const Render = Matter.Render
+      const World = Matter.World
+      const Bodies = Matter.Bodies
+      const MouseConstraint = Matter.MouseConstraint
+      const Mouse = Matter.Mouse
 
-    const Engine = Matter.Engine
-    const Render = Matter.Render
-    const World = Matter.World
-    // const Runner = Matter.Runner
-    const Bodies = Matter.Bodies
-    const MouseConstraint = Matter.MouseConstraint
-    const Mouse = Matter.Mouse
-    // const Body = Matter.Body
+      const matterContainer = this.$refs.matterContainer.clientWidth
 
-    // const y = 200;
-    const width = 800;
-    const height = 500;
-    const radius = 100;
-    const scale = 0.7;
+      const width = matterContainer / 100 * 80;
+      const height = matterContainer / 100 * 60;
+      const radius = matterContainer / 100 * 9;
+      const scale = matterContainer / 1000 * 0.6;
 
-    const things = [];
+      const things = [];
 
-    const emojis = {
-      p: "/matter-png/P.png",
-      n: "/matter-png/n.png",
-      f: "/matter-png/F.png",
-      l: "/matter-png/L.png",
-      v: "/matter-png/V.png",
-    };
+      const letters = {
+        p: "/matter-png/P.png",
+        n: "/matter-png/n.png",
+        f: "/matter-png/F.png",
+        l: "/matter-png/L.png",
+        v: "/matter-png/V.png",
+      };
 
-    let i = 100;
-    let j = 100;
+      // const i = 100;
+      // const j = 100;
 
-    const makeThing = (path) => {
-      things.push(
-        Bodies.circle(i, j, radius, {
-          render: {
-            sprite: {
-              texture: path,
-              xScale: scale,
-              yScale: scale
+      const makeThing = (path) => {
+        things.push(
+          Bodies.circle(Math.random()*400 + 1, 30, radius, {
+            render: {
+              sprite: {
+                texture: path,
+                xScale: scale,
+                yScale: scale
+              }
             }
-          }
-        })
-      );
-      i += 0;
-      j -= 1;
-    };
-    for (const emoji in emojis) {
-      makeThing(emojis[emoji]);
-    }
+          })
+        );
+        // i += 1;
+        // j -= 1;
+      };
+      for (const emoji in letters) {
+        makeThing(letters[emoji]);
+      }
 
-    // create engine
-    const engine = Engine.create()
-    const world = engine.world
-    // create renderer
-    const render = Render.create({
-      element: this.$refs.matter,
-      engine,
-      options: {
-        width,
-        height,
-        pixelRatio: 'auto',
-        wireframes: false,
-        background: 'none'
-      },
-    })
-
-
-    const topWall = Bodies.rectangle(width / 2, 0, width, 1, { isStatic: true,render: {
-        lineWidth: 0,
-        // opacity: 0
-      } });
-    const leftWall = Bodies.rectangle(0, height / 2, 1, height, { isStatic: true,render: {
-        lineWidth: 0,
-        // opacity: 0
-      } });
-    const rightWall = Bodies.rectangle(width, height / 2, 1, height, { isStatic: true,render: {
-        lineWidth: 0,
-        // opacity: 0
-      } });
-    const bottomWall = Bodies.rectangle(width / 2, height, width, 1, { isStatic: true,render: {
-        lineWidth: 0,
-        // opacity: 0
-      } });
-
-    things.push(topWall, leftWall, rightWall, bottomWall);
-
-    const mouse = Mouse.create(render.canvas)
-    const mouseConstraint = MouseConstraint.create(engine, {
-      mouse,
-      constraint: {
-        stiffness: 0.8,
-        render: {
-          visible: false,
+      // create engine
+      const engine = Engine.create()
+      const world = engine.world
+      // create renderer
+      const render = Render.create({
+        element: this.$refs.matter,
+        engine,
+        options: {
+          width,
+          height,
+          pixelRatio: 'auto',
+          wireframes: false,
+          background: 'none'
         },
-      },
-    })
+      })
 
-    things.push(mouseConstraint);
-// things.push(clubs)
-    World.add(world, things);
 
-    Engine.run(engine);
+      const topWall = Bodies.rectangle(width / 2, 0, width, 1, {
+        isStatic: true,
+        render: {
+          lineWidth: 1,
+          opacity: 0
+        }
+      });
+      const leftWall = Bodies.rectangle(0, height / 2, 1, height, {
+        isStatic: true,
+        render: {
+          lineWidth: 1,
+          opacity: 0
+        }
+      });
+      const rightWall = Bodies.rectangle(width, height / 2, 1, height, {
+        isStatic: true,
+        render: {
+          lineWidth: 1,
+          opacity: 0
+        }
+      });
+      const bottomWall = Bodies.rectangle(width / 2, height, width, 1, {
+        isStatic: true,
+        render: {
+          lineWidth: 1,
+          opacity: 0
+        }
+      });
 
-    Render.run(render);
+      things.push(topWall, leftWall, rightWall, bottomWall);
 
-    // fit the render viewport to the scene
-    Render.lookAt(render, {
-      min: { x: 0, y: 0 },
-      max: { x: width, y: height },
-    })
+      const mouse = Mouse.create(render.canvas)
+      const mouseConstraint = MouseConstraint.create(engine, {
+        mouse,
+        constraint: {
+          stiffness: 1,
+          render: {
+            visible: false,
+          },
+        },
+      })
 
-    // context for MatterTools.Demo
-    // return {
-    //   engine,
-    //   runner,
-    //   render,
-    //   canvas: render.canvas,
-    //   stop() {
-    //     Matter.Render.stop(render)
-    //     Matter.Runner.stop(runner)
-    //   },
-    // }
+      things.push(mouseConstraint);
+      World.add(world, things);
+
+      Engine.run(engine);
+
+      Render.run(render);
+
+      // fit the render viewport to the scene
+      Render.lookAt(render, {
+        min: { x: 0, y: 0 },
+        max: { x: width, y: height },
+      })
+
+      // context for MatterTools.Demo
+      // return {
+      //   engine,
+      //   runner,
+      //   render,
+      //   canvas: render.canvas,
+      //   stop() {
+      //     Matter.Render.stop(render)
+      //     Matter.Runner.stop(runner)
+      //   },
+      // }
+    }
   },
   methods: {
     mouseover() {
@@ -326,8 +337,10 @@ export default {
   }
   &__top {
     display: flex;
+    margin-bottom: 6vw;
     @media #{$media-xs} {
       justify-content: space-between;
+      margin-bottom: 30px;
     }
   }
   &__left {
@@ -342,9 +355,9 @@ export default {
   &__image {
     //width: 50%;
     height: auto;
-    //@media #{$media-xs} {
-    //  width: 75%;
-    //}
+    @media #{$media-xs} {
+      width: 75%;
+    }
   }
   &__bottom {
     margin-left: 30%;
