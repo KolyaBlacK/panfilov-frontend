@@ -129,7 +129,7 @@ export default {
 
       const letters = {
         p: "/matter-png/P.png",
-        n: "/matter-png/n.png",
+        n: "/matter-png/N.png",
         f: "/matter-png/F.png",
         l: "/matter-png/L.png",
         v: "/matter-png/V.png",
