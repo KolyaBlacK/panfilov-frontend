@@ -4,7 +4,7 @@ export default {
     return {
       title: this.$t('SEO.mainTitle'),
       htmlAttrs: {
-        lang: 'ru'
+        lang: this.$i18n.locale
       },
       meta: [
         { charset: 'utf-8' },
@@ -54,8 +54,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/strapi',
+    '@nuxtjs/i18n',
     'nuxt-vue-select',
-    'nuxt-i18n'
   ],
   strapi: {
     entities: ['clients', 'works', 'categories', 'publics'],
@@ -66,11 +66,9 @@ export default {
       {code: 'ru-RU', iso: 'ru-RU', name: 'RU', file: 'ru.js'},
       {code: 'en', iso: 'en-US', name: 'EN', file: 'en.js'},
     ],
-    locale: 'ru-RU',
     defaultLocale: 'ru-RU',
-    vueI18n: {
-      fallbackLocale: 'ru-RU'
-    },
+    localeDetection: false,
+    locale: 'ru-RU',
     langDir: '~/locales/',
     baseUrl: 'http://localhost:3000',
   },
