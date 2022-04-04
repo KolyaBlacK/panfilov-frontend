@@ -63,10 +63,14 @@ export default {
   },
   i18n: {
     locales: [
-      {code: 'en', iso: 'en-US', name: 'EN', file: 'en.js'},
       {code: 'ru-RU', iso: 'ru-RU', name: 'RU', file: 'ru.js'},
+      {code: 'en', iso: 'en-US', name: 'EN', file: 'en.js'},
     ],
+    locale: 'ru-RU',
     defaultLocale: 'ru-RU',
+    vueI18n: {
+      fallbackLocale: 'ru-RU'
+    },
     langDir: '~/locales/',
     baseUrl: 'http://localhost:3000',
   },
