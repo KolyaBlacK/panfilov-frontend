@@ -13,7 +13,11 @@ export default {
         { hid: 'og-type', property: 'og:type', content: 'website' },
         { hid: 'og-title', property: 'og:title', content: this.$t('SEO.mainTitle') },
         { hid: 'og-description', property: 'og:description', content: this.$t('SEO.mainDescription') },
-        { hid: 'og-image', property: 'og:image', content: 'https://pnflv.com/og.jpg' }
+        { hid: 'og-image', property: 'og:image', content: 'https://pnflv.com/og.jpg' },
+        { hid: 'og-image-type', property: 'og:image:type', content: 'image/jpeg' },
+        { hid: 'og-image-width', property: 'og:image:width', content: '1280' },
+        { hid: 'og-image-height', property: 'og:image:height', content: '720' },
+        { hid: 'og-twitter-card', property: 'twitter:card', content: 'summary_large_image' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
