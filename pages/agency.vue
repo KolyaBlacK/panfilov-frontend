@@ -21,15 +21,15 @@
       <ul class='counters__list'>
         <li v-intersect="{ in: ['fade-in'] }" class='counters__item opacity-0'>
           <span class='counters__number'>405</span>
-          <span class='counters__text'>проектов по <br>брендингу</span>
+          <span class='counters__text'>проектов <br>по брендингу</span>
         </li>
         <li v-intersect="{ in: ['fade-in'] }" class='counters__item opacity-0'>
           <span class='counters__number'>102</span>
-          <span class='counters__text'>проектов по <br>упаковке</span>
+          <span class='counters__text'>проектов <br>по упаковке</span>
         </li>
         <li v-intersect="{ in: ['fade-in'] }" class='counters__item opacity-0'>
           <span class='counters__number'>207</span>
-          <span class='counters__text'>проектов по <br>неймингу</span>
+          <span class='counters__text'>проектов <br>по неймингу</span>
         </li>
       </ul>
       <p v-intersect="{ in: ['fade-in'] }" class='counters__description opacity-0'>

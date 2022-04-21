@@ -11,7 +11,7 @@ export default {
     "string4": "becomes",
     "string5": "a brand",
     "string6": "tool",
-    description: 'More than just functionality is required for success. With a <br>knowledge of the laws of perception, attractive and aesthetic <br>branding may become a new, and often one of the most significant, <br>advantage of a product, service, or company.'
+    description: 'More than just functionality is required for success. With a knowledge of the laws of perception, attractive and aesthetic branding may become a new, and often one of the most significant, advantage of a product, service, or company.'
   },
   contacts: {
     SEO: {
