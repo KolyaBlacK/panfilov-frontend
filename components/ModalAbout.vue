@@ -6,14 +6,7 @@
     white
     @click="closeModal"
   />
-  <iframe
-    class="reel"
-    src="https://www.youtube.com/embed/kWNRPEKeYsM"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
+  <iframe class="reel" src="https://kinescope.io/embed/201140049" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media;" allowfullscreen></iframe>
 </div>
 
 </template>

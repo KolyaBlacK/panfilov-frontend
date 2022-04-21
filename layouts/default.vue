@@ -14,6 +14,14 @@ export default {
     theme () {
       return 'theme-' + this.$store.state.ui.theme
     }
+  },
+  watch: {
+    theme(value) {
+      document.getElementsByTagName( 'html' )[0].setAttribute( 'class', value );
+    }
+  },
+  mounted() {
+    document.getElementsByTagName( 'html' )[0].setAttribute( 'class', this.theme );
   }
 }
 </script>

@@ -61,16 +61,7 @@
           :stroke-dashoffset="strokeDashoffset"
         />
       </svg>
-      <iframe
-        v-if="isShowReel"
-        class="reel"
-        src="https://www.youtube.com/embed/vcAtzpJWyx0"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      >
-      </iframe>
+      <iframe v-if="isShowReel" class="reel" src="https://kinescope.io/embed/201140092" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media;" allowfullscreen></iframe>
 
       <button-dots
         v-if="isShowReel"
@@ -436,17 +427,21 @@ export default {
   margin: 0;
   font-size: 1vw;
   line-height: 1.6vw;
+  max-width: 50%;
   @media #{$media-lg} {
     font-size: 1.6vw;
     line-height: 2.2vw;
+    max-width: 60%;
   }
   @media #{$media-md} {
     font-size: 1.8vw;
     line-height: 2.4vw;
+    max-width: 70%;
   }
   @media #{$media-xs} {
     font-size: 16px;
     line-height: 24px;
+    max-width: 100%;
   }
   br {
     @media #{$media-xs} {
